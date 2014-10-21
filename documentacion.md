@@ -8,7 +8,7 @@ Vamos a usar la infraestructura de Google usando AppEngine para desarrollar la a
 La aplicación debe contar con las siguientes funcionalidades:
 
 * Servidor de streaming de vídeo para la cámara del robot.
-* Visualización gráfica, y/o procesamiento de datos en tiempo real.
+* Visualización gráfica, y/o procesamiento de datos.
 * Un blog en Wordpress (migración)
 * Un chat para comunicarse
 * Foros
