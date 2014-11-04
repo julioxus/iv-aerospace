@@ -1,9 +1,9 @@
 Instalación PyDev,Django en Windows
 -------------------------------------
 
-**1. Instalar [python](https://www.python.org/downloads/)**
+*** Instalar [python](https://www.python.org/downloads/)**
 
-**2. Instalar el gestor de paquetes para python PIP**
+*** Instalar el gestor de paquetes para python PIP**
    * Descargamos el fichero get-pip.py de la [página oficial](https://pip.pypa.io/en/latest/installing.html)
    * Instalar dicho fichero ```python get-pip.py```
    ![Figura1](Imagenes/Figura_1.png)
