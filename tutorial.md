@@ -43,12 +43,12 @@ Instalación PyDev,Django en Windows
    > Figura 7. Instalación pyDev
 
 
-**6. Creamos un ejemplo de proyecto Django para PyDev y hacemos una prueba**
+6. Creamos un ejemplo de proyecto Django para PyDev y hacemos una prueba
     ![Figura5](Imagenes/Figura_5.png)
     > Figura 8. Ejemplo proyecto Django
  
  
     ![Figura9](Imagenes/Figura_9.png)
-    > Figura 9. Ejemplo "Hello World!"
+    > Figura 9. Ejemplo Hello World
 
 
