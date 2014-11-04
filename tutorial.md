@@ -46,6 +46,8 @@ Ya podemos crear un proyecto Django para PyDev y hacemos una prueba de "Hello Wo
 
  ![Figura5](Imagenes/Figura_5.png)
  > Figura 8. Ejemplo proyecto Django
+ 
+ 
  ![Figura9](Imagenes/Figura_9.png)
  > Figura 9. Ejemplo "Hello World!"
 
