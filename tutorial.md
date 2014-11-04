@@ -7,12 +7,12 @@ INSTALACIÓN PyDev,Django EN WINDOWS
    * Descargamos el fichero get-pip.py de la [página oficial](https://pip.pypa.io/en/latest/installing.html)
    * Instalar dicho fichero ```python get-pip.py```
    ![Figura1](Imagenes/Figura_1.png)
-> Figura 1. Instalación PIP
+   > Figura 1. Instalación PIP
 
 3) Instalar Django en nuestro sistema
    * ```pip install django```
    ![Figura2](Imagenes/Figura_2.png)
-> Figura 2. Instalación Django
+   > Figura 2. Instalación Django
 
 4) Instalar Google App Engine SDK
    * Comprobamos nuestra versión de eclipse 
