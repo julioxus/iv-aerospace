@@ -11,7 +11,8 @@ Instalación PyDev,Django en Windows
    > Figura 1. Instalación PIP
 
 **3. Instalar Django en nuestro sistema**
-   * ```pip install django```
+   * Instalar django usando pip ```pip install django```
+
    ![Figura2](Imagenes/Figura_2.png)
 
    > Figura 2. Instalación Django
