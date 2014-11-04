@@ -1,1 +1,0 @@
-Aqui va la documentación del hito 2
