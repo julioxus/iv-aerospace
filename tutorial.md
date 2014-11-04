@@ -42,13 +42,17 @@ Instalación PyDev,Django en Windows
    ![Figura4](Imagenes/Figura_4.png)
    > Figura 7. Instalación pyDev
 
+   * Le indicamos a Eclipse donde  se encuentra el intérprete python en nuestro sistema.
+   ![Figura10](Imagenes/Figura_10.png)
+   >  Figura 8. Indicando intérptete python a Eclipse
+
 
 6. Creamos un ejemplo de proyecto Django para PyDev y hacemos una prueba
     ![Figura5](Imagenes/Figura_5.png)
-    > Figura 8. Ejemplo proyecto Django
+    > Figura 9. Ejemplo proyecto Django
  
  
     ![Figura9](Imagenes/Figura_9.png)
-    > Figura 9. Ejemplo Hello World
+    > Figura 10. Ejemplo Hello World
 
 
