@@ -19,6 +19,9 @@ A continuación dejo el link de descarga:
 
 Para instalarla simplemente hay que seleccionar Archivo --> Importar servicio virtualizado en VirtualBox
 
-Login en la máquina virtual:
+
+**Login en la máquina virtual:**
+
 Usuario: iv-aerospace
+
 Contraseña: django
