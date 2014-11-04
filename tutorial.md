@@ -1,9 +1,9 @@
 Instalación PyDev,Django en Windows
 -------------------------------------
 
-*** Instalar [python](https://www.python.org/downloads/)**
+**1. Instalar [python](https://www.python.org/downloads/)**
 
-*** Instalar el gestor de paquetes para python PIP**
+**2. Instalar el gestor de paquetes para python PIP**
    * Descargamos el fichero get-pip.py de la [página oficial](https://pip.pypa.io/en/latest/installing.html)
    * Instalar dicho fichero ```python get-pip.py```
    ![Figura1](Imagenes/Figura_1.png)
@@ -43,7 +43,7 @@ Instalación PyDev,Django en Windows
    > Figura 7. Instalación pyDev
 
 
-**6. Creamos un ejemplo de proyecto Django para PyDev y hacemos una prueba**
+*6. Creamos un ejemplo de proyecto Django para PyDev y hacemos una prueba*
     ![Figura5](Imagenes/Figura_5.png)
     > Figura 8. Ejemplo proyecto Django
  
