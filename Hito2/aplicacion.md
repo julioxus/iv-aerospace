@@ -48,10 +48,10 @@ Después de comprobar que la aplicación funciona perfectamente de forma local, 
 
 ![captura9](Capturas/app9.png) 
 
-**Figura 10**: Datos desde GAE de nuestra aplicación, cuyo ID habría que haberlo introducido en el paso anterior en el archivo app.yaml
+**Figura 10**: Datos desde GAE de nuestra aplicación, cuyo ID se ha introducido en el archivo app.yaml para que la aplicación se pueda desplegar en GAE.
 
 ![captura10](Capturas/app10.png)
 
-**Figura 11**: Finalemente, podemos comprobar como la aplicación ha sido desplegada con éxito y observar el resultado desde el navegador.
+**Figura 11**: Finalmente, podemos comprobar como la aplicación ha sido desplegada con éxito y observar el resultado desde el navegador.
  
 ![captura11](Capturas/app11.png) 
