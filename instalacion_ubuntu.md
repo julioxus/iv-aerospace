@@ -11,10 +11,11 @@ Lo que instalaremos aquí será:
 * Eclipse
 * AppEngine para Eclipse
 * Django para Eclipse
-* 
+
 
 **Secuencia de comandos para la instalación:**
 
+```
 sudo apt-get install python-pip python-dev build-essential
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv
@@ -24,6 +25,7 @@ sudo apt-get install python-setuptools build-essential
 sudo pip install Django==1.7.1
 
 sudo apt-get install openjdk-7-jdk openjdk-7-jre
+```
 
 
 **Creando lanzador de eclipse:**
@@ -32,16 +34,21 @@ Metemos la carpeta de eclipse en ~/.eclipse
 
 Instalamos gnome-panel:
 
+```
 sudo apt-get install gnome-panel
-
+```
 
 Crear lanzador:
 
+```
 gnome-desktop-item-edit ~/Escritorio --create-new
+```
 
 Lo hacemos accesible al buscador metiéndolo en la carpeta applications:
 
+```
 sudo cp Escritorio/Eclipse.desktop /usr/share/applications
+```
 
 Ahora lo podemos añadir al panel lateral de Ubuntu arrastrando el icono de la aplicación.
 
@@ -54,7 +61,7 @@ Vamos al menú Help -> Install y metemos el siguiente enlace en "Work with":
 
 http://pydev.org/updates
 
-[captura1](http://i.imgur.com/LDG0LAB.png)
+![captura1](http://i.imgur.com/LDG0LAB.png)
 
 E instalamos los paquetes que vienen por defecto
 
