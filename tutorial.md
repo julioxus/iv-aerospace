@@ -31,6 +31,8 @@ Instalación PyDev,Django en Windows
    
    ![Figura8](Imagenes/Figura_8.png)
    > Figura 5. Descargar plugin de GAE para eclipse
+   
+   * Descargamos e instalamos el [GAE SDK para python](https://cloud.google.com/appengine/downloads) en nuestro sistema puesto que habrá que importarlo más adelante en el proyecto.
 
 
 **5. Instalar PyDev para Eclipse**
