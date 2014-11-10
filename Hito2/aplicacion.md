@@ -1,5 +1,6 @@
 ## Documentación de la aplicación con Google App Engine + PyDev + Django usando Eclipse ##
 
+La aplicación consiste en mostrar el mensaje de "Hello world" en la web, usando GAE con Django y PyDev para programarlo en Python. Primero se requiere de numerosas instalaciones de diferentes dependencias.
 Una vez instalados todos los módulos, plataformas y librerías necesarias, procedemos al desarrollo de la aplicación en Eclipse:
 
 ### Ejecución de la aplicación localmente para comprobar que funciona ###
@@ -44,7 +45,7 @@ Después de comprobar que la aplicación funciona perfectamente de forma local, 
 
 ### Ejecución de la aplicación en la nube (Deploy to Google App Engine) ###
 
-**Figura 9**: Accedemos al archivo: app.yaml. Tendremos que modificarlo añadiendo el ID de la app para poder realizar el "deploy" de la aplicación correctamente en GAE. Posteriormente, volvemos a realizar el mismo paso que en la figura 6 pero esta vez añadiendo de forma manual la ruta de "appcfg.py".
+**Figura 9**: Accedemos al archivo: app.yaml. Tendremos que modificar donde pone "sample-app" por el ID de la app para poder realizar el "deploy" de la aplicación correctamente en GAE. Posteriormente, volvemos a realizar el mismo paso que en la figura 6 pero esta vez añadiendo de forma manual la ruta de "appcfg.py".
 
 ![captura9](Capturas/app9.png) 
 
