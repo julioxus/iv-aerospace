@@ -9,7 +9,7 @@ Lo primero que tenemos que hacer, es generar una llave SSH para nuestro eclipse.
 
 `Menú Windows-> Preferencias -> Network Connection -> SSH2`
 
-!(http://imgur.com/VI3AC6M)
+![Captura](http://imgur.com/VI3AC6M)
 
 Ahí deberemos de generar una clave RSA (Generate RSA Key) y automáticamente generará nuestra clave. No olvidemos guardarla (Save Private Key) para poder utilizarla desde otros equipos. Ahora ya tenemos nuestra llave creada.
 
@@ -24,7 +24,7 @@ Y seleccionamos Git Repositories. Ahora nos apareceran proyectos, hacemos click 
 Ahora deberemos irnos a Github e iniciar sesión. Creamos un repositorio, o nos vamos al que tengamos creados y queramos sincronizar y nos iremos a Settings (parte superior derecha), una vez allí seleccionamos SSH keys. Ahora cogemos la llave que creamos anteriormente (el archivo se llama normalmente id_rsa.pub) y la copiamos donde pone "key". Le ponemos un título y clickamos en "Add key"
 
 
-![](http://imgur.com/6PDKKb5)
+![Captura](http://imgur.com/6PDKKb5)
 
 *Tercer paso: Configurar Push*
 
@@ -32,6 +32,6 @@ Por último, solo nos queda coger la url de nuestro repositorio, irnos de nuevo 
 
 Una vez ahí dentro, debemos entrar en "Change" y rellenar todos los apartados.En URI la dirección del repositorio, Protocolo utilizado SSH y el usuario y la contraseña del usuario en gitHub.
 
-![](http://imgur.com/F68KNEi)
+![Captura](http://imgur.com/F68KNEi)
 
 Una vez hecho esto, ya tenemos lista la sincronización. Solo nos quedará hacer click derecho en nuestro proyecto, hacer push y ... ya está! . Eclipse "subirá" automáticamente nuestro proyecto a Github.
