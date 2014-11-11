@@ -14,7 +14,9 @@ Ya tenemos máquina virtual Ubuntu con todo el entorno de desarrollo instalado:
 
 A continuación dejo el link de descarga:
 
-[Ubuntu iv-aerospace](https://mega.co.nz/#!5UMmhLCA!y1d1FPmGjKgGppnbBEJeHvu3IrEfvLxiA750MHsHjig)
+[Ubuntu iv-aerospace 64 bits](https://mega.co.nz/#!5UMmhLCA!y1d1FPmGjKgGppnbBEJeHvu3IrEfvLxiA750MHsHjig)
+
+[Ubuntu iv-aerospace 32 bits](https://mega.co.nz/#!0dFnGBIA!k1xqkU8pQ_FhsWxfAic-5eyisr6E3deWyP49IlMxs_I)
 
 
 Para instalarla simplemente hay que seleccionar Archivo --> Importar servicio virtualizado en VirtualBox
