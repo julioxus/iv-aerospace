@@ -3,7 +3,7 @@
 
 Para sincronizar eclipe con GitHub, debemos de seguir los siguientes pasos:
 
-*Primero paso: Crear la Llave*
+**Primero paso: Crear la Llave**
 
 Lo primero que tenemos que hacer, es generar una llave SSH para nuestro eclipse. Simplemente debemos de ir a:
 
@@ -13,7 +13,7 @@ Lo primero que tenemos que hacer, es generar una llave SSH para nuestro eclipse.
 
 Ahí deberemos de generar una clave RSA (Generate RSA Key) y automáticamente generará nuestra clave. No olvidemos guardarla (Save Private Key) para poder utilizarla desde otros equipos. Ahora ya tenemos nuestra llave creada.
 
-*Segundo paso: Conectar con GitHub*
+**Segundo paso: Conectar con GitHub**
 
 Ahora nos vamos a:
 
@@ -26,7 +26,7 @@ Ahora deberemos irnos a Github e iniciar sesión. Creamos un repositorio, o nos 
 
 ![Captura](http://i.imgur.com/f4nI27H.png)
 
-*Tercer paso: Configurar Push*
+**Tercer paso: Configurar Push**
 
 Por último, solo nos queda coger la url de nuestro repositorio, irnos de nuevo a Eclipse hacer click derecho en el los repositorios que aparecen y clickar en "Configure Push". 
 
