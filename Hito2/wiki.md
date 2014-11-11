@@ -3,6 +3,8 @@
 
 ##Introducción##
 
++ [Introducción](https://github.com/julioxus/iv-aerospace/blob/master/Hito2/introduccion.md)
+
 ##Manual de instalación##
 
 + [Instalación en sistema ubuntu 14.04](https://github.com/julioxus/iv-aerospace/blob/master/Hito2/instalacion_ubuntu.md)
