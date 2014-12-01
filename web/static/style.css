@@ -1,0 +1,49 @@
+body{
+	background-color: lightblue;
+}
+
+#titulo_pagina{
+	text-align: center;
+	margin-top: 5%;
+	font-size: 50;
+}
+
+
+#nave {
+	position: absolute;
+	left: 42%;
+	top: 25%;
+	-webkit-animation: rot 5s infinite linear;
+	animation: rot 5s infinite linear;
+}
+
+@-webkit-keyframes rot {
+	
+	from {
+		transform: rotate(0deg)
+		           translate(-350px)
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-350px) 
+	}
+}
+
+@keyframes rot {
+	from {
+		transform: rotate(0deg)
+		           translate(-150px)
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-150px) 
+	}
+}
+
+#img_construct{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
