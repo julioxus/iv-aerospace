@@ -34,7 +34,7 @@ cd ..
 # Terminamos de trabajar en el directorio de la aplicación
 cd ..
 
-RUNSCRIPT_PATH="/apps/iv-aerospace/Proyecto/HelloWorld"
+RUNSCRIPT_PATH="apps/iv-aerospace/Proyecto/HelloWorld"
 
 # Añadir permisos de ejecución
 chmod +x $RUNSCRIPT_PATH/run.sh
