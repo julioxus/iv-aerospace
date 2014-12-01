@@ -28,6 +28,6 @@ $ chmod +x install.sh
 # Ejecutar la jaula usando el script automático de instalación y ejecución
 # Cuando el script llegue al final tendremos la aplicación funcionando sin tener que tocar nada
 
- sudo chroot /home/jaulas/jaula-iv/ < install.sh 
+$ sudo chroot /home/jaulas/jaula-iv/ < install.sh 
 
 ```
