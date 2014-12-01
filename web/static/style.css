@@ -37,8 +37,8 @@ h1 {
 
 #nave {
 	position: absolute;
-	left: 42%;
-	top: 25%;
+	left: 44%;
+	top: 27%;
 	-webkit-animation: rot 5s infinite linear;
 	animation: rot 5s infinite linear;
 }
