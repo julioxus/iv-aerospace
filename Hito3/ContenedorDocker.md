@@ -1,6 +1,6 @@
 **Encapsulando nuestra aplicación en un contenedor Docker**
 
-Para realizarlo todo de forma automática se ha creado un script "[install_docker.sh](https://github.com/julioxus/iv-aerospace/edit/master/Hito3/ContenedorDocker.md)", que se encargará de instalar la herramienta y de realizar las configuraciones necesarias. El script principal  
+Para realizarlo todo de forma automática se ha creado un script "[install_docker.sh](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/install_docker.sh)", que se encargará de instalar la herramienta y de realizar las configuraciones necesarias. El script principal  
 A continuación podemos ver el contenido de dicho script:
 
 
