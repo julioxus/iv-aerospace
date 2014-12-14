@@ -34,7 +34,7 @@ cd ..
 # Terminamos de trabajar en el directorio de la aplicación
 cd ..
 
-RUNSCRIPT_PATH="apps/iv-aerospace/workspace"
+RUNSCRIPT_PATH="apps/iv-aerospace/workspace/guestbook"
 
 # Añadir permisos de ejecución
 chmod +x $RUNSCRIPT_PATH/run.sh
