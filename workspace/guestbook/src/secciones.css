@@ -1,0 +1,627 @@
+blockquote { 
+    position: relative; 
+    width: 800px; 
+    text-align:center;
+	padding:0px;
+	margin:0px;
+	font-size:300%;
+	margin-left:300px;
+	margin-right:300px;
+} 
+blockquote, 
+blockquote:after, 
+blockquote:before { 
+    background: #fff; 
+    box-shadow: 0 0 4px black; 
+} 
+ 
+blockquote:after, 
+blockquote:before { 
+    position: absolute; 
+    top: 0; 
+	right:3px; 
+	bottom:0; 
+	left:-3px; 
+    content: ""; 
+    z-index: -10; 
+    transform-origin: 100% 0; 
+    -moz-transform-origin: 100% 0;
+    -webkit-transform-origin: 100% 0;
+} 
+blockquote:after { 
+    transform: rotate(-1.2deg); 
+    -moz-transform: rotate(-1.2deg);
+    -webkit-transform: rotate(-1.2deg);
+} 
+blockquote:before {
+    left: -5px;
+    right: 5px;
+    transform: rotate(-3.2deg);
+    -moz-transform: rotate(-3.2deg);
+    -webkit-transform: rotate(-3.2deg); 
+}
+
+		
+#publicacion{
+
+	font-size:100%;
+	margin-left:550px;
+	font-family:verdana;
+		
+}
+
+
+
+
+
+#cuerpo{
+
+	margin:0px;
+	padding:0px;
+	width:1400px;
+
+}
+
+
+#publi1{
+	margin-bottom:100px;
+	height:10px;
+
+	
+}
+
+/* SECCION ESPAÑA */
+#españa,#spain{
+
+	text-align:center;
+	padding:5px;
+	margin:10px;
+	top:0px;
+	font-size:200%;
+	border:10px solid red;
+	margin-left:300px;
+	margin-right:350px;
+	margin-bottom:50px;
+	background-color:lightblue;
+}
+
+/* SECCION INTERNACIONAL */
+
+#internacional{
+
+	text-align:center;
+	padding:5px;
+	margin:10px;
+	top:0px;
+	font-size:200%;
+	border:10px solid green;
+	margin-left:300px;
+	margin-right:350px;
+	margin-bottom:50px;
+	background-color:lightblue;
+}
+
+/* SECCION DEPORTES */
+
+#deportes{
+
+	text-align:center;
+	padding:5px;
+	margin:10px;
+	top:0px;
+	font-size:200%;
+	border:10px solid yellow;
+	margin-left:300px;
+	margin-right:350px;
+	margin-bottom:50px;
+	background-color:lightblue;
+}
+
+/* SECCION CULTURA */
+
+#cultura{
+
+	text-align:center;
+	padding:5px;
+	margin:10px;
+	top:0px;
+	font-size:200%;
+	border:10px solid blue;
+	margin-left:300px;
+	margin-right:350px;
+	margin-bottom:50px;
+	background-color:lightblue;
+}
+
+/* SECCION ECONOMIA */
+
+#economia{
+
+	text-align:center;
+	padding:5px;
+	margin:10px;
+	top:0px;
+	font-size:200%;
+	border:10px solid orange;
+	margin-left:300px;
+	margin-right:350px;
+	margin-bottom:50px;
+	background-color:lightblue;
+}
+
+
+#section0{
+	padding:5px;
+	margin:10px;
+	top:0px;
+	margin-left:250px;
+	margin-right:300px;
+	width:820px;
+	font-size:105%;
+	
+		
+
+}
+
+#imagen_publi1{
+	padding-left:280px;
+	padding-top:30px;
+	width:800px;
+	height:60px;
+
+}
+
+
+#imagen_publi3{
+
+	width:200px;
+	margin-bottom:10px;
+	
+}
+
+#imagen_publi4{
+	width:230px;
+	margin-bottom:10px;
+}
+#imagen_publi6{
+	width:230px;
+	margin-bottom:10px;
+}
+
+#imagen_publi7{
+	width:200px;
+	height:200px;
+}
+
+#imagen_publi8{
+	width:230px;
+
+}
+#imagen{
+	width:180px;
+	height:200px;
+}
+#imagen2{
+	width:250px;
+	
+	
+}
+
+#imagen3{
+	width:150px;
+
+
+}
+
+#publi2{
+	position:absolute;
+	top:0px;
+	width: 240px;
+	margin-left:0px;
+	height:1000px;
+
+	
+
+}
+
+#publi3{
+	position:absolute;
+	top:0px;
+	width: 240px;
+	float: right;
+	margin:1140px;
+	margin-top:0px;
+	padding: 5px;
+	height:1000px;
+
+	
+}
+
+
+/*Pie de las imágenes */
+#pieImagen{
+	padding:0px;
+	margin:0px;
+	color:grey;
+	font-size:80%;
+}
+
+#pieImagenDestacada{
+
+	padding:0px;
+	margin:0px;
+	color:grey;
+	font-size:80%;
+	padding-left:100px;
+
+}
+
+#imagenNoticiaAmpliada{
+
+	width:500px;
+
+}
+       
+#PrincipalNav ul{
+
+	list-style:none;
+	text-align:center;
+	margin:50px;
+	margin-left:245px;
+	margin-right:150px;
+	padding-bottom:30px;
+	
+
+			
+}
+#PrincipalNav a{
+
+	background-color: rgb(40,40,40);
+	color: rgb(255,255,255);
+	text-decoration:none;
+	padding:10px;
+	display: block;
+	border-right:1px solid rgb(50,80,80);
+	
+}
+
+#li0{
+
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid white;
+}
+
+
+#li1{
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid red;
+		
+}
+
+#li2{
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid green;
+		
+}
+#li3{
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid yellow;
+		
+}
+#li4{
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid blue;
+		
+}
+#li5{
+	width:130px;	
+	float:left;
+	padding-bottom:40px;
+	text-align:center;
+	border-top:10px solid orange ;
+		
+}
+
+
+
+#PrincipalNav a:hover{
+			
+	background-color: rgb(70,70,100);
+
+}
+
+#section1{
+	margin-top:0px;
+	padding-top:0px;
+	width: 300px;
+	float: left;
+	margin: 20px;
+	padding: 5px;
+	border:3px solid white;
+	margin-right:0px;
+	margin-left:255px;
+	display:block;
+
+
+}
+
+#cuerpo{
+	min-height: 100%;
+	height: auto;
+	height: 100%;
+	margin: 0 auto -4em;
+	background-color:#9FF781;
+}
+
+#section2{
+	
+	width: 200px;
+	float: left;
+	margin: 20px;
+	padding: 5px;
+	border:3px solid white;
+	margin-right:0px;
+	padding-bottom:10px;
+	
+}
+
+#section1 h1{
+	font-size:160%;
+}
+
+#section2 h1{
+	font-size:160%;
+		
+}
+#section3 h1{
+	font-size:160%;
+}
+
+#section3{
+	
+	width: 250px;
+	float: left;
+	margin: 20px;
+	padding: 5px;
+	padding-bottom:10px;
+	border:3px solid white;
+	
+}
+
+#section3 h1{
+
+	color:darkblue;
+}
+
+#article1,#article2,#article0,#article3,#article4,#article6,#article7,#article8,#article9,#article10,#article11{
+	border:2px solid white;
+	padding:5px;
+	margin:10px;
+	display:block;
+	font-size:85%;
+	display:block;
+	
+
+}
+
+#averia_avion{
+
+	width:300px;
+	height:150px;
+	padding-left:100px;
+}
+/* Imagen noticia destacada */
+
+#imagenDestacada{
+
+
+	padding-left:100px;
+	
+}
+
+/* Titulo noticia destacada */
+
+#tituloNoDestacada{
+
+	font-size:200%;
+	margin-left:50px;
+	font-style:italic;
+	
+
+}
+
+ul{
+	list-style-type:none;
+}
+
+/* SECCIONES PARA LAS NOTICIAS AMPLIADAS */
+
+#secNoticia1{
+	margin-top:0px;
+	padding-top:0px;
+	width: 540px;
+	float: left;
+	margin: 20px;
+	padding: 5px;
+	border:3px solid white;
+	margin-right:0px;
+	margin-left:240px;
+
+}
+
+#secNoticia2{
+
+	width: 300px;
+	float: left;
+	margin: 20px;
+	padding: 5px;
+	border:3px solid white;
+	
+}
+
+#secNoticia1 h1{
+
+	font-size:160%;
+
+}
+
+#secNoticia2 h1{
+
+	font-size:160%;
+
+}
+
+#div{
+
+	padding:10px;
+}
+
+#div h1{
+
+	color:darkblue;
+}
+
+#div0{
+	text-align:justify;
+	overflow:auto;
+	border:2px solid white;
+	margin-bottom:20px;
+	height:400px;
+	font-size:85%;
+	
+	
+}
+
+#divComentario{
+
+	background-color:white;
+	overflow:auto;
+	height:400px;
+	font-size:85%;
+}
+
+#divComentario article{
+	margin-right:30px;
+
+}
+
+#div0 ol{
+
+margin:5px;
+margin-right:15px;
+}
+ ol a{
+text-decoration:none;
+color:black;
+
+}
+
+#articleNoticia{
+
+	text-align:justify;
+	margin:10px;
+	
+
+
+}
+
+#articleNoticia2{
+
+	text-align:justify;
+	margin:10px;
+	background-color:lightblue;
+	padding-right:50px;
+
+
+}
+
+
+
+#imagenNoticia{
+
+padding-left:50px;
+
+}
+
+#section1 a {
+
+
+text-decoration:none;
+color:black;
+font-size:30px;
+
+
+}
+
+
+
+#section2 a{
+
+text-decoration:none;
+color:black;
+font-size:25px;
+
+
+}
+
+#section0 a{
+
+text-decoration:none;
+color:black;
+font-size:30px;
+
+
+}
+
+
+/* FOOTER */
+
+#pie{
+	text-align:left;
+	clear:both;
+	font-size:15px;
+	background-color:lightblue;
+	padding-bottom:10px;
+	font-family:verdana;
+	background-image: url(secciones/logo_ugr.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+
+	background-size: 0px 0px;
+	-moz-transition:all 1s;
+	-webkit-transition:all 1s;
+	transition:all 1s;
+}
+	
+#pie:hover {
+    background-color:#9FF781;
+    background-position: center 40%;
+    background-size: 500px 200px;
+}
+
+
+	
+
+
+
+
+
+
+
+
+

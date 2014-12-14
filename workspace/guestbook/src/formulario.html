@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<title>El Granadino</title>
+	<meta charset = "UTF-8"/>
+	<link rel = "stylesheet" type = "text/css" href = "index.css" />
+</head>
+
+<body id="cuerpo">
+
+<header>
+
+<aside id="publi1">
+
+	<a href="http://www.zalando.es">	
+	<img id="imagen_publi1" src = "publicidad/publicidad5.jpg" alt = "publi1" />
+	</a>
+
+</aside>
+
+<blockquote><h1 id="titulo">El Granadino</h1></blockquote>
+<p id="publicacion"> A día 15/04/2014 publicación a las 8:34h</p>
+
+</header>
+
+<aside id="publi3">
+	<a href="http://www.subway.com">
+	<img id="imagen_publi" src = "publicidad/publicidad3.jpeg" alt = "publi3" /></a>
+	<a href="http://www.cervezacoroa.cl">
+	<img id="imagen_publi3" src = "publicidad/publicidad2.jpg" alt = "publi3" /></a>
+	<a href="http://www.cervezasalhambra.es">
+	<img id="imagen_publi7" src = "publicidad/publicidad7.jpeg" alt = "publi3" /></a>
+
+</aside>
+
+<aside id="publi2">
+	<a href="http://www.cervezasalhambra.es">
+	<img id="imagen_publi8" src = "publicidad/publicidad8.jpeg" alt = "publi2" /></a>
+	<a href="http://www.cervezabrahba.com">
+	<img id="imagen_publi4" src = "publicidad/publicidad4.jpeg" alt = "publi2" /></a>
+	<a href="http://www.sokonia.com">
+	<img id="imagen_publi6" src = "publicidad/publicidad6.jpeg" alt = "publi2" /></a>
+
+
+</aside>
+
+<nav id="PrincipalNav">
+	<ul>
+		<li id="li1"><a href="españa.html">España</a></li>
+		<li id="li2"><a href="internacional.html">Internacional</a></li>
+		<li id="li3"><a href="deportes.html">Deportes</a></li>
+		<li id="li4"><a href="cultura.html">Cultura</a></li>
+		<li id="li5"><a href="economia.html">Economía</a></li>
+		
+	</ul>
+</nav>
+<section id="sectionForm">
+
+<fieldset>
+<legend>Información de Registro</legend>
+<ol>
+<li class="formitem">
+<label for="usuario">Usuario:</label>
+<input type="text" size="30" id="usuario" value="Introduzca su nombre de usuario"/></br>
+</li>
+<li class="formitem">
+<label for="email">Correo electrónico:</label>
+<input type="email" size="30" id="email" value="Introduzca su correo electrónico" /></br>
+</li>
+<li class="formitem">
+<label for="telefono">Número de teléfono:</label>
+<input type="tel" size="30" id="telefono" value="Introduzca su número de teléfono" />
+</li>
+<li class="formitem">
+<label for="party">¿Cómo calificarías este diario?</label>
+<input type="number" size="10" "id="calif" min="0" max="10" />
+</li>
+<li class="formitem">
+<label for="fecha">Fecha de Nacimiento:</label>
+<input type="date" size="30" id="fecha" value="Introduzca su fecha de nacimiento" />
+</li>
+</ol>
+
+</fieldset>
+<fieldset>
+<legend>Unas cuantas preguntas más:</legend>
+<ol>
+<li class="formitem">
+¿Es la primera vez que entras a este diario?
+<ul>
+<li>
+<input type="radio" name="vez" id="si" value="1" checked />
+<label for="si">Sí, la primera</label>
+</li>
+<li>
+<input type="radio" name="vez" id="no" value="0" />
+<label for="no">No, nunca había entrado anteriormente</label>
+</li>
+</ul>
+</li>
+<li class="formitem">
+<label for="oir">¿Cómo oístes de la existencia de este diario?</label>
+<input type="text" size="30" id="oir" list="media">
+<datalist id="media">
+<option value="Lo encontré en Google">
+<option value="Lo ví en una revista de publicidad">
+<option value="Un amigo me lo dijo">
+<option value="Llegué por casualidad buscando otra cosa">
+
+</datalist>
+<li class="formitem">
+Sexo:
+<ul>
+<li>
+<input type="radio" name="sexo" id="si" value="1" checked  />
+<label for="si">Hombre</label>
+</li>
+<li>
+<input type="radio" name="sexo" id="no" value="0" />
+<label for="no">Mujer</label>
+</li>
+</ul>
+</li>
+
+<li class="formitem">
+¿Qué sección ves más deficiente o preferirías que mejorásemos?:
+<ul>
+<li>
+<input type="radio" name="seccion" id="España" value="España" checked  />
+<label for="España">España</label>
+</li>
+<li>
+<input type="radio" name="seccion" id="Internacional" value="Internacional" />
+<label for="Internacional">Internacional</label>
+</li>
+<li>
+<input type="radio" name="seccion" id="Deportes" value="Deportes" />
+<label for="Deportes">Deportes</label>
+</li>
+<li>
+<input type="radio" name="seccion" id="Cultura" value="Cultura" />
+<label for="Cultura">Cultura</label>
+</li>
+<li>
+<input type="radio" name="seccion" id="Economia" value="Economia" />
+<label for="Economia">Economia</label>
+</li>
+</ul>
+</li>
+<li class="formitem">
+<input type = "checkbox" id = "checkHuevos" value = "huevos" />
+<label for = "chekHuevos">Acepto los términos de uso y utilización del periódico </label>
+</li>
+<li class="formitem">
+<input type = "checkbox" id = "checkHuevos" value = "huevos" />
+<label for = "chekHuevos">Quiero que me envíen publicidad acerca del periódico</label>
+</li>
+</ol>
+</fieldset>
+<input type="submit" id="button1" value="Registrarse ahora" />
+<input type = "reset" id = "button2" value = "Reiniciar formulario" />
+</form>
+</section>
+
+<footer id="pie">
+<h3>Contacto:</h3>
+<ul>
+		<li><p>Autor: Juan Francisco Rodríguez Vílchez</p><a href="mailto:juanfranrv@correo.ugr.es">CLICK AQUI:Contacto por email </a></li>
+		<li><p>Código Postal: 18006</p><a href="como_se_hizo.pdf"><p>CLICK AQUI: Como se hizo</p></a></li>
+		<li><p>Teléfono:958183534</p></li>
+		<li><a href="formulario.html">CLICK AQUI:Suscribirse a la versión impresa de "El granadino" </a></li>
+				
+</ul>
+
+
+</footer>
+
+</body>
+</html>
