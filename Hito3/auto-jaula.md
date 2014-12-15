@@ -11,4 +11,4 @@ Para crear una jaula que automáticamente nos lance la aplicación he desarrolla
 
 Para instalar la jaula con todo incluido y hacerla funcionar con un solo script:
 
-[auto-jaula.md](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/auto-jaula.md)
+[jaula.sh](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/jaula.sh)
