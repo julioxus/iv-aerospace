@@ -6,7 +6,7 @@ Para crear una jaula que automáticamente nos lance la aplicación he desarrolla
 
 * [install.sh](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/install.sh): que instala todas las dependencias necesarias y ejecuta la aplicación llamando al otro script.
 
-* [run.sh](https://github.com/julioxus/iv-aerospace/raw/master/workspace/guestbook/run.sh): que se encarga de ejecutar la aplicación haciendo uso de las dependencias previas instaladas.
+* [run.sh](https://github.com/julioxus/iv-aerospace/blob/master/workspace/guestbook/run.sh): que se encarga de ejecutar la aplicación haciendo uso de las dependencias previas instaladas.
 
 
 Si queremos instalar una jaula y hacer uso de estos scripts tendremos que hacer lo siguiente:
