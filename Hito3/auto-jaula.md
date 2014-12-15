@@ -15,9 +15,17 @@ Si queremos instalar una jaula y hacer uso de estos scripts tendremos que hacer 
 # Instalar debootstrap (para crear jaulas)
 $ sudo apt-get install debootstrap
 
-# Crear la jaula
+# Crear el directorio destino de la jaula
 $ sudo mkdir /home/jaulas
-$ sudo debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+
+
+# Crear jaula en función de la arquitectura del sistema
+$ if [ $(uname -m)  = "i686" ]; then  
+$	 debootstrap --arch=i386 saucy /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+$ else
+$	 debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+$ fi
+
 
 # Descargar el script de instalación automática
 $ wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/Hito3/install.sh
