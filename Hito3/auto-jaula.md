@@ -4,36 +4,11 @@ Montando nuestra aplicación en una jaula de manera automática
  
 Para crear una jaula que automáticamente nos lance la aplicación he desarrollado los scripts:
 
-* [install.sh](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/install.sh): que instala todas las dependencias necesarias y ejecuta la aplicación llamando al otro script.
+* [install.sh](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/install.sh): que instala todas las dependencias necesarias y ejecuta la aplicación llamando al otro script (run.sh).
 
 * [run.sh](https://github.com/julioxus/iv-aerospace/blob/master/workspace/guestbook/run.sh): que se encarga de ejecutar la aplicación haciendo uso de las dependencias previas instaladas.
 
 
-Si queremos instalar una jaula y hacer uso de estos scripts tendremos que hacer lo siguiente:
+Para instalar la jaula con todo incluido y hacerla funcionar con un solo script:
 
-```
-# Instalar debootstrap (para crear jaulas)
-$ sudo apt-get install debootstrap
-
-# Crear el directorio destino de la jaula
-$ sudo mkdir /home/jaulas
-
-# Crear jaula en función de la arquitectura del sistema
-$ if [ $(uname -m)  = "i686" ]; then  
-$	 debootstrap --arch=i386 saucy /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
-$ else
-$	 debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
-$ fi
-
-# Descargar el script de instalación automática
-$ wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/Hito3/install.sh
-
-# Le damos permisos de ejecución
-$ chmod +x install.sh
-
-# Ejecutar la jaula usando el script automático de instalación y ejecución
-# Cuando el script llegue al final tendremos la aplicación funcionando sin tener que tocar nada
-
-$ sudo chroot /home/jaulas/jaula-iv/ < install.sh 
-
-```
+[auto-jaula.md](https://github.com/julioxus/iv-aerospace/blob/master/Hito3/auto-jaula.md)
