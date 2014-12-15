@@ -18,14 +18,12 @@ $ sudo apt-get install debootstrap
 # Crear el directorio destino de la jaula
 $ sudo mkdir /home/jaulas
 
-
 # Crear jaula en función de la arquitectura del sistema
 $ if [ $(uname -m)  = "i686" ]; then  
 $	 debootstrap --arch=i386 saucy /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
 $ else
 $	 debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
 $ fi
-
 
 # Descargar el script de instalación automática
 $ wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/Hito3/install.sh
