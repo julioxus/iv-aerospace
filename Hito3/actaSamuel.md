@@ -6,7 +6,7 @@
 | ------------- | ------------- |
 | HORA DE REUNIÓN | De 10:00 a 11:00h |
 | LUGAR DE REUNIÓN|  Aula -1.1 (ETSIIT, Granada) |
-| ASISTENTES:|  Samuel Romero, JJ Merelo, Jose Plata ,Julio Martinez, Hans Grenner, Juan Francisco Ruiz, Cristina Rosillo  |
+| ASISTENTES:|  Samuel Romero, JJ Merelo, Jose Plata ,Julio Martinez, Hans Grenner, Juan Francisco Rodríguez, Cristina Rosillo  |
 
 
 
