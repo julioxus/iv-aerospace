@@ -2,6 +2,9 @@
 Proyecto para la asignatura Infraestructura Virtual - UGR Aerospace Program
 ============
 
+![imagen](http://i.imgur.com/0WHT98c.jpg)
+![imagen](http://i.imgur.com/dDb4A9D.png)
+
 ##Integrantes:##
 
 * Julio Martínez Martínez-Checa
