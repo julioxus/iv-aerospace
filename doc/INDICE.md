@@ -33,7 +33,7 @@
 
 ###Testeo###
 
-+ [Herramientas de testeo para Django](https://github.com/julioxus/iv-aerospace/blob/master/doc/testing_tools_django.md)
++ [Herramientas de testeo para Django](https://github.com/julioxus/iv-aerospace/blob/master/test/testing_tools_django.md)
 
 + [Test de disponibilidad de la aplicación](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/test_disponibilidad.md)
 
