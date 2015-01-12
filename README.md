@@ -42,7 +42,7 @@ Samuel nos suministrará de una BDD de prueba para poder trabajar con la recepci
 
 ##Documentación:##
 
-En la siguiente [Wiki](https://github.com/julioxus/iv-aerospace/wiki/Wiki) puedes encontrar toda la información del proyecto.
+En la siguiente [enlace](https://github.com/julioxus/iv-aerospace/blob/master/doc/INDICE.md) puedes encontrar el indice a toda la información del proyecto.
 
 ##Creación de un entorno de pruebas para la aplicación.:##
 
