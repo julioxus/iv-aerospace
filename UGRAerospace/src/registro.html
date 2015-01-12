@@ -1,0 +1,120 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="UGR AeroSPace">
+    <meta name="author" content="iv-aerospace" />
+    <!-- <link rel="icon" href="../../favicon.ico"> --> 
+
+    <title>UGR Aerospace Program</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+
+    <link href="static/main.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">UGR Aerospace Program</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action='/'>
+            <button type="submit" class="btn btn-warning">Volver a la página principal</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" id="formulario">
+        <h2>Formulario de registro</h2>
+		<br/>
+
+		<form role="form">
+		  <div class="form-group">
+			<label for="user">Usuario*</label>
+			<input type="usuario" class="form-control" id="usuario" 
+				   placeholder="Nombre de usuario">
+		  </div>
+		  <div class="form-group">
+			<label for="password">Contraseña*</label>
+			<input type="password" class="form-control" id="password" 
+				   placeholder="Contraseña">
+		  </div>
+		  <div class="form-group">
+			 <label for="nombre">Nombre*</label>
+             <input type="text" class="form-control"  id="nombre"
+				   placeholder="Introduce tu nombre">
+		  </div>
+		  <div class="form-group">
+			<label for="apellido">Apellido*</label>
+            <input type="text" class="form-control"  id="apellido"
+				   placeholder="Introduce tu apellido">
+		  </div>
+	      <div class="form-group">
+			<label for="correo">Email*</label>
+			<input type="email" class="form-control" id="correo"
+				   placeholder="Introduce tu email">
+		  </div>
+
+		  <div class="form-group">
+			<label for="telefono">Teléfono</label>
+            <input type="tel" class="form-control"  id="telefono" value="+34">
+		  </div>
+
+		  <div class="form-group">
+			<label for="imagen">Subir imagen de perfil</label>
+			<input type="file" id="imagen">
+		  </div>
+		  <div class="checkbox">
+			<label>
+			  <input type="checkbox"> Acepto vender mi alma
+			</label>
+		  </div>
+		  <button type="submit" class="btn btn-default">Enviar</button>
+		</form>
+
+      </div>
+    </div>
+
+
+      <hr>
+
+      <footer>
+        <p>&copy; UGR Aerospace Program</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
