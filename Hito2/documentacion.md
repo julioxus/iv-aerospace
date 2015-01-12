@@ -1,1 +1,0 @@
-Práctica 2 Documentación
