@@ -13,7 +13,7 @@ else
 fi
 
 # Descargar el script de instalación automática
-wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/Hito3/install.sh
+wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/doc/install.sh
 
 # Le damos permisos de ejecución
 chmod +x install.sh
