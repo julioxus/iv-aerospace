@@ -21,15 +21,24 @@ Nuestro grupo ha decidido trabajar en el UGR Aerospace program para desarrollar 
 
 Vamos a usar la infraestructura de Google usando AppEngine para desarrollar la aplicación y Google Drive para almacenar los documentos para que sean colaborativos.
 
-La aplicación debe contar con las siguientes funcionalidades:
+**Objetivos:**
 
-* Servidor de streaming de vídeo para la cámara del robot.
-* Visualización gráfica, y/o procesamiento de datos.
-* Un blog en Wordpress (migración)
-* Un chat para comunicarse
-* Foros
-* Almacenar datos en Google Drive
-* Más funcionalidades por determinar.
+* Recepción y procesamiento de los datos.
+* Streaming de vídeo.
+* Simular y elegir el formato según el tipo de dato (podremos elegir entre temperatura, altura, velocidad del viento...)
+* Procesamiento de las imágenes (gráficos).
+* 
+**Se ha decidido suprimir al streaming ya que se consideró como un proyecto independiente.**
+
+Datos a tener en cuenta:
+
+* Los datos recibidos son heterogéneos, por lo tanto no todos se procesarán de la misma manera
+* Dependiendo del tipo de dato, la actualización de estos será cada "x" tiempo.
+* Dependiento del tipo de dato, se mostrarán en un determinado gráfico.
+
+Para trabajar con gráficos se ha decidido utilizar GoogleChart.
+
+Samuel nos suministrará de una BDD de prueba para poder trabajar con la recepción de datos.
 
 ##Documentación:##
 
