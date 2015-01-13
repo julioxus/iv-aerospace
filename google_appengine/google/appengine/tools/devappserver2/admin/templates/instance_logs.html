@@ -1,0 +1,54 @@
+{% extends "skeleton.html" %}
+{% block page_title %}Logs{% endblock %}
+
+{% block page_head %}
+  <style type="text/css">
+    {% include "instance_logs.css" %}
+  </style>
+{% endblock %}
+
+{% block body %}
+  <h3>
+    Logs for instance
+    {% if module.supports_individually_addressable_instances %}
+      <a href="//{{ module.get_instance_address(instance.instance_id) }}"
+          target="_blank">
+    {% endif %}
+      {{ instance.instance_id }}
+    {% if module.supports_individually_addressable_instances %}
+      </a>
+    {% endif %}
+    of module
+    <a href="//{{ module.balanced_address }}" target="_blank">
+      {{ module.name }}
+    </a>.
+  </h3>
+  <ul id="tabs">
+    {% for log_file_name in log_file_names|sort() %}
+      <li id={{ log_file_name }}>
+        <a href="/instances/logs?instance_id={{ instance.instance_id }}&log_file_name={{ log_file_name }}&module_name={{ module.name }}&show_lines={{ default_show_lines }}">
+          {{ log_file_name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if log_file_name %}
+    {{ log_file_name }}: {{ show_lines }} / {{ count_lines }}.
+    <button type="button" onclick="ShowMore()">Show more!</button>
+
+    <script>
+      function ShowMore()
+      {
+        new_show_lines = Math.min({{ show_lines }} + {{ default_show_lines }}, {{ count_lines }})
+        location.href = "/instances/logs?instance_id={{ instance.instance_id }}&log_file_name={{ log_file_name }}&module_name={{ module.name }}&show_lines=" + new_show_lines
+      }
+    </script>
+
+    {% for line in logs_data %}
+      <li>
+        {{ line }}
+      </li>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
