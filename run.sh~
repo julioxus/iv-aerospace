@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-PROJECT_DIR="apps/iv-aerospace/"
-APPENGINE_SERVER="apps/iv-aerospace/google_appengine/dev_appserver.py"
+PROJECT_DIR="apps/iv-aerospace/workspace/guestbook"
+APPENGINE_SERVER="apps/google_appengine/dev_appserver.py"
 
 # Lanzar aplicación (con autoconfirmación)
 
