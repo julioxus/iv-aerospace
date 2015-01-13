@@ -8,6 +8,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 import os
 import webapp2
 import jinja2
+import feedparser
 
 
 class ErrorPage(webapp2.RequestHandler):
@@ -24,7 +25,21 @@ class MainPage(webapp2.RequestHandler):
     
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        template_values={}
+        
+        rss = feedparser.parse('http://www.sti.nasa.gov/scan/rss99-01.xml')
+        
+        titulos = []
+        links = []
+        descripciones = []
+        
+        for i in range (len(rss.entries)):
+
+            titulos.append(rss.entries[i].title)
+            links.append(rss.entries[i].link)
+            descripcion = rss.entries[i].description
+            descripciones.append(descripcion)
+        
+        template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
         template = JINJA_ENVIRONMENT.get_template('template/index.html')
         self.response.write(template.render(template_values))
         
