@@ -12,7 +12,7 @@ Proyecto para la asignatura Infraestructura Virtual - UGR Aerospace Program
 * Hans-Manuel Grenner Noguerón
 * Óscar Sánchez Martínez
 * Jose Antonio Plata Muñoz
-* Miguel Martínez Castellano
+* Miguel Martínez Castellanos
 * Cristina Rosillo Arenas
 
 ##Aplicación desplegada en Google App Engine:##
