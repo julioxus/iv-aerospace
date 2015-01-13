@@ -9,8 +9,14 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /reg_usuario
+  script: registro_usuario.application
+
 - url: /.*
-  script: guestbook.application
+  script: server.application
+
+
+
 
 libraries:
 - name: webapp2
