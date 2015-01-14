@@ -57,9 +57,8 @@ class FormularioRegistro(webapp2.RequestHandler):
     
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        template_values={}
         template = JINJA_ENVIRONMENT.get_template('template/registro.html')
-        self.response.write(template.render(template_values))
+        self.response.write(template.render(message=""))
 
 class Usuario(ndb.Model):
     usuario = ndb.StringProperty()
@@ -74,22 +73,23 @@ class registro_usuario(webapp2.RequestHandler):
     def post(self):
         user = Usuario()
         usu=self.request.get('usuario')
-        result = Usuario.query()
-        for usuario in result:
-            if usuario == usu:
-                self.response.write('El usuario ya existe en la base de datos')
-                self.redirect('/reg_usuario')
+        result = Usuario.query(Usuario.usuario==usu)
+        if result>0:
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/registro.html')
+            self.response.write(template.render(message="El usuario ya se encuentra registrado en la base de datos"))
 
-        user.usuario = self.request.get('usuario')
-        user.password = self.request.get('password')
-        user.nombre = self.request.get('nombre')
-        user.apellido = self.request.get('apellido')
-        user.correo = self.request.get('correo')
-        user.telefono = self.request.get('telefono')
-                
-        user.put()
-        
-        self.redirect('/')
+        else:
+            user.usuario = self.request.get('usuario')
+            user.password = self.request.get('password')
+            user.nombre = self.request.get('nombre')
+            user.apellido = self.request.get('apellido')
+            user.correo = self.request.get('correo')
+            user.telefono = self.request.get('telefono')
+                    
+            user.put()
+            
+            self.redirect('/')
 
 
 class consulta_usuario(webapp2.RequestHandler):
