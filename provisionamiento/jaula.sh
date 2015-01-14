@@ -5,11 +5,12 @@ apt-get install debootstrap
 
 # Crear la jaula
 mkdir /home/jaulas
-
-if [ $(uname -m)  = "i686" ]; then  
-	debootstrap --arch=i386 saucy /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
-else
-	debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+if [ ! -d /home/jaulas/jaula-iv/ ]; then
+	if [ $(uname -m)  = "i686" ]; then  
+		debootstrap --arch=i386 saucy /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+	else
+		debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
+	fi
 fi
 
 # Ejecutar la jaula usando el script automático de ejecución
@@ -22,4 +23,4 @@ cd /home/jaulas/jaula-iv/iv-aerospace/
 # Damos permisos de ejecución al script de instalación
 chmod +x run.sh
 
-chroot /home/jaulas/jaula-iv/ < run.sh
+chroot /home/jaulas/jaula-iv/ $(cd iv-aerospace; ./run.sh)
