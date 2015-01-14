@@ -12,13 +12,14 @@ else
 	debootstrap --arch=amd64 trusty /home/jaulas/jaula-iv/ http://archive.ubuntu.com/ubuntu
 fi
 
-# Descargar el script de instalación automática
-wget https://raw.githubusercontent.com/julioxus/iv-aerospace/master/provisionamiento/install.sh
-
-# Le damos permisos de ejecución
-chmod +x install.sh
-
-# Ejecutar la jaula usando el script automático de instalación y ejecución
+# Ejecutar la jaula usando el script automático de ejecución
 # Cuando el script llegue al final tendremos la aplicación funcionando sin tener que tocar nada
 
-chroot /home/jaulas/jaula-iv/ < install.sh 
+#echo Copiando iv-aerospace en /home/jaulas/jaula-iv/ ...
+cp -r ../../iv-aerospace /home/jaulas/jaula-iv/
+cd /home/jaulas/jaula-iv/iv-aerospace/
+
+# Damos permisos de ejecución al script de instalación
+chmod +x run.sh
+
+chroot /home/jaulas/jaula-iv/ < run.sh
