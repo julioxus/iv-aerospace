@@ -27,7 +27,7 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         
-        rss = feedparser.parse('http://www.sti.nasa.gov/scan/rss99-01.xml')
+        rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
         
         titulos = []
         links = []
@@ -116,6 +116,25 @@ class test(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*30)
         self.response.write(json.dumps(num))
+        
+class MainPageLoged(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
+        titulos = []
+        links = []
+        descripciones = []
+        
+        for i in range (len(rss.entries)):
+
+            titulos.append(rss.entries[i].title)
+            links.append(rss.entries[i].link)
+            descripcion = rss.entries[i].description
+            descripciones.append(descripcion)
+        
+        template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
+        template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
+        self.response.write(template.render(template_values))
 
         
 urls = [('/',MainPage),
@@ -126,6 +145,7 @@ urls = [('/',MainPage),
         ('/consulta_usuario', consulta_usuario),
         ('/highchart', highchart),
         ('/test', test),
+        ('/loged', MainPageLoged),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 

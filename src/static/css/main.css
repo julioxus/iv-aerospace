@@ -27,4 +27,8 @@
 #mensaje{
 	color:red;
 }
+
+#boton-cerrar{
+	float: right;
+}
  
