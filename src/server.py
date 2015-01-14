@@ -9,7 +9,8 @@ import os
 import webapp2
 import jinja2
 import feedparser
-
+import random
+import json
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -101,13 +102,30 @@ class consulta_usuario(webapp2.RequestHandler):
         template_values = {'usuarios':usuarios}
         template = JINJA_ENVIRONMENT.get_template('template/consulta_usuario.html')
         self.response.write(template.render(template_values))
+        
+        
+class highchart(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        num = int(random.random()*30)
+        template_values = {'num':num}
+        template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
+        self.response.write(template.render(template_values))
+        
+class test(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*30)
+        self.response.write(json.dumps(num))
 
+        
 urls = [('/',MainPage),
         ('/error',ErrorPage),
         ('/registrarse',FormularioRegistro),
         ('/info_page',InfoPage),
         ('/reg_usuario', registro_usuario),
         ('/consulta_usuario', consulta_usuario),
+        ('/highchart', highchart),
+        ('/test', test),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 
