@@ -13,3 +13,14 @@
 	border: solid 1px;
 	padding: 50px;
 }
+
+#map-canvas { 
+		   	margin-left:600px;
+			height:300px;
+			width:500px;
+}
+
+#llegar{
+	margin-left:600px;
+}
+ 

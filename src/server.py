@@ -70,25 +70,26 @@ class Usuario(ndb.Model):
 
 class registro_usuario(webapp2.RequestHandler):
     
-    def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        template_values={}
-        template = JINJA_ENVIRONMENT.get_template('template/registro.html')
-        self.response.write(template.render(template_values))
     def post(self):
         user = Usuario()
+        usu=self.request.get('usuario')
+        result = Usuario.query()
+        for usuario in result:
+            if usuario == usu:
+                self.response.write('El usuario ya existe en la base de datos')
+                self.redirect('/reg_usuario')
+
         user.usuario = self.request.get('usuario')
         user.password = self.request.get('password')
         user.nombre = self.request.get('nombre')
         user.apellido = self.request.get('apellido')
         user.correo = self.request.get('correo')
         user.telefono = self.request.get('telefono')
-        print user.usuario
-        print user.password
-                        
+                
         user.put()
+        
+        self.redirect('/')
 
-        self.response.write('El usuario se ha registrado correstamente')
 
 class consulta_usuario(webapp2.RequestHandler):
     def get(self):
@@ -96,7 +97,6 @@ class consulta_usuario(webapp2.RequestHandler):
         result = Usuario.query()
         for usuario in result:
             usuarios.append(usuario)
-            print usuario
         self.response.headers['Content-Type'] = 'text/html'
         template_values = {'usuarios':usuarios}
         template = JINJA_ENVIRONMENT.get_template('template/consulta_usuario.html')
