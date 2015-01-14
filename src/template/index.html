@@ -30,54 +30,22 @@
 	</script>
 
 	<script type="text/javascript">
-		function initialize() { 
-			var mapOptions = {center: new google.maps.LatLng(37.1773363, -3.5985571), zoom: 17, disableDefaultUI: true};
-        		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-			
-			if(navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function(position) {
-					var myLatlng = new google.maps.LatLng(37.19683,-3.62419);
-					var contentString = '<div id="content">'+
-						'<div id="bodyContent">'+
-			   			'<p>Te encuentras<br>aquí.</p>' +
-						'</div>'+
-						'</div>';
-					
-					var infowindow = new google.maps.InfoWindow({
-						content: contentString
-					});
-					var marker = new google.maps.Marker({
-						position: myLatlng,
-						map: map,
-						title: 'Localización'
-					});
-					  
-					google.maps.event.addListener(marker, 'click', function() {
-						infowindow.open(map,marker);
-					});
-				  	map.setCenter(myLatlng);
-				}, function() {	handleNoGeolocation(true);
-							  });
-			} else {
-				// Navegador no soporta geolocalización
-				handleNoGeolocation(false);
-			}
+		function initialize() {
+		  var myLatlng = new google.maps.LatLng(37.19683,-3.62419);
+		  var mapOptions = {
+		    zoom: 4,
+		    center: myLatlng
+		  }
+		  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+		
+		  var marker = new google.maps.Marker({
+		      position: myLatlng,
+		      map: map,
+		      title: 'Hello World!'
+		  });
 		}
-		function handleNoGeolocation(errorFlag) {
-			if (errorFlag) {
-				var content = 'Error: El servicio de geolocalización no se encuentra disponible.';
-			} else {
-				var content = 'Error: Tu navegador no soporta geolocalización.';
-			}
-			var options = {
-				map: map,
-				position: new google.maps.LatLng(60, 105),
-				content: content
-			};
-			var infowindow = new google.maps.InfoWindow(options);
-			map.setCenter(options.position);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
+
+google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
 <body>
