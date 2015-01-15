@@ -17,7 +17,7 @@ Proyecto para la asignatura Infraestructura Virtual - UGR Aerospace Program
 
 ##Aplicación desplegada en Google App Engine:##
 
-[UGR Aerospace Program](http://nice-virtue-753.appspot.com/)
+[UGR Aerospace Program](http://ugraerospaceprogram.appspot.com/)
 
 ##Objetivos a conseguir con la aplicación:##
 
