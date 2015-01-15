@@ -103,12 +103,13 @@ class registro_usuario(webapp2.RequestHandler):
 
 class editar_perfil(webapp2.RequestHandler):
     def get(self):
+        username = str(self.request.cookies.get("username"))
         usuarios = []
         result = Usuario.query()
         for usuario in result:
             usuarios.append(usuario)
         self.response.headers['Content-Type'] = 'text/html'
-        template_values = {'usuarios':usuarios}
+        template_values = {'usuarios':usuarios,'sesion':username}
         template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
         self.response.write(template.render(template_values,message=""))
         
@@ -179,8 +180,9 @@ class TablaDatos(ndb.Model):
 
 class FormularioInsercion(webapp2.RequestHandler):
     def get(self):
+        username = str(self.request.cookies.get("username"))
         self.response.headers['Content-Type'] = 'text/html'
-        template_values={}
+        template_values={'sesion':username}
         template = JINJA_ENVIRONMENT.get_template('template/insercion_datos.html')
         self.response.write(template.render(template_values))
  
@@ -204,7 +206,7 @@ class InsertarDatos(webapp2.RequestHandler):
         
 class ListarDatos(webapp2.RequestHandler):
     def get(self):
-        
+        username = str(self.request.cookies.get("username"))
         lista = TablaDatos.query()
         
         datos = []
@@ -214,20 +216,24 @@ class ListarDatos(webapp2.RequestHandler):
             
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/listar_datos.html')
-        template_values={'datos':datos}
+        template_values={'datos':datos,'sesion':username}
         self.response.write(template.render(template_values))
          
 class mapa(webapp2.RequestHandler):
     def get(self):
+        username = str(self.request.cookies.get("username"))
+        template_values={'sesion':username}
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_values))
         
 class twitter(webapp2.RequestHandler):
     def get(self):
+        username = str(self.request.cookies.get("username"))
+        template_values={'sesion':username}
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/contacto.html')
-        self.response.write(template.render())
+        self.response.write(template.render(template_values))
         
 lat = 37.19699469878369
 lng =  -3.6241040674591507
@@ -318,6 +324,7 @@ class cerrar_sesion(webapp2.RequestHandler):
         
 class Estadisticas(webapp2.RequestHandler):
     def get(self):
+        username = str(self.request.cookies.get("username"))
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/estadisticas.html')
         
@@ -345,7 +352,7 @@ class Estadisticas(webapp2.RequestHandler):
             if datetime.date(anio_actual, mes_actual, dia_actual).isocalendar()[1] == datetime.date(anio_dato, mes_dato, dia_dato).isocalendar()[1]:
                 datos_semana.append(dato)
                 
-        template_values={'datos_hoy':datos_hoy, 'datos_mes':datos_mes, 'datos_semana':datos_semana}
+        template_values={'datos_hoy':datos_hoy, 'datos_mes':datos_mes, 'datos_semana':datos_semana,'sesion':username}
         
         self.response.write(template.render(template_values))
                 
