@@ -31,4 +31,20 @@
 #boton-cerrar{
 	float: right;
 }
+
+#tabla_datos{
+	margin-top: 50px;
+}
+
+#tabla_datos th, td{
+	border: solid 1px;
+	padding: 10px;
+	border: solid 1px;
+	text-align: center;
+}
+
+#boton_insertar_datos{
+	float: left;
+	margin-top: 50px;
+}
  

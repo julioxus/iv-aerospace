@@ -139,14 +139,14 @@ class MainPageLoged(webapp2.RequestHandler):
         
 class TablaDatos(ndb.Model):
     temperatura = ndb.FloatProperty()
-    velocidadViento = ndb.IntegerProperty()
+    velocidadViento = ndb.FloatProperty()
     direccionViento = ndb.StringProperty()
-    racha = ndb.IntegerProperty()
+    racha = ndb.FloatProperty()
     direccionRacha = ndb.StringProperty()
-    precipitacion = ndb.IntegerProperty()
+    precipitacion = ndb.FloatProperty()
     presion = ndb.FloatProperty()
     tendencia = ndb.FloatProperty()
-    humedad = ndb.IntegerProperty()
+    humedad = ndb.FloatProperty()
 
 class FormularioInsercion(webapp2.RequestHandler):
     def get(self):
@@ -160,18 +160,33 @@ class InsertarDatos(webapp2.RequestHandler):
         
         datos = TablaDatos()
         datos.temperatura = float(self.request.get('temperatura'))
-        datos.velocidadViento = int(self.request.get('velocidadViento'))
+        datos.velocidadViento = float(self.request.get('velocidadViento'))
         datos.direccionViento = self.request.get('direccionViento')
-        datos.racha = int(self.request.get('racha'))
+        datos.racha = float(self.request.get('racha'))
         datos.direccionRacha = self.request.get('direccionRacha')
-        datos.precipitacion = int(self.request.get('precipitacion'))
+        datos.precipitacion = float(self.request.get('precipitacion'))
         datos.presion = float(self.request.get('presion'))
         datos.tendencia = float(self.request.get('tendencia'))
-        datos.humedad = int(self.request.get('humedad'))
+        datos.humedad = float(self.request.get('humedad'))
              
         datos.put()
             
-        self.redirect('/loged')
+        self.redirect('/listar')
+        
+class ListarDatos(webapp2.RequestHandler):
+    def get(self):
+        
+        lista = TablaDatos.query()
+        
+        datos = []
+         
+        for dato in lista:
+            datos.append(dato)
+            
+        self.response.headers['Content-Type'] = 'text/html'
+        template = JINJA_ENVIRONMENT.get_template('template/listar_datos.html')
+        template_values={'datos':datos}
+        self.response.write(template.render(template_values))
          
         
 urls = [('/',MainPage),
@@ -185,6 +200,7 @@ urls = [('/',MainPage),
         ('/loged', MainPageLoged),
         ('/formulario', FormularioInsercion),
         ('/guardarDatos', InsertarDatos),
+        ('/listar', ListarDatos),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 

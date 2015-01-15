@@ -37,9 +37,9 @@
         <h3 class="text-muted">UGR Aerospace Program</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li class="active"><a href="/loged">Inicio</a></li>
+            <li><a href="/loged">Inicio</a></li>
             <li><a href="#">Estadísticas</a></li>
-            <li><a href="/listar">Tabla</a></li>
+            <li class="active"><a href="/listar">Tabla</a></li>
             <li><a href="#">Editar perfil</a></li>
             <li><a href="#">Streaming</a></li>
             <li><a href="#">Contactar</a></li>
@@ -48,21 +48,34 @@
       </div>
 
       <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Bienvenido "Insertar nombre de usuario"</h1>
-        <p class="lead">Aquí podrás monitorizar los datos de temperatura, velocidad del viento, presión atmosférica y blablabla.</p>
-        <p><a class="btn btn-lg btn-success" href="/highchart" role="button">Monitoriza el bicho</a></p>
-      </div>
-
-      <!-- Example row of columns -->
-      <div class="row">
-        {% for i in range(0,3) %}
-        <div class="col-md-4">
-          <h2>{{titulos[i]}}</h2>
-          {{descripciones[i]}}
-          <p><a class="btn btn-default" href="{{links[i]}}" role="button">Ver más &raquo;</a></p>
-        </div>
-      {% endfor %}
+      <div id="tabla_datos" class="jumbotron">
+        <table>
+                 <tr>
+                     <th><strong>Temperatura (ºC)</strong></td>
+                     <th><strong>Velocidad del viento (km/h)</strong></td>
+                     <th><strong>Dirección del viento</strong></td>
+                     <th><strong>Racha (km/h)</strong></td>
+                     <th><strong>Dirección de racha</strong></td>
+                     <th><strong>Precipitación (mm)</strong></td>
+                     <th><strong>Presión (hPa)</strong></td>
+                     <th><strong>Tendencia (hPa)</strong></td>
+                     <th><strong>Humedad (%)</strong></td>
+                 </tr>
+                 {% for dato in datos %}
+                 <tr>
+                 	<td>{{dato.temperatura}}</td>
+                 	<td>{{dato.velocidadViento}}</td>
+                 	<td>{{dato.direccionViento}}</td>
+                 	<td>{{dato.racha}}</td>
+                 	<td>{{dato.direccionRacha}}</td>
+                 	<td>{{dato.precipitacion}}</td>
+                 	<td>{{dato.presion}}</td>
+                 	<td>{{dato.tendencia}}</td>
+                 	<td>{{dato.humedad}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			<p id="boton_insertar_datos"><a class="btn btn-lg btn-success" href="/formulario" role="button">Inserta nuevos datos</a></p>
       </div>
 
       <!-- Site footer -->
