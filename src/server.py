@@ -74,26 +74,30 @@ class registro_usuario(webapp2.RequestHandler):
     def post(self):
         user = Usuario()
         usu=self.request.get('usuario')
-        result = Usuario.query(Usuario.usuario==usu)
-        if result>0:
-            self.response.headers['Content-Type'] = 'text/html'
-            template = JINJA_ENVIRONMENT.get_template('template/registro.html')
-            self.response.write(template.render(message="El usuario ya se encuentra registrado en la base de datos"))
+        aparece=0
+        result = Usuario.query()
+        for us in result:
+            if us.usuario == usu:
+                aparece=1
+                self.response.headers['Content-Type'] = 'text/html'
+                template = JINJA_ENVIRONMENT.get_template('template/registro.html')
+                self.response.write(template.render(message="El usuario ya se encuentra registrado en la base de datos"))
 
-        else:
+        if aparece != 1:
+            
             user.usuario = self.request.get('usuario')
             user.password = self.request.get('password')
             user.nombre = self.request.get('nombre')
             user.apellido = self.request.get('apellido')
             user.correo = self.request.get('correo')
             user.telefono = self.request.get('telefono')
-                    
+                        
             user.put()
-            
-            self.redirect('/')
+                
+            self.redirect('/loged')
 
 
-class consulta_usuario(webapp2.RequestHandler):
+class editar_perfil(webapp2.RequestHandler):
     def get(self):
         usuarios = []
         result = Usuario.query()
@@ -101,10 +105,26 @@ class consulta_usuario(webapp2.RequestHandler):
             usuarios.append(usuario)
         self.response.headers['Content-Type'] = 'text/html'
         template_values = {'usuarios':usuarios}
-        template = JINJA_ENVIRONMENT.get_template('template/consulta_usuario.html')
-        self.response.write(template.render(template_values))
+        template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
+        self.response.write(template.render(template_values,message=""))
         
-        
+class edit_user(webapp2.RequestHandler):
+    def post(self):
+        usu=self.request.get('usuario')
+        result = Usuario.query()
+        for us in result:
+            if us.usuario == usu:
+                us.usuario = self.request.get('usuario')
+                us.password = self.request.get('password')
+                us.nombre = self.request.get('nombre')
+                us.apellido = self.request.get('apellido')
+                us.correo = self.request.get('correo')
+                us.telefono = self.request.get('telefono')
+                        
+                us.put()
+                
+                self.redirect('/')
+                
 class highchart(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -206,7 +226,7 @@ urls = [('/',MainPage),
         ('/registrarse',FormularioRegistro),
         ('/info_page',InfoPage),
         ('/reg_usuario', registro_usuario),
-        ('/consulta_usuario', consulta_usuario),
+        ('/editar_perfil',editar_perfil),
         ('/highchart', highchart),
         ('/test', test),
         ('/loged', MainPageLoged),
@@ -215,6 +235,7 @@ urls = [('/',MainPage),
         ('/listar', ListarDatos),
         ('/mapa', mapa),
         ('/coordenadas', coordenadas),
+        ('/edit_user',edit_user),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 
