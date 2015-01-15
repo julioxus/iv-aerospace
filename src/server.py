@@ -13,6 +13,7 @@ import jinja2
 import feedparser
 import random
 import json
+import math
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -95,7 +96,7 @@ class registro_usuario(webapp2.RequestHandler):
                         
             user.put()
                 
-            self.redirect('/loged')
+            self.redirect('/')
 
 
 class editar_perfil(webapp2.RequestHandler):
@@ -220,10 +221,24 @@ class mapa(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
         self.response.write(template.render())
         
+class twitter(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = JINJA_ENVIRONMENT.get_template('template/contacto.html')
+        self.response.write(template.render())
+        
+lat = 37.19699469878369
+lng =  -3.6241040674591507
+grados = 0
+  
 class coordenadas(webapp2.RequestHandler):
     def get(self):
-        lat = random.random()*50
-        lng = random.random()*150
+        global lat
+        global lng
+        global grados
+        grados+=5
+        lat += 0.00001 * math.cos((grados/180)*math.pi)
+        lng += 0.00001 * math.sin((grados/180)*math.pi)
         latLng = [lat, lng]
         self.response.write(json.dumps(latLng))
 
@@ -301,6 +316,7 @@ class cerrar_sesion(webapp2.RequestHandler):
                 
 urls = [('/',MainPage),
         ('/error',ErrorPage),
+        ('/twitter',twitter),
         ('/registrarse',FormularioRegistro),
         ('/info_page',InfoPage),
         ('/reg_usuario', registro_usuario),

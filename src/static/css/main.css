@@ -7,6 +7,11 @@
 	margin-top: 50px;
 }
 
+#cohete1{
+	margin-top:100px;
+	width: 100px;
+	float: right
+}
 #formulario{
 	margin: auto;
 	width: 800px;
@@ -47,4 +52,16 @@
 	float: left;
 	margin-top: 50px;
 }
+
+#map-canvas2 {
+        height: 500px;
+        width: 500px;
+}
+
+#panel-mapa{	
+	height: 543px;
+   	width: 503px;
+	margin-top:50px;
+}
+   
  

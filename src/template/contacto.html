@@ -1,6 +1,5 @@
-<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="UGR AeroSPace">
@@ -26,54 +25,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeg7_wBHhNsW24D8To6ywYLweM-83sN7E&sensor=true"> </script>
-    <script>
-
-var coordenadas;
-var marker;
-var map;
-
-function actualizarMapa() {
-  $.ajax({
-                type: 'GET',
-                url: '/coordenadas',
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function (data) {
-                  coordenadas = data;
-                  var latlng = new google.maps.LatLng(coordenadas[0], coordenadas[1]);
-                  marker.setPosition(latlng);
-                  map.setCenter(latlng); 
-                }
-        });
-}
-
-function initialize() {
-  var myLatlng = new google.maps.LatLng(37.19699469878369, -3.6241040674591507);
-  var mapOptions = {
-    zoom: 18,
-    center: myLatlng
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas2'), mapOptions);
-
-  marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Hello World!',
-      icon: '../static/imagenes/ship.png'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-setInterval(actualizarMapa, 1000);
-
-    </script>
   </head>
+
   <body>
-  <div class="container">
+
+    <div class="container">
 
 	  <input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="" class="btn btn-warning" />
 	  
@@ -81,26 +37,45 @@ setInterval(actualizarMapa, 1000);
         <h3 class="text-muted">UGR Aerospace Program</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="/loged">Inicio</a></li>
+             <li><a href="/loged">Inicio</a></li>
             <li><a href="#">Estadísticas</a></li>
             <li><a href="/listar">Tabla</a></li>
             <li><a href="/editar_perfil">Editar perfil</a></li>
-            <li class="active"><a href="/mapa">Seguimiento Robot</a></li>
+            <li><a href="/mapa">Seguimiento Robot</a></li>
             <li><a href="#">Streaming</a></li>
-            <li><a href="twitter">Social</a></li>
+            <li class="active"><a href="/twitter">Social</a></li>
           </ul>
         </nav>
       </div>
-      <div class="panel panel-primary" id="panel-mapa">
-        <div class="panel-heading">Geolocalización del robot</div>
-    <div id="map-canvas2" class="jumbotron"></div>
+            <img id="cohete1" src="static/imagenes/cohete.png"/>
+</br>
+</br>
+      <div >
+      <h3>Sigue nuestro twitter:</h3>
+		<a href="https://twitter.com/ivaerospace2014" class="twitter-follow-button" data-show-count="false">Follow @ivaerospace2014</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
+    </br>
+    </br>
+    <div>
+     <h3>Tuitea con nuestro famoso hastag:</h3>
+    <a href="https://twitter.com/intent/tweet?button_hashtag=UGRAerospaceProgram" class="twitter-hashtag-button" data-related="juanfran_rv" data-url="http://nice-virtue-753.appspot.com/">Tweet #UGRAerospaceProgram</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
+      </br>
+      </br>
+      <div>
+     <h3>Comparte nuestra increible aplicación web:</h3>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="juanfran_rv">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>
 
-  	</div>
-    <!-- Site footer -->
+      <!-- Site footer -->
       <footer class="footer">
         <p>&copy; UGR Aerospace Program</p>
       </footer>
+
+    </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

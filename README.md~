@@ -22,9 +22,9 @@ Proyecto para la asignatura Infraestructura Virtual - UGR Aerospace Program
 
 ##Objetivos a conseguir con la aplicación:##
 
-Nuestro grupo ha decidido trabajar en el UGR Aerospace program para desarrollar su infraestructura y plataforma. El motivo de trabajar en este proyecto es porque parte del equipo estabamos apuntados previamente al programa y nos parecía interesante participar en él.
+Nuestro grupo ha decidido trabajar en el UGR Aerospace program para desarrollar su infraestructura y plataforma. El motivo de trabajar en este proyecto es porque parte del equipo estábamos apuntados previamente al programa y nos parece interesante participar en él.
 
-Vamos a usar la infraestructura de Google usando AppEngine para desarrollar la aplicación usando WebApp2 y NDB de Python como base de datos.
+Vamos a usar la infraestructura de Google usando AppEngine para desarrollar la aplicación y Google Drive para almacenar los documentos para que sean colaborativos.
 
 **Objetivos:**
 
