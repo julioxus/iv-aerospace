@@ -168,6 +168,7 @@ class MainPageLoged(webapp2.RequestHandler):
             self.redirect('/')
         
 class TablaDatos(ndb.Model):
+    fecha = ndb.DateProperty();
     temperatura = ndb.FloatProperty()
     velocidadViento = ndb.FloatProperty()
     direccionViento = ndb.StringProperty()
@@ -190,6 +191,7 @@ class InsertarDatos(webapp2.RequestHandler):
     def post(self):
         
         datos = TablaDatos()
+        datos.fecha = datetime.datetime.strptime(time.strftime("%d/%m/%Y"), '%d/%m/%Y')
         datos.temperatura = float(self.request.get('temperatura'))
         datos.velocidadViento = float(self.request.get('velocidadViento'))
         datos.direccionViento = self.request.get('direccionViento')
