@@ -31,7 +31,7 @@
 
     <div class="container">
 
-	  <input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="" class="btn btn-warning" />
+	  <input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="location.href='/cerrar_sesion';" class="btn btn-warning" />
 	  
       <div class="masthead">
         <h3 class="text-muted">UGR Aerospace Program</h3>
@@ -50,7 +50,7 @@
 
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h1>Bienvenido "Insertar nombre de usuario"</h1>
+        <h1>Bienvenido {{sesion}}</h1>
         <p class="lead">Aquí podrás monitorizar los datos de temperatura, velocidad del viento, presión atmosférica y blablabla.</p>
         <p><a class="btn btn-lg btn-success" href="/highchart" role="button">Monitoriza el bicho</a></p>
       </div>
