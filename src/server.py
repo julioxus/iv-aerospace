@@ -188,6 +188,20 @@ class ListarDatos(webapp2.RequestHandler):
         template_values={'datos':datos}
         self.response.write(template.render(template_values))
          
+class mapa(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        latLng = [-25.363882, 131.044922 ]
+        template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
+        template_values={'latLng':latLng}
+        self.response.write(template.render(template_values))
+        
+class coordenadas(webapp2.RequestHandler):
+    def get(self):
+        lat = random.random()*50
+        lng = random.random()*150
+        latLng = [lat, lng]
+        self.response.write(json.dumps(latLng))
         
 urls = [('/',MainPage),
         ('/error',ErrorPage),
@@ -201,6 +215,8 @@ urls = [('/',MainPage),
         ('/formulario', FormularioInsercion),
         ('/guardarDatos', InsertarDatos),
         ('/listar', ListarDatos),
+        ('/mapa', mapa),
+        ('/coordenadas', coordenadas),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 
