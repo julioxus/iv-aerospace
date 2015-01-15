@@ -1,5 +1,6 @@
 
 import urllib
+import cgi
 
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -135,7 +136,43 @@ class MainPageLoged(webapp2.RequestHandler):
         template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
         template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
         self.response.write(template.render(template_values))
+        
+class TablaDatos(ndb.Model):
+    temperatura = ndb.FloatProperty()
+    velocidadViento = ndb.IntegerProperty()
+    direccionViento = ndb.StringProperty()
+    racha = ndb.IntegerProperty()
+    direccionRacha = ndb.StringProperty()
+    precipitacion = ndb.IntegerProperty()
+    presion = ndb.FloatProperty()
+    tendencia = ndb.FloatProperty()
+    humedad = ndb.IntegerProperty()
 
+class FormularioInsercion(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template_values={}
+        template = JINJA_ENVIRONMENT.get_template('template/insercion_datos.html')
+        self.response.write(template.render(template_values))
+ 
+class InsertarDatos(webapp2.RequestHandler):
+    def post(self):
+        
+        datos = TablaDatos()
+        datos.temperatura = float(self.request.get('temperatura'))
+        datos.velocidadViento = int(self.request.get('velocidadViento'))
+        datos.direccionViento = self.request.get('direccionViento')
+        datos.racha = int(self.request.get('racha'))
+        datos.direccionRacha = self.request.get('direccionRacha')
+        datos.precipitacion = int(self.request.get('precipitacion'))
+        datos.presion = float(self.request.get('presion'))
+        datos.tendencia = float(self.request.get('tendencia'))
+        datos.humedad = int(self.request.get('humedad'))
+             
+        datos.put()
+            
+        self.redirect('/loged')
+         
         
 urls = [('/',MainPage),
         ('/error',ErrorPage),
@@ -146,6 +183,8 @@ urls = [('/',MainPage),
         ('/highchart', highchart),
         ('/test', test),
         ('/loged', MainPageLoged),
+        ('/formulario', FormularioInsercion),
+        ('/guardarDatos', InsertarDatos),
        ]
 application = webapp2.WSGIApplication(urls, debug=True)
 

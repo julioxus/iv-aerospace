@@ -1,0 +1,187 @@
+  <!doctype html>
+<html lang="es">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="UGR AeroSPace">
+    <meta name="author" content="iv-aerospace" />
+    <!-- <link rel="icon" href="../../favicon.ico"> --> 
+
+    <title>UGR Aerospace Program</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+
+    <link href="static/css/main.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<script type="text/javascript">
+	
+	function Valida(form) {
+	
+		var temperatura = document.getElementById("temperatura").value;
+		var velocidadViento= document.getElementById("velocidadViento").value;
+		var direccionViento= document.getElementById("direccionViento").value;
+		var racha= document.getElementById("racha").value;
+		var direccionRacha= document.getElementById("direccionRacha").value;
+		var precipitacion= document.getElementById("precipitacion").value;
+		var presion= document.getElementById("presion").value;
+		var tendencia= document.getElementById("tendencia").value;
+		var humedad= document.getElementById("humedad").value;
+		
+			
+		  if(temperatura.length==0) { //¿Tiene 0 caracteres?
+		    alert('No has indicado la temperatura'); //Mostramos el mensaje
+		
+		    return false; 
+		  }
+		  if(velocidadViento.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la velocidad del viento');
+		    return false;
+		  }
+		  if(racha.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la racha');
+		    return false;
+		  }
+		   if(direccionRacha.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la direccion de la racha');
+		    return false;
+		  }
+		   if(precipitacion.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la precipitación');
+		    return false;
+		  }
+		   if(presion.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la presión');
+		    return false;
+		  }
+		   if(tendencia.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la tendencia');
+		    return false;
+		  }
+		   if(humedad.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has indicado la humedad');
+		    return false;
+		  }
+		  
+  
+		
+		  return true; //Si ha llegado hasta aquí, es que todo es correcto
+  
+}
+	  
+
+</script>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">UGR Aerospace Program</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action='/'>
+            <button type="submit" class="btn btn-warning">Volver a la página principal</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" id="formulario">
+        <h2>Datos a insertar en la base de datos:</h2>
+		<br/>
+            <form action="/guardarDatos" onsubmit="return Valida(this);"  method="post" role="form">
+            <div class="form-group">
+			<label for="user">Temperatura (ºC) Tiene que ser float:</label>
+			<input type="text" class="form-control" name="temperatura" id="temperatura"
+				   placeholder="Temperatura (ºC)">
+		    </div>
+		    <div class="form-group">
+			<label for="velocidad">Velocidad del viento (km/h) Tiene que ser int:</label>
+			<input type="text" class="form-control" id="velocidadViento"  name="velocidadViento"
+				   placeholder="Velocidad del viento (km/h)">
+		     </div>
+		    <div class="form-group">
+			<label for="direccion">Dirección del viento (km/h):</label>
+			<input type="text" class="form-control" id="direccionViento"  name="direccionViento"
+				   placeholder="Dirección del viento">
+		    </div>
+		    <div class="form-group">
+			<label for="racha">Racha (km/h) Tiene que ser int:</label>
+			<input type="text" class="form-control" id="racha"  name="racha"
+				   placeholder="Racha">
+		    </div>
+		    <div class="form-group">
+			<label for="racha">Dirección de racha (km/h):</label>
+			<input type="text" class="form-control" id="direccionRacha"  name="direccionRacha"
+				   placeholder="Direccion de Racha">
+		    </div> 
+		     <div class="form-group">
+			<label for="direccion">Precipitación (mm) Tiene que ser int:</label>
+			<input type="text" class="form-control" id="precipitacion"  name="precipitacion"
+				   placeholder="Precipitación">
+		    </div>  
+		     <div class="form-group">
+			<label for="direccion">Presión (hPa) Tiene que ser float:</label>
+			<input type="text" class="form-control" id="presion"  name="presion"
+				   placeholder="Presión">
+		    </div>
+		     <div class="form-group">
+			<label for="direccion">Tendencia (hPa) Tiene que ser float:</label>
+			<input type="text" class="form-control" id="tendencia"  name="tendencia"
+				   placeholder="Tendencia">
+		    </div> 
+		    <div class="form-group">
+			<label for="direccion">Humedad (%) Tiene que ser int:</label>
+			<input type="text" class="form-control" id="humedad"  name="humedad"
+				   placeholder="Humedad">
+		    </div>   
+                 
+             <div><input type="submit" value="Guardar"></div>
+             </form>
+
+      <hr>
+
+      <footer>
+        <p>&copy; UGR Aerospace Program</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+   
