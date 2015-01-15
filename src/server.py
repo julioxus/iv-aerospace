@@ -94,7 +94,7 @@ class registro_usuario(webapp2.RequestHandler):
                         
             user.put()
                 
-            self.redirect('/loged')
+            self.redirect('/')
 
 
 class editar_perfil(webapp2.RequestHandler):
@@ -214,6 +214,12 @@ class mapa(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
         self.response.write(template.render())
         
+class twitter(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = JINJA_ENVIRONMENT.get_template('template/contacto.html')
+        self.response.write(template.render())
+        
 class coordenadas(webapp2.RequestHandler):
     def get(self):
         lat = random.random()*50
@@ -223,6 +229,7 @@ class coordenadas(webapp2.RequestHandler):
         
 urls = [('/',MainPage),
         ('/error',ErrorPage),
+        ('/twitter',twitter),
         ('/registrarse',FormularioRegistro),
         ('/info_page',InfoPage),
         ('/reg_usuario', registro_usuario),

@@ -37,35 +37,37 @@
         <h3 class="text-muted">UGR Aerospace Program</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li class="active"><a href="/loged">Inicio</a></li>
+             <li><a href="/loged">Inicio</a></li>
             <li><a href="#">Estadísticas</a></li>
             <li><a href="/listar">Tabla</a></li>
             <li><a href="/editar_perfil">Editar perfil</a></li>
             <li><a href="/mapa">Seguimiento Robot</a></li>
             <li><a href="#">Streaming</a></li>
-            <li><a href="twitter">Social</a></li>
+            <li class="active"><a href="/twitter">Social</a></li>
           </ul>
         </nav>
       </div>
-
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Bienvenido "Insertar nombre de usuario"</h1>
-        <p class="lead">Aquí podrás monitorizar los datos de temperatura, velocidad del viento, presión atmosférica y blablabla.</p>
-        <p><a class="btn btn-lg btn-success" href="/highchart" role="button">Monitoriza el bicho</a></p>
+</br>
+</br>
+      <div >
+      <h3>Sigue nuestro twitter:</h3>
+		<a href="https://twitter.com/ivaerospace2014" class="twitter-follow-button" data-show-count="false">Follow @ivaerospace2014</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    </br>
+    </br>
+    <div>
+     <h3>Tuitea con nuestro famoso hastag:</h3>
+    <a href="https://twitter.com/intent/tweet?button_hashtag=UGRAerospaceProgram" class="twitter-hashtag-button" data-related="juanfran_rv" data-url="http://nice-virtue-753.appspot.com/">Tweet #UGRAerospaceProgram</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
-
-      <!-- Example row of columns -->
-      <div class="row">
-        {% for i in range(0,3) %}
-        <div class="col-md-4">
-          <h2>{{titulos[i]}}</h2>
-          {{descripciones[i]}}
-          <p><a class="btn btn-default" href="{{links[i]}}" role="button">Ver más &raquo;</a></p>
-        </div>
-      {% endfor %}
+      </br>
+      </br>
+      <div>
+     <h3>Comparte nuestra increible aplicación web:</h3>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="juanfran_rv">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
-
       <!-- Site footer -->
       <footer class="footer">
         <p>&copy; UGR Aerospace Program</p>
