@@ -14,6 +14,8 @@ import feedparser
 import random
 import json
 import math
+import datetime
+import time
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -150,17 +152,17 @@ class MainPageLoged(webapp2.RequestHandler):
             titulos = []
             links = []
             descripciones = []
-        
+    
             for i in range (len(rss.entries)):
 
                 titulos.append(rss.entries[i].title)
                 links.append(rss.entries[i].link)
                 descripcion = rss.entries[i].description
                 descripciones.append(descripcion)
-        
-                template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones,'sesion':username}
-                template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
-                self.response.write(template.render(template_values))
+    
+            template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones,'sesion':username}
+            template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
+            self.response.write(template.render(template_values))
         else:
             self.redirect('/')
         
@@ -313,6 +315,39 @@ class cerrar_sesion(webapp2.RequestHandler):
         self.response.headers.add_header("Set-Cookie", "logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
         self.response.headers.add_header("Set-Cookie", "username=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
         self.redirect('/')
+        
+class Estadisticas(webapp2.RequestHandler):
+    def get(self):
+        self.response.headers['Content-Type'] = 'text/html'
+        template = JINJA_ENVIRONMENT.get_template('template/estadisticas.html')
+        
+        lista = TablaDatos.query()
+        
+        datos_hoy = []
+        datos_semana = []
+        datos_mes = []
+                
+        for dato in lista:
+            if dato.fecha.strftime("%d/%m/%Y") == time.strftime("%d/%m/%Y"):
+                datos_hoy.append(dato)
+                
+            if dato.fecha.strftime("%m/%Y") == time.strftime("%m/%Y"):
+                datos_mes.append(dato)
+            
+            dia_dato = int(dato.fecha.strftime("%d"))
+            mes_dato = int(dato.fecha.strftime("%m"))
+            anio_dato = int(dato.fecha.strftime("%Y"))
+            
+            dia_actual = int(time.strftime("%d"))
+            mes_actual = int(time.strftime("%m"))
+            anio_actual = int(time.strftime("%Y"))
+            
+            if datetime.date(anio_actual, mes_actual, dia_actual).isocalendar()[1] == datetime.date(anio_dato, mes_dato, dia_dato).isocalendar()[1]:
+                datos_semana.append(dato)
+                
+        template_values={'datos_hoy':datos_hoy, 'datos_mes':datos_mes, 'datos_semana':datos_semana}
+        
+        self.response.write(template.render(template_values))
                 
 urls = [('/',MainPage),
         ('/error',ErrorPage),
@@ -332,7 +367,10 @@ urls = [('/',MainPage),
         ('/mapa', mapa),
         ('/coordenadas', coordenadas),
         ('/edit_user',edit_user),
+        ('/estadisticas',Estadisticas),
        ]
+
+
 
 application = webapp2.WSGIApplication(urls, debug=True)
 

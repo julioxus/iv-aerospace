@@ -33,8 +33,21 @@
 	color:red;
 }
 
+#sesion_usuario{
+	float: right;
+}
+
 #boton-cerrar{
 	float: right;
+}
+
+#mensaje_bienvenida{
+	float: left;
+	margin-right: 10px;
+}
+
+#barra_navegacion{
+	clear: both;
 }
 
 #tabla_datos{
@@ -64,4 +77,17 @@
 	margin-top:50px;
 }
    
- 
+#tabla_estadisticas{
+	margin-top: 50px;
+}
+
+#tabla_estadisticas th, td{
+	border: solid 1px;
+	padding: 10px;
+	border: solid 1px;
+	text-align: center;
+}
+
+#tabla_estadisticas table{
+	margin-bottom: 50px;
+} 

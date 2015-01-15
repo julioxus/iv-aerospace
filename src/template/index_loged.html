@@ -30,15 +30,17 @@
   <body>
 
     <div class="container">
-
-	  <input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="location.href='/cerrar_sesion';" class="btn btn-warning" />
+      <div id="sesion_usuario">
+	  	<div id="mensaje_bienvenida" class="alert alert-success">Ha iniciado sesión como: {{sesion}}</div>
+	  	<input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="location.href='/cerrar_sesion';" class="btn btn-warning" />
+	  </div>
 	  
-      <div class="masthead">
+      <div class="masthead" id="barra_navegacion">
         <h3 class="text-muted">UGR Aerospace Program</h3>
         <nav>
           <ul class="nav nav-justified">
             <li class="active"><a href="/loged">Inicio</a></li>
-            <li><a href="#">Estadísticas</a></li>
+            <li><a href="/estadisticas">Estadísticas</a></li>
             <li><a href="/listar">Tabla</a></li>
             <li><a href="/editar_perfil">Editar perfil</a></li>
             <li><a href="/mapa">Seguimiento Robot</a></li>
@@ -63,7 +65,7 @@
           {{descripciones[i]}}
           <p><a class="btn btn-default" href="{{links[i]}}" role="button">Ver más &raquo;</a></p>
         </div>
-      {% endfor %}
+       {% endfor %}
       </div>
 
       <!-- Site footer -->

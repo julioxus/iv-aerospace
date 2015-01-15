@@ -41,8 +41,8 @@
         <nav>
           <ul class="nav nav-justified">
              <li ><a href="/loged">Inicio</a></li>
-            <li><a href="/estadisticas">Estadísticas</a></li>
-            <li class="active"><a href="/listar">Tabla</a></li>
+            <li class="active"><a href="/estadisticas">Estadísticas</a></li>
+            <li><a href="/listar">Tabla</a></li>
             <li><a href="/editar_perfil">Editar perfil</a></li>
             <li><a href="/mapa">Seguimiento Robot</a></li>
             <li><a href="#">Streaming</a></li>
@@ -52,8 +52,9 @@
       </div>
 
       <!-- Jumbotron -->
-      <div id="tabla_datos" class="jumbotron">
+      <div id="tabla_estadisticas" class="jumbotron">
         <table>
+        <caption>Datos de hoy</caption>
                  <tr>
                  	 <th><strong>Fecha</strong></td>
                      <th><strong>Temperatura (ºC)</strong></td>
@@ -66,7 +67,7 @@
                      <th><strong>Tendencia (hPa)</strong></td>
                      <th><strong>Humedad (%)</strong></td>
                  </tr>
-                 {% for dato in datos %}
+                 {% for dato in datos_hoy %}
                  <tr>
                  	<td>{{dato.fecha}}</td>
                  	<td>{{dato.temperatura}}</td>
@@ -81,6 +82,67 @@
 				</tr>
 				{% endfor %}
 			</table>
+			
+			<table>
+        	<caption>Datos de la semana</caption>
+                 <tr>
+                 	 <th><strong>Fecha</strong></td>
+                     <th><strong>Temperatura (ºC)</strong></td>
+                     <th><strong>Velocidad del viento (km/h)</strong></td>
+                     <th><strong>Dirección del viento</strong></td>
+                     <th><strong>Racha (km/h)</strong></td>
+                     <th><strong>Dirección de racha</strong></td>
+                     <th><strong>Precipitación (mm)</strong></td>
+                     <th><strong>Presión (hPa)</strong></td>
+                     <th><strong>Tendencia (hPa)</strong></td>
+                     <th><strong>Humedad (%)</strong></td>
+                 </tr>
+                 {% for dato in datos_semana %}
+                 <tr>
+                 	<td>{{dato.fecha}}</td>
+                 	<td>{{dato.temperatura}}</td>
+                 	<td>{{dato.velocidadViento}}</td>
+                 	<td>{{dato.direccionViento}}</td>
+                 	<td>{{dato.racha}}</td>
+                 	<td>{{dato.direccionRacha}}</td>
+                 	<td>{{dato.precipitacion}}</td>
+                 	<td>{{dato.presion}}</td>
+                 	<td>{{dato.tendencia}}</td>
+                 	<td>{{dato.humedad}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+			<table>
+        	<caption>Datos del mes</caption>
+                 <tr>
+                 	 <th><strong>Fecha</strong></td>
+                     <th><strong>Temperatura (ºC)</strong></td>
+                     <th><strong>Velocidad del viento (km/h)</strong></td>
+                     <th><strong>Dirección del viento</strong></td>
+                     <th><strong>Racha (km/h)</strong></td>
+                     <th><strong>Dirección de racha</strong></td>
+                     <th><strong>Precipitación (mm)</strong></td>
+                     <th><strong>Presión (hPa)</strong></td>
+                     <th><strong>Tendencia (hPa)</strong></td>
+                     <th><strong>Humedad (%)</strong></td>
+                 </tr>
+                 {% for dato in datos_mes %}
+                 <tr>
+                 	<td>{{dato.fecha}}</td>
+                 	<td>{{dato.temperatura}}</td>
+                 	<td>{{dato.velocidadViento}}</td>
+                 	<td>{{dato.direccionViento}}</td>
+                 	<td>{{dato.racha}}</td>
+                 	<td>{{dato.direccionRacha}}</td>
+                 	<td>{{dato.precipitacion}}</td>
+                 	<td>{{dato.presion}}</td>
+                 	<td>{{dato.tendencia}}</td>
+                 	<td>{{dato.humedad}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			
 			<p id="boton_insertar_datos"><a class="btn btn-lg btn-success" href="/formulario" role="button">Inserta nuevos datos</a></p>
       </div>
     </div> <!-- /container -->
