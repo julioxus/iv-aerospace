@@ -191,10 +191,8 @@ class ListarDatos(webapp2.RequestHandler):
 class mapa(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
-        latLng = [-25.363882, 131.044922 ]
         template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
-        template_values={'latLng':latLng}
-        self.response.write(template.render(template_values))
+        self.response.write(template.render())
         
 class coordenadas(webapp2.RequestHandler):
     def get(self):
