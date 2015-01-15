@@ -7,6 +7,11 @@
 	margin-top: 50px;
 }
 
+#cohete1{
+	margin-top:100px;
+	width: 100px;
+	float: right
+}
 #formulario{
 	margin: auto;
 	width: 800px;
