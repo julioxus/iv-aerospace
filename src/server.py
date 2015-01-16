@@ -1,8 +1,4 @@
 
-import urllib
-import cgi
-
-from google.appengine.api import users
 from google.appengine.ext import ndb
 
 
@@ -124,16 +120,20 @@ class registro_usuario(webapp2.RequestHandler):
         
 class editar_perfil(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        usuarios = []
-        result=Usuario.query(Usuario.usuario==username)
-        if result>0:
-            for usuario in result:
-                usuarios.append(usuario)
-            self.response.headers['Content-Type'] = 'text/html'
-            template_values = {'usuarios':usuarios,'sesion':username}
-            template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
-            self.response.write(template.render(template_values,message=""))
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            usuarios = []
+            result=Usuario.query(Usuario.usuario==username)
+            if result>0:
+                for usuario in result:
+                    usuarios.append(usuario)
+                self.response.headers['Content-Type'] = 'text/html'
+                template_values = {'usuarios':usuarios,'sesion':username}
+                template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
+                self.response.write(template.render(template_values,message=""))
+        else:
+            self.redirect('/')
+            
         
     def post(self):
         if self.request.cookies.get("logged") == "true":
@@ -159,9 +159,24 @@ class highchart(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
         self.response.write(template.render(template_values))
         
-class test(webapp2.RequestHandler):
+class datos_temperatura(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*30)
+        num = int(random.random()*40)
+        self.response.write(json.dumps(num))
+        
+class datos_velocidadviento(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*200)
+        self.response.write(json.dumps(num))
+        
+class datos_humedad(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*100)
+        self.response.write(json.dumps(num))
+
+class datos_precipitacion(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*10)
         self.response.write(json.dumps(num))
         
 class MainPageLoged(webapp2.RequestHandler):
@@ -202,11 +217,14 @@ class TablaDatos(ndb.Model):
 
 class FormularioInsercion(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        self.response.headers['Content-Type'] = 'text/html'
-        template_values={'sesion':username}
-        template = JINJA_ENVIRONMENT.get_template('template/insercion_datos.html')
-        self.response.write(template.render(template_values))
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            self.response.headers['Content-Type'] = 'text/html'
+            template_values={'sesion':username}
+            template = JINJA_ENVIRONMENT.get_template('template/insercion_datos.html')
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
  
 class InsertarDatos(webapp2.RequestHandler):
     def post(self):
@@ -229,34 +247,43 @@ class InsertarDatos(webapp2.RequestHandler):
         
 class ListarDatos(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        lista = TablaDatos.query()
-        
-        datos = []
-         
-        for dato in lista:
-            datos.append(dato)
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            lista = TablaDatos.query()
             
-        self.response.headers['Content-Type'] = 'text/html'
-        template = JINJA_ENVIRONMENT.get_template('template/listar_datos.html')
-        template_values={'datos':datos,'sesion':username}
-        self.response.write(template.render(template_values))
+            datos = []
+             
+            for dato in lista:
+                datos.append(dato)
+                
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/listar_datos.html')
+            template_values={'datos':datos,'sesion':username}
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
          
-class mapa(webapp2.RequestHandler):
+class monitor(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        template_values={'sesion':username}
-        self.response.headers['Content-Type'] = 'text/html'
-        template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
-        self.response.write(template.render(template_values))
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            template_values={'sesion':username}
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
         
 class twitter(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        template_values={'sesion':username}
-        self.response.headers['Content-Type'] = 'text/html'
-        template = JINJA_ENVIRONMENT.get_template('template/contacto.html')
-        self.response.write(template.render(template_values))
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            template_values={'sesion':username}
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/contacto.html')
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
         
 lat = 37.19699469878369
 lng =  -3.6241040674591507
@@ -278,7 +305,9 @@ class loguearse(webapp2.RequestHandler):
     def post(self):
         usu=self.request.get('usuario')
         result=Usuario.query(Usuario.usuario==usu)
-        if result>0:
+        usur=result.get()
+        print usur
+        if usur is not None:
             usur=result.get()
             pas=self.request.get('password')
             if usur.password==pas:
@@ -347,37 +376,40 @@ class cerrar_sesion(webapp2.RequestHandler):
         
 class Estadisticas(webapp2.RequestHandler):
     def get(self):
-        username = str(self.request.cookies.get("username"))
-        self.response.headers['Content-Type'] = 'text/html'
-        template = JINJA_ENVIRONMENT.get_template('template/estadisticas.html')
-        
-        lista = TablaDatos.query()
-        
-        datos_hoy = []
-        datos_semana = []
-        datos_mes = []
-                
-        for dato in lista:
-            if dato.fecha.strftime("%d/%m/%Y") == time.strftime("%d/%m/%Y"):
-                datos_hoy.append(dato)
-                
-            if dato.fecha.strftime("%m/%Y") == time.strftime("%m/%Y"):
-                datos_mes.append(dato)
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/estadisticas.html')
             
-            dia_dato = int(dato.fecha.strftime("%d"))
-            mes_dato = int(dato.fecha.strftime("%m"))
-            anio_dato = int(dato.fecha.strftime("%Y"))
+            lista = TablaDatos.query()
             
-            dia_actual = int(time.strftime("%d"))
-            mes_actual = int(time.strftime("%m"))
-            anio_actual = int(time.strftime("%Y"))
-            
-            if datetime.date(anio_actual, mes_actual, dia_actual).isocalendar()[1] == datetime.date(anio_dato, mes_dato, dia_dato).isocalendar()[1]:
-                datos_semana.append(dato)
+            datos_hoy = []
+            datos_semana = []
+            datos_mes = []
+                    
+            for dato in lista:
+                if dato.fecha.strftime("%d/%m/%Y") == time.strftime("%d/%m/%Y"):
+                    datos_hoy.append(dato)
+                    
+                if dato.fecha.strftime("%m/%Y") == time.strftime("%m/%Y"):
+                    datos_mes.append(dato)
                 
-        template_values={'datos_hoy':datos_hoy, 'datos_mes':datos_mes, 'datos_semana':datos_semana,'sesion':username}
-        
-        self.response.write(template.render(template_values))
+                dia_dato = int(dato.fecha.strftime("%d"))
+                mes_dato = int(dato.fecha.strftime("%m"))
+                anio_dato = int(dato.fecha.strftime("%Y"))
+                
+                dia_actual = int(time.strftime("%d"))
+                mes_actual = int(time.strftime("%m"))
+                anio_actual = int(time.strftime("%Y"))
+                
+                if datetime.date(anio_actual, mes_actual, dia_actual).isocalendar()[1] == datetime.date(anio_dato, mes_dato, dia_dato).isocalendar()[1]:
+                    datos_semana.append(dato)
+                    
+            template_values={'datos_hoy':datos_hoy, 'datos_mes':datos_mes, 'datos_semana':datos_semana,'sesion':username}
+            
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
                 
 urls = [('/',MainPage),
         ('/error',ErrorPage),
@@ -387,14 +419,17 @@ urls = [('/',MainPage),
         ('/reg_usuario', registro_usuario),
         ('/editar_perfil',editar_perfil),
         ('/highchart', highchart),
-        ('/test', test),
+        ('/datos_temperatura', datos_temperatura),
+        ('/datos_velocidadviento', datos_velocidadviento),
+        ('/datos_humedad', datos_humedad),
+        ('/datos_precipitacion', datos_precipitacion),
         ('/cerrar_sesion', cerrar_sesion),
         ('/loguearse',loguearse),
         ('/loged', MainPageLoged),
         ('/formulario', FormularioInsercion),
         ('/guardarDatos', InsertarDatos),
         ('/listar', ListarDatos),
-        ('/mapa', mapa),
+        ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
        ]

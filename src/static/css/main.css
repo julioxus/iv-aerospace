@@ -67,14 +67,15 @@
 }
 
 #map-canvas2 {
-        height: 500px;
-        width: 500px;
+        height: 517px;
+        width: 477px;
 }
 
 #panel-mapa{	
-	height: 543px;
-   	width: 503px;
+	height: 560px;
+   	width: 480px;
 	margin-top:50px;
+	float: left;
 }
    
 #tabla_estadisticas{
@@ -91,3 +92,58 @@
 #tabla_estadisticas table{
 	margin-bottom: 50px;
 } 
+
+#panel-highchart-temp{	
+	height: 270px;
+   	width: 320px;
+	margin-top:50px;
+	margin-left: 10px;
+	float: left;
+}
+
+#container-temp{
+	height: 200px;
+	min-width: 310px;
+}
+
+#panel-highchart-velocidadviento{	
+	height: 270px;
+   	width: 320px;
+	margin-top:50px;
+	margin-left: 10px;
+	float:left;
+}
+
+#container-velocidadviento{
+	height: 200px;
+	min-width: 310px; 
+}
+
+#panel-highchart-humedad{	
+	height: 270px;
+   	width: 320px;
+	margin-left: 10px;
+	float:left;
+}
+
+#container-humedad{
+	height: 200px;
+	min-width: 310px; 
+}
+
+#panel-highchart-precipitacion{	
+	height: 270px;
+   	width: 320px;
+	margin-left: 10px;
+	float:left;
+}
+
+#container-precipitacion{
+	height: 200px;
+	min-width: 310px; 
+}
+
+
+
+
+
