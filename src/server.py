@@ -159,24 +159,153 @@ class highchart(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
         self.response.write(template.render(template_values))
         
+temperaturas = []
+humedades = []
+precipitaciones = []
+velocidades = []
+media_velocidades=0
+media_temperaturas=0
+direccion_viento=0
+direccion_racha=0
+media_rachas=0
+media_precipitaciones=0
+media_presiones=0
+media_tendencias=0
+media_humedades=0
+
+
+
+
+        
+        
 class datos_temperatura(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*40)
+        
+        global temperaturas
+ 
+
+        global media_velocidades
+        global direccion_viento
+        global direccion_racha
+        global media_rachas
+        global media_precipitaciones
+        global media_presiones
+        global media_tendencias
+        global media_humedades
+        global media_temperaturas
+        
+        
+        
+        num = float(random.random()*50)
+        print len(temperaturas)
+        temperaturas.append(num)
+        if len(temperaturas) == 5:
+            
+            sum = 0
+            for i in temperaturas:
+                sum+=i
+            media_temperaturas = round(sum/len(temperaturas),3)
+
+        
+            temperaturas = []
+
+            
+            
+        
         self.response.write(json.dumps(num))
         
 class datos_velocidadviento(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*200)
+        global velocidades
+ 
+
+        global media_velocidades
+        global direccion_viento
+        global direccion_racha
+        global media_rachas
+        global media_precipitaciones
+        global media_presiones
+        global media_tendencias
+        global media_humedades
+        global media_temperaturas
+
+        num = float(random.random()*20)
+        velocidades.append(num)
+        if len(velocidades) == 5:
+            sum = 0
+            for i in temperaturas:
+                sum+=i
+            media_velocidades = round(sum/len(velocidades),3)       
+            velocidades =[]
+            
         self.response.write(json.dumps(num))
         
 class datos_humedad(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*100)
+        global humedades
+ 
+
+        global media_velocidades
+        global direccion_viento
+        global direccion_racha
+        global media_rachas
+        global media_precipitaciones
+        global media_presiones
+        global media_tendencias
+        global media_humedades
+        global media_temperaturas
+
+        num = float(random.random()*20)
+        humedades.append(num)
+        if len(humedades) == 5:
+            sum = 0
+            for i in humedades:
+                sum+=i
+            media_humedades = round(sum/len(humedades),3)       
+            humedades =[]
         self.response.write(json.dumps(num))
 
 class datos_precipitacion(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*10)
+        global precipitaciones
+ 
+
+        global media_velocidades
+    
+        global direccion_viento
+        global direccion_racha
+        global media_rachas
+        global media_precipitaciones
+        global media_presiones
+        global media_tendencias
+        global media_humedades
+        global media_temperaturas
+
+        num = float(random.random()*20)
+        precipitaciones.append(num)
+        if len(precipitaciones) == 5:
+            sum = 0
+            for i in precipitaciones:
+                sum+=i
+            media_precipitaciones = round(sum/len(precipitaciones),3)
+            datos = TablaDatos()
+            datos.fecha = datetime.datetime.strptime(time.strftime("%d/%m/%Y"), '%d/%m/%Y')
+            datos.temperatura = float(media_temperaturas)
+            
+            datos.velocidadViento = float(media_velocidades)
+            datos.direccionViento = direccion_viento
+            datos.racha = float(media_rachas)
+            datos.direccionRacha = direccion_racha
+            datos.precipitacion = float(media_precipitaciones)
+            datos.presion = float(media_presiones)
+            datos.tendencia = float(media_tendencias)
+            datos.humedad = float(media_humedades)
+             
+            datos.put()     
+            precipitaciones =[]        
+        
+        
+        
         self.response.write(json.dumps(num))
         
 class MainPageLoged(webapp2.RequestHandler):
