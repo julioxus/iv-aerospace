@@ -6,7 +6,6 @@
 <path>/${PROJECT_DIR_NAME}/google_appengine</path>
 <path>/${PROJECT_DIR_NAME}/google_appengine/lib/webapp2-2.5.2</path>
 <path>/${PROJECT_DIR_NAME}/google_appengine/lib/jinja2-2.6</path>
-<path>/${PROJECT_DIR_NAME}/src/daemon</path>
 </pydev_pathproperty>
 
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>

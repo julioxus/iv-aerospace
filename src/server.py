@@ -158,6 +158,8 @@ class highchart(webapp2.RequestHandler):
         template_values = {'num':num}
         template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
         self.response.write(template.render(template_values))
+
+# Variables globales
         
 temperaturas = []
 humedades = []
@@ -165,25 +167,20 @@ precipitaciones = []
 velocidades = []
 media_velocidades=0
 media_temperaturas=0
-direccion_viento=0
+direccion_viento=""
 direccion_racha=0
-media_rachas=0
+media_rachas=""
 media_precipitaciones=0
 media_presiones=0
 media_tendencias=0
 media_humedades=0
+ARRAY_LIMIT = 50
 
-
-
-
-        
         
 class datos_temperatura(webapp2.RequestHandler):
     def get(self):
         
         global temperaturas
- 
-
         global media_velocidades
         global direccion_viento
         global direccion_racha
@@ -193,32 +190,25 @@ class datos_temperatura(webapp2.RequestHandler):
         global media_tendencias
         global media_humedades
         global media_temperaturas
-        
-        
+        global ARRAY_LIMIT
+
         
         num = float(random.random()*50)
-        print len(temperaturas)
         temperaturas.append(num)
-        if len(temperaturas) == 5:
+        if len(temperaturas) == ARRAY_LIMIT:
             
             sum = 0
             for i in temperaturas:
                 sum+=i
             media_temperaturas = round(sum/len(temperaturas),3)
 
-        
             temperaturas = []
-
-            
-            
-        
+  
         self.response.write(json.dumps(num))
         
 class datos_velocidadviento(webapp2.RequestHandler):
     def get(self):
         global velocidades
- 
-
         global media_velocidades
         global direccion_viento
         global direccion_racha
@@ -228,23 +218,22 @@ class datos_velocidadviento(webapp2.RequestHandler):
         global media_tendencias
         global media_humedades
         global media_temperaturas
+        global ARRAY_LIMIT
 
-        num = float(random.random()*20)
+        num = float(random.random()*100)
         velocidades.append(num)
-        if len(velocidades) == 5:
+        if len(velocidades) == ARRAY_LIMIT:
             sum = 0
-            for i in temperaturas:
+            for i in velocidades:
                 sum+=i
             media_velocidades = round(sum/len(velocidades),3)       
-            velocidades =[]
+            velocidades = []
             
         self.response.write(json.dumps(num))
         
 class datos_humedad(webapp2.RequestHandler):
     def get(self):
         global humedades
- 
-
         global media_velocidades
         global direccion_viento
         global direccion_racha
@@ -254,10 +243,11 @@ class datos_humedad(webapp2.RequestHandler):
         global media_tendencias
         global media_humedades
         global media_temperaturas
+        global ARRAY_LIMIT
 
-        num = float(random.random()*20)
+        num = float(random.random()*100)
         humedades.append(num)
-        if len(humedades) == 5:
+        if len(humedades) == ARRAY_LIMIT:
             sum = 0
             for i in humedades:
                 sum+=i
@@ -268,10 +258,7 @@ class datos_humedad(webapp2.RequestHandler):
 class datos_precipitacion(webapp2.RequestHandler):
     def get(self):
         global precipitaciones
- 
-
         global media_velocidades
-    
         global direccion_viento
         global direccion_racha
         global media_rachas
@@ -280,16 +267,47 @@ class datos_precipitacion(webapp2.RequestHandler):
         global media_tendencias
         global media_humedades
         global media_temperaturas
+        global ARRAY_LIMIT
 
+        
+        num = int(random.random()*3)
+         
+        if num == 0: 
+            direccion_viento = 'norte'
+        elif num == 1:
+            direccion_viento = 'sur'
+        elif num == 2:
+            direccion_viento = 'este'
+        elif num == 3:
+            direccion_viento = 'oeste'
+        
+        num = int(random.random()*3)
+         
+        if num == 0: 
+            direccion_racha = 'norte'
+        elif num == 1:
+            direccion_racha = 'sur'
+        elif num == 2:
+            direccion_racha = 'este'
+        elif num == 3:
+            direccion_racha = 'oeste'
+            
+        media_rachas = round(float(random.random()*30),3)
+        media_presiones = round(float(random.random()*100) + 900,3)
+        media_tendencias = round(float(random.random()*4) - 2,3)
+        
         num = float(random.random()*20)
         precipitaciones.append(num)
-        if len(precipitaciones) == 5:
+        
+        print len(precipitaciones)
+        if len(precipitaciones) == ARRAY_LIMIT:
             sum = 0
             for i in precipitaciones:
                 sum+=i
             media_precipitaciones = round(sum/len(precipitaciones),3)
             datos = TablaDatos()
             datos.fecha = datetime.datetime.strptime(time.strftime("%d/%m/%Y"), '%d/%m/%Y')
+            datos.hora = datetime.datetime.now().strftime('%H:%M:%S')
             datos.temperatura = float(media_temperaturas)
             
             datos.velocidadViento = float(media_velocidades)
@@ -302,10 +320,8 @@ class datos_precipitacion(webapp2.RequestHandler):
             datos.humedad = float(media_humedades)
              
             datos.put()     
-            precipitaciones =[]        
-        
-        
-        
+            precipitaciones = []        
+
         self.response.write(json.dumps(num))
         
 class MainPageLoged(webapp2.RequestHandler):
@@ -334,6 +350,7 @@ class MainPageLoged(webapp2.RequestHandler):
         
 class TablaDatos(ndb.Model):
     fecha = ndb.DateProperty();
+    hora = ndb.StringProperty();
     temperatura = ndb.FloatProperty()
     velocidadViento = ndb.FloatProperty()
     direccionViento = ndb.StringProperty()
@@ -360,6 +377,7 @@ class InsertarDatos(webapp2.RequestHandler):
         
         datos = TablaDatos()
         datos.fecha = datetime.datetime.strptime(time.strftime("%d/%m/%Y"), '%d/%m/%Y')
+        datos.hora = str(datetime.datetime.now().strftime('%H:%M:%S'))
         datos.temperatura = float(self.request.get('temperatura'))
         datos.velocidadViento = float(self.request.get('velocidadViento'))
         datos.direccionViento = self.request.get('direccionViento')

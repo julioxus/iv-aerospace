@@ -57,6 +57,7 @@
         <caption>Datos de hoy</caption>
                  <tr>
                  	 <th><strong>Fecha</strong></td>
+                 	 <th><strong>Hora</strong></th>
                      <th><strong>Temperatura (ºC)</strong></td>
                      <th><strong>Velocidad del viento (km/h)</strong></td>
                      <th><strong>Dirección del viento</strong></td>
@@ -70,6 +71,7 @@
                  {% for dato in datos_hoy %}
                  <tr>
                  	<td>{{dato.fecha}}</td>
+                 	<td>{{dato.hora}}</td>
                  	<td>{{dato.temperatura}}</td>
                  	<td>{{dato.velocidadViento}}</td>
                  	<td>{{dato.direccionViento}}</td>
@@ -87,6 +89,7 @@
         	<caption>Datos de la semana</caption>
                  <tr>
                  	 <th><strong>Fecha</strong></td>
+                 	 <th><strong>Hora</strong></th>
                      <th><strong>Temperatura (ºC)</strong></td>
                      <th><strong>Velocidad del viento (km/h)</strong></td>
                      <th><strong>Dirección del viento</strong></td>
@@ -100,6 +103,7 @@
                  {% for dato in datos_semana %}
                  <tr>
                  	<td>{{dato.fecha}}</td>
+                 	<td>{{dato.hora}}</td>
                  	<td>{{dato.temperatura}}</td>
                  	<td>{{dato.velocidadViento}}</td>
                  	<td>{{dato.direccionViento}}</td>
@@ -117,6 +121,7 @@
         	<caption>Datos del mes</caption>
                  <tr>
                  	 <th><strong>Fecha</strong></td>
+                 	 <th><strong>Hora</strong></th>
                      <th><strong>Temperatura (ºC)</strong></td>
                      <th><strong>Velocidad del viento (km/h)</strong></td>
                      <th><strong>Dirección del viento</strong></td>
@@ -130,6 +135,7 @@
                  {% for dato in datos_mes %}
                  <tr>
                  	<td>{{dato.fecha}}</td>
+                 	<td>{{dato.hora}}</td>
                  	<td>{{dato.temperatura}}</td>
                  	<td>{{dato.velocidadViento}}</td>
                  	<td>{{dato.direccionViento}}</td>
