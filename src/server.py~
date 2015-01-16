@@ -158,28 +158,6 @@ class highchart(webapp2.RequestHandler):
         template_values = {'num':num}
         template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
         self.response.write(template.render(template_values))
-        
-class highchart_temperatura(webapp2.RequestHandler):
-    def get(self):
-        if self.request.cookies.get("logged") == "true":
-            username = str(self.request.cookies.get("username"))
-            template_values={'sesion':username}
-            self.response.headers['Content-Type'] = 'text/html'
-            template = JINJA_ENVIRONMENT.get_template('template/highchart_temperatura.html')
-            self.response.write(template.render(template_values))
-        else:
-            self.redirect('/')
-
-class highchart_velocidadviento(webapp2.RequestHandler):
-    def get(self):
-        if self.request.cookies.get("logged") == "true":
-            username = str(self.request.cookies.get("username"))
-            template_values={'sesion':username}
-            self.response.headers['Content-Type'] = 'text/html'
-            template = JINJA_ENVIRONMENT.get_template('template/highchart_velocidadviento.html')
-            self.response.write(template.render(template_values))
-        else:
-            self.redirect('/')
 
 # Variables globales
         
@@ -345,28 +323,6 @@ class datos_precipitacion(webapp2.RequestHandler):
             precipitaciones = []        
 
         self.response.write(json.dumps(num))
-
-
-class datos_temperatura2(webapp2.RequestHandler):
-    def get(self):
-        num = int(random.random()*50)
-        self.response.write(json.dumps(num))    
-
-class datos_velocidadviento2(webapp2.RequestHandler):
-    def get(self):
-        num = int(random.random()*100)
-        self.response.write(json.dumps(num))
-        
-class datos_humedad2(webapp2.RequestHandler):
-    def get(self):
-        num = int(random.random()*100)
-        self.response.write(json.dumps(num))
-
-class datos_precipitacion2(webapp2.RequestHandler):
-    def get(self):
-        num = int(random.random()*20)
-        self.response.write(json.dumps(num))    
-
         
 class MainPageLoged(webapp2.RequestHandler):
     def get(self):
@@ -460,7 +416,7 @@ class monitor(webapp2.RequestHandler):
             username = str(self.request.cookies.get("username"))
             template_values={'sesion':username}
             self.response.headers['Content-Type'] = 'text/html'
-            template = JINJA_ENVIRONMENT.get_template('template/monitor.html')
+            template = JINJA_ENVIRONMENT.get_template('template/mapa.html')
             self.response.write(template.render(template_values))
         else:
             self.redirect('/')
@@ -636,7 +592,6 @@ urls = [('/',MainPage),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
-        ('/terms', terms),
        ]
 
 

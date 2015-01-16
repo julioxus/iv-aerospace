@@ -712,15 +712,19 @@ $(function () {
           </ul>
         </nav>
       </div>
-      
+        			
+	 	<div class="panel panel-default" id="monitor-titulo">
+	    	<div class="panel-body"><h1 id="monitor-texto-titulo">Monitorización</h1></div>
+		</div>
+		
+		
 	    <div class="panel panel-primary" id="panel-mapa">
 	        <div class="panel-heading">Geolocalización</div>
 	    	<div id="map-canvas2" class="jumbotron"></div>
 	    </div>
-	    
 	    <div id="paneles-highchart">
 	    
-		   	<div class="panel panel-primary" id="panel-highchart-temp">
+		   	<div class="panel panel-danger" id="panel-highchart-temp">
 		        <div class="panel-heading">Temperatura</div>
 				<select name="tipoGrafica-temp" id="tipoGrafica-temp" >    
 				   <option value="column" selected="selected">Columnas</option>
@@ -731,10 +735,10 @@ $(function () {
 				</select>
 				<button id="botonGrafica-temp">Cambiar tipo</button>
 				
-		   		<a href="/highchart"><div id="container-temp"></div></a>
+		   		<a href="/highchart_temperatura"><div id="container-temp"></div></a>
 		    </div>
 		    
-		   	<div class="panel panel-primary" id="panel-highchart-velocidadviento">
+		   	<div class="panel panel-success" id="panel-highchart-velocidadviento">
 		        <div class="panel-heading">Velocidad del viento</div>
 				<select name="tipoGrafica-velocidadviento" id="tipoGrafica-velocidadviento" >    
 				   <option value="column" selected="selected">Columnas</option>
@@ -745,10 +749,10 @@ $(function () {
 				</select>
 				<button id="botonGrafica-velocidadviento">Cambiar tipo</button>
 				
-		   		<div id="container-velocidadviento"></div>
+		   		<a href="/highchart_velocidadviento"><div id="container-velocidadviento"></div></a>
 		    </div>
 		    
-		   	<div class="panel panel-primary" id="panel-highchart-humedad">
+		   	<div class="panel panel-info" id="panel-highchart-humedad">
 		        <div class="panel-heading">Humedad</div>
 				<select name="tipoGrafica-humedad" id="tipoGrafica-humedad" >    
 				   <option value="column" selected="selected">Columnas</option>
@@ -759,7 +763,7 @@ $(function () {
 				</select>
 				<button id="botonGrafica-humedad">Cambiar tipo</button>
 				
-		   		<div id="container-humedad"></div>
+		   		<a href="/highchart_humedad"><div id="container-humedad"></div></a>
 		    </div>
 		    
 		    <div class="panel panel-primary" id="panel-highchart-precipitacion">
@@ -773,7 +777,7 @@ $(function () {
 				</select>
 				<button id="botonGrafica-precipitacion">Cambiar tipo</button>
 				
-		   		<div id="container-precipitacion"></div>
+		   		<a href="/highchart_precipitacion"><div id="container-precipitacion"></div></a>
 		    </div>
 	    
 	    </div>
