@@ -159,9 +159,24 @@ class highchart(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
         self.response.write(template.render(template_values))
         
-class test(webapp2.RequestHandler):
+class datos_temperatura(webapp2.RequestHandler):
     def get(self):
-        num = int(random.random()*30)
+        num = int(random.random()*40)
+        self.response.write(json.dumps(num))
+        
+class datos_velocidadviento(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*200)
+        self.response.write(json.dumps(num))
+        
+class datos_humedad(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*100)
+        self.response.write(json.dumps(num))
+
+class datos_precipitacion(webapp2.RequestHandler):
+    def get(self):
+        num = int(random.random()*10)
         self.response.write(json.dumps(num))
         
 class MainPageLoged(webapp2.RequestHandler):
@@ -248,7 +263,7 @@ class ListarDatos(webapp2.RequestHandler):
         else:
             self.redirect('/')
          
-class mapa(webapp2.RequestHandler):
+class monitor(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
             username = str(self.request.cookies.get("username"))
@@ -404,14 +419,17 @@ urls = [('/',MainPage),
         ('/reg_usuario', registro_usuario),
         ('/editar_perfil',editar_perfil),
         ('/highchart', highchart),
-        ('/test', test),
+        ('/datos_temperatura', datos_temperatura),
+        ('/datos_velocidadviento', datos_velocidadviento),
+        ('/datos_humedad', datos_humedad),
+        ('/datos_precipitacion', datos_precipitacion),
         ('/cerrar_sesion', cerrar_sesion),
         ('/loguearse',loguearse),
         ('/loged', MainPageLoged),
         ('/formulario', FormularioInsercion),
         ('/guardarDatos', InsertarDatos),
         ('/listar', ListarDatos),
-        ('/mapa', mapa),
+        ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
        ]
