@@ -30,24 +30,45 @@ class MainPage(webapp2.RequestHandler):
     
     
     def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
         
-        rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
-        
-        titulos = []
-        links = []
-        descripciones = []
-        
-        for i in range (len(rss.entries)):
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            self.response.headers['Content-Type'] = 'text/html'
+            rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
+            titulos = []
+            links = []
+            descripciones = []
+    
+            for i in range (len(rss.entries)):
 
-            titulos.append(rss.entries[i].title)
-            links.append(rss.entries[i].link)
-            descripcion = rss.entries[i].description
-            descripciones.append(descripcion)
-        
-        template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
-        template = JINJA_ENVIRONMENT.get_template('template/index.html')
-        self.response.write(template.render(template_values))
+                titulos.append(rss.entries[i].title)
+                links.append(rss.entries[i].link)
+                descripcion = rss.entries[i].description
+                descripciones.append(descripcion)
+    
+            template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones,'sesion':username}
+            template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
+            self.response.write(template.render(template_values))
+        else:
+                
+            self.response.headers['Content-Type'] = 'text/html'
+            
+            rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
+            
+            titulos = []
+            links = []
+            descripciones = []
+            
+            for i in range (len(rss.entries)):
+    
+                titulos.append(rss.entries[i].title)
+                links.append(rss.entries[i].link)
+                descripcion = rss.entries[i].description
+                descripciones.append(descripcion)
+            
+            template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
+            template = JINJA_ENVIRONMENT.get_template('template/index.html')
+            self.response.write(template.render(template_values))
         
 class InfoPage(webapp2.RequestHandler):
     
@@ -99,37 +120,37 @@ class registro_usuario(webapp2.RequestHandler):
             user.put()
                 
             self.redirect('/')
-
-
+  
+        
 class editar_perfil(webapp2.RequestHandler):
     def get(self):
         username = str(self.request.cookies.get("username"))
         usuarios = []
-        result = Usuario.query()
-        for usuario in result:
-            usuarios.append(usuario)
-        self.response.headers['Content-Type'] = 'text/html'
-        template_values = {'usuarios':usuarios,'sesion':username}
-        template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
-        self.response.write(template.render(template_values,message=""))
+        result=Usuario.query(Usuario.usuario==username)
+        if result>0:
+            for usuario in result:
+                usuarios.append(usuario)
+            self.response.headers['Content-Type'] = 'text/html'
+            template_values = {'usuarios':usuarios,'sesion':username}
+            template = JINJA_ENVIRONMENT.get_template('template/editar_perfil.html')
+            self.response.write(template.render(template_values,message=""))
         
-class edit_user(webapp2.RequestHandler):
     def post(self):
-        usu=self.request.get('usuario')
-        result = Usuario.query()
-        for us in result:
-            if us.usuario == usu:
-                us.usuario = self.request.get('usuario')
-                us.password = self.request.get('password')
-                us.nombre = self.request.get('nombre')
-                us.apellido = self.request.get('apellido')
-                us.correo = self.request.get('correo')
-                us.telefono = self.request.get('telefono')
-                        
-                us.put()
-                
-                self.redirect('/')
-                
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            result = Usuario.query()
+            for us in result:
+                if us.usuario == username:
+                    us.password = self.request.get('password')
+                    us.nombre = self.request.get('nombre')
+                    us.apellido = self.request.get('apellido')
+                    us.correo = self.request.get('correo')
+                    us.telefono = self.request.get('telefono')
+                            
+                    us.put()
+                    
+                    self.redirect('/loged')
+                    
 class highchart(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -375,7 +396,6 @@ urls = [('/',MainPage),
         ('/listar', ListarDatos),
         ('/mapa', mapa),
         ('/coordenadas', coordenadas),
-        ('/edit_user',edit_user),
         ('/estadisticas',Estadisticas),
        ]
 

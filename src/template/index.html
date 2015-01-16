@@ -48,6 +48,30 @@
 google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
+  <script type="text/javascript">
+	
+	function Valida(form) {
+	
+		var usuario = document.getElementById("usuario").value;
+		var password= document.getElementById("password").value;
+			
+		  if(usuario.length==0) { //¿Tiene 0 caracteres?
+		    alert('No has escrito el nombre de usuario'); //Mostramos el mensaje
+		
+		    return false; 
+		  }
+		  if(password.length==0) { //comprueba que no esté vacío
+		  
+		    alert('No has escrito tu contraseña');
+		    return false;
+		  }
+
+		  return true; //Si ha llegado hasta aquí, es que todo es correcto
+  
+}
+	  
+
+</script>
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -62,12 +86,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <a class="navbar-brand" href="#">UGR Aerospace Program</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="/loguearse" method="post">
+          <form class="navbar-form navbar-right" action="/loguearse" onsubmit="return Valida(this);" role="form" method="post">
             <div class="form-group">
-              <input type="text" placeholder="Usuario" class="form-control" name="usuario">
+              <input type="text" placeholder="Usuario" class="form-control" name="usuario"  id="usuario">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Contraseña" class="form-control" name="password">
+              <input type="password" placeholder="Contraseña" class="form-control" name="password" id="password">
             </div>
             <button type="submit" class="btn btn-success">Iniciar sesión</button>
 	    	<input type="button" value="Registrarse" onclick="location.href='/registrarse';" class="btn btn-primary" />
