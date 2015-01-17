@@ -574,7 +574,6 @@ urls = [('/',MainPage),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
-        ('/terms', terms),
        ]
 
 

@@ -170,6 +170,15 @@
 	margin-top: 20px;
 }
 
+#terminos{
+	width:700px;
+	height:400px;
+	overflow:auto;
+	background-color: white;
+	border: solid 1px;
+	margin: auto;
+	padding: 20px;
+}
 
 
 
