@@ -381,31 +381,6 @@ class datos_precipitacion2(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*20)
         self.response.write(json.dumps(num))    
-
-        
-class MainPageLoged(webapp2.RequestHandler):
-    def get(self):
-        
-        if self.request.cookies.get("logged") == "true":
-            username = str(self.request.cookies.get("username"))
-            self.response.headers['Content-Type'] = 'text/html'
-            rss = feedparser.parse('http://www.sondasespaciales.com/portada/feed/')
-            titulos = []
-            links = []
-            descripciones = []
-    
-            for i in range (len(rss.entries)):
-
-                titulos.append(rss.entries[i].title)
-                links.append(rss.entries[i].link)
-                descripcion = rss.entries[i].description
-                descripciones.append(descripcion)
-    
-            template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones,'sesion':username}
-            template = JINJA_ENVIRONMENT.get_template('template/index_loged.html')
-            self.response.write(template.render(template_values))
-        else:
-            self.redirect('/')
         
 class TablaDatos(ndb.Model):
     fecha = ndb.DateProperty();
@@ -596,7 +571,6 @@ urls = [('/',MainPage),
         ('/datos_precipitacion2', datos_precipitacion2),
         ('/cerrar_sesion', cerrar_sesion),
         ('/loguearse',loguearse),
-        ('/loged', MainPageLoged),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
