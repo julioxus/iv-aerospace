@@ -181,6 +181,29 @@ class highchart_velocidadviento(webapp2.RequestHandler):
         else:
             self.redirect('/')
 
+class highchart_humedad(webapp2.RequestHandler):
+    def get(self):
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            template_values={'sesion':username}
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/highchart_humedad.html')
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
+            
+class highchart_precipitacion(webapp2.RequestHandler):
+    def get(self):
+        if self.request.cookies.get("logged") == "true":
+            username = str(self.request.cookies.get("username"))
+            template_values={'sesion':username}
+            self.response.headers['Content-Type'] = 'text/html'
+            template = JINJA_ENVIRONMENT.get_template('template/highchart_precipitacion.html')
+            self.response.write(template.render(template_values))
+        else:
+            self.redirect('/')
+
+
 # Variables globales
         
 temperaturas = []
@@ -619,6 +642,8 @@ urls = [('/',MainPage),
         ('/highchart', highchart),
         ('/highchart_temperatura', highchart_temperatura),
         ('/highchart_velocidadviento', highchart_velocidadviento),
+        ('/highchart_humedad', highchart_humedad),
+        ('/highchart_precipitacion', highchart_precipitacion),
         ('/datos_temperatura', datos_temperatura),
         ('/datos_velocidadviento', datos_velocidadviento),
         ('/datos_humedad', datos_humedad),
