@@ -150,14 +150,6 @@ class editar_perfil(webapp2.RequestHandler):
                     us.put()
                     
                     self.redirect('/loged')
-                    
-class highchart(webapp2.RequestHandler):
-    def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        num = int(random.random()*30)
-        template_values = {'num':num}
-        template = JINJA_ENVIRONMENT.get_template('template/highchart.html')
-        self.response.write(template.render(template_values))
         
 class highchart_temperatura(webapp2.RequestHandler):
     def get(self):
@@ -427,56 +419,7 @@ class TablaDatos(ndb.Model):
     presion = ndb.FloatProperty()
     tendencia = ndb.FloatProperty()
     humedad = ndb.FloatProperty()
-
-class FormularioInsercion(webapp2.RequestHandler):
-    def get(self):
-        if self.request.cookies.get("logged") == "true":
-            username = str(self.request.cookies.get("username"))
-            self.response.headers['Content-Type'] = 'text/html'
-            template_values={'sesion':username}
-            template = JINJA_ENVIRONMENT.get_template('template/insercion_datos.html')
-            self.response.write(template.render(template_values))
-        else:
-            self.redirect('/')
- 
-class InsertarDatos(webapp2.RequestHandler):
-    def post(self):
-        
-        datos = TablaDatos()
-        datos.fecha = datetime.datetime.strptime(time.strftime("%d/%m/%Y"), '%d/%m/%Y')
-        datos.hora = str(datetime.datetime.now().strftime('%H:%M:%S'))
-        datos.temperatura = float(self.request.get('temperatura'))
-        datos.velocidadViento = float(self.request.get('velocidadViento'))
-        datos.direccionViento = self.request.get('direccionViento')
-        datos.racha = float(self.request.get('racha'))
-        datos.direccionRacha = self.request.get('direccionRacha')
-        datos.precipitacion = float(self.request.get('precipitacion'))
-        datos.presion = float(self.request.get('presion'))
-        datos.tendencia = float(self.request.get('tendencia'))
-        datos.humedad = float(self.request.get('humedad'))
-             
-        datos.put()
-            
-        self.redirect('/listar')
-        
-class ListarDatos(webapp2.RequestHandler):
-    def get(self):
-        if self.request.cookies.get("logged") == "true":
-            username = str(self.request.cookies.get("username"))
-            lista = TablaDatos.query()
-            
-            datos = []
-             
-            for dato in lista:
-                datos.append(dato)
-                
-            self.response.headers['Content-Type'] = 'text/html'
-            template = JINJA_ENVIRONMENT.get_template('template/listar_datos.html')
-            template_values={'datos':datos,'sesion':username}
-            self.response.write(template.render(template_values))
-        else:
-            self.redirect('/')
-         
+                  
 class monitor(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -639,7 +582,6 @@ urls = [('/',MainPage),
         ('/info_page',InfoPage),
         ('/reg_usuario', registro_usuario),
         ('/editar_perfil',editar_perfil),
-        ('/highchart', highchart),
         ('/highchart_temperatura', highchart_temperatura),
         ('/highchart_velocidadviento', highchart_velocidadviento),
         ('/highchart_humedad', highchart_humedad),
@@ -655,9 +597,6 @@ urls = [('/',MainPage),
         ('/cerrar_sesion', cerrar_sesion),
         ('/loguearse',loguearse),
         ('/loged', MainPageLoged),
-        ('/formulario', FormularioInsercion),
-        ('/guardarDatos', InsertarDatos),
-        ('/listar', ListarDatos),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
