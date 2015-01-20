@@ -438,7 +438,6 @@ class loguearse(webapp2.RequestHandler):
         usu=self.request.get('usuario')
         result=Usuario.query(Usuario.usuario==usu)
         usur=result.get()
-        print usur
         if usur is not None:
             usur=result.get()
             pas=self.request.get('password')
@@ -548,6 +547,30 @@ class terms(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
+        
+class Tests(webapp2.RequestHandler):
+	
+	def testBD(self,usuario):
+		
+		user = Usuario()
+		
+		user.usuario = usuario
+        user.password = '12345'
+        user.nombre = usuario
+        user.apellido = 'perez'
+		user.correo = 'tontaco@gmail.com'
+		user.telefono = '600000000'
+                        
+        user.put()
+		
+        result=Usuario.query(Usuario.usuario==usuario)
+        usur=result.get()
+        
+        if usur is not None:
+			usur.key.delete()
+			return True
+		
+		return False
 
                 
 urls = [('/',MainPage),
