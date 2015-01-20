@@ -549,28 +549,24 @@ class terms(webapp2.RequestHandler):
         self.response.write(template.render())
         
 class Tests(webapp2.RequestHandler):
-	
-	def testBD(self,usuario):
-		
-		user = Usuario()
-		
-		user.usuario = usuario
+
+    def testBD(self,usuario):
+        user = Usuario()
+        user.usuario = usuario
         user.password = '12345'
         user.nombre = usuario
         user.apellido = 'perez'
-		user.correo = 'tontaco@gmail.com'
-		user.telefono = '600000000'
+        user.correo = 'tontaco@gmail.com'
+        user.telefono = '600000000'
                         
         user.put()
-		
         result=Usuario.query(Usuario.usuario==usuario)
         usur=result.get()
         
         if usur is not None:
-			usur.key.delete()
-			return True
-		
-		return False
+            usur.key.delete()
+            return True
+        return False
 
                 
 urls = [('/',MainPage),
