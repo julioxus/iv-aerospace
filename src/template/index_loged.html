@@ -32,19 +32,19 @@
     <div class="container">
       <div id="sesion_usuario">
 	  	<div id="mensaje_bienvenida" class="alert alert-success">Ha iniciado sesión como: {{sesion}}</div>
-	  	<input id="boton-cerrar" type="button" value="Cerrar sesión" onclick="location.href='/cerrar_sesion';" class="btn btn-warning" />
+	  	<input id="boton-cerrar" name="boton-cerrar" type="button" value="Cerrar sesión" onclick="location.href='/cerrar_sesion';" class="btn btn-warning" />
 	  </div>
 	  
       <div class="masthead" id="barra_navegacion">
         <h3 class="text-muted">UGR Aerospace Program</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li class="active"><a href="/">Inicio</a></li>
-            <li><a href="/monitor">Monitorización</a></li>
-            <li><a href="/estadisticas">Estadísticas</a></li>
-            <li><a href="#">Streaming</a></li>
-            <li><a href="/editar_perfil">Editar perfil</a></li>
-            <li><a href="twitter">Social</a></li>
+            <li class="active"><a id="btn_inicio" name="btn_inicio" href="/">Inicio</a></li>
+            <li><a id="btn_monitorizacion" name="btn_monitorizacion" href="/monitor">Monitorización</a></li>
+            <li><a id="btn_estadisticas" name="btn_estadisticas" href="/estadisticas">Estadísticas</a></li>
+            <li><a id="btn_streaming" name="btn_streaming" href="#">Streaming</a></li>
+            <li><a id="btn_editar" name="btn_editar" href="/editar_perfil">Editar perfil</a></li>
+            <li><a id="btn_twitter" name="btn_twitter" href="twitter">Social</a></li>
           </ul>
         </nav>
       </div>
@@ -53,7 +53,7 @@
       <div class="jumbotron">
         <h1>Bienvenido {{sesion}}</h1>
         <p class="lead">Aquí podrás monitorizar los datos de temperatura, velocidad del viento, presión atmosférica y blablabla.</p>
-        <p><a class="btn btn-lg btn-success" href="/monitor" role="button">Monitoriza el bicho</a></p>
+        <p><a class="btn btn-lg btn-success" id="btn_monitor" name="btn_monitor" href="/monitor" role="button">Monitoriza el bicho</a></p>
       </div>
 
       <!-- Example row of columns -->
