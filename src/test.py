@@ -25,7 +25,7 @@ class aerospaceTestCase(unittest.TestCase):
 		self.assertEqual(response,4)
 		
 		response = pruebas.testURL()
-		self.assertEqual(response, true)
+		self.assertEqual(response, True)
 	
 				
 			

@@ -563,12 +563,21 @@ class Tests(webapp2.RequestHandler):
         return numero*numero
 
     def testURL(self):  
-        for url in urls:
-            response = requests.get('http://ugraerospaceprogram.appspot.com' + url[0])
+        
+        urls_test = [ '/', '/error', '/twitter', '/registrarse', '/info_page', '/editar_perfil', '/highchart_temperatura',
+              '/highchart_precipitacion', '/highchart_humedad', '/highchart_velocidadviento', '/monitor', '/estadisticas', '/cerrar_sesion']
+        
+        for url in urls_test:
+            response = requests.get('http://ugraerospaceprogram.appspot.com' + url)
             if response.status_code >= 400:
                 return False
                 
         return True
+    
+    
+    
+    
+    
                 
 
                 
