@@ -27,5 +27,5 @@ else
         docker pull julioxus/iv-aerospace
  
         #Arrancamos el contenedor
-        docker run -t -i julioxus/iv-aerospace /bin/bash
+        docker run -t -i julioxus/iv-aerospace $(cd iv-aerospace; ./run.sh; /bin/bash)
 fi

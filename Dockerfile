@@ -21,8 +21,8 @@ RUN cd iv-aerospace && \
 git submodule init && \
 git submodule sync && \
 git submodule update && \
-chmod 755 run.sh
-bash $(cd iv-aerospace; ./run.sh)
+chmod 755 run.sh && \
+bash run.sh
 
 
 
