@@ -13,12 +13,16 @@ RUN easy_install pip
 RUN apt-get install -y wget
 RUN apt-get install -y zip
 
-# Instalamos git para clonar nuestro repositorio
+# Instalamos git para clonar nuestro repositorio y ejecutar el script que lanza la aplicación web.
+
 RUN apt-get install -y git
 RUN git clone https://github.com/julioxus/iv-aerospace.git
-RUN cd iv-aerospace && git submodule init && git submodule sync && git submodule update
+RUN cd iv-aerospace && \
+git submodule init && \
+git submodule sync && \
+git submodule update && \
+chmod 755 run.sh && \
+bash run.sh
 
-#Ejecutar el script que lanza la aplicación web
 
-RUN chmod 755 run.sh
-RUN bash run.sh
+
