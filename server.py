@@ -549,6 +549,9 @@ class terms(webapp2.RequestHandler):
         self.response.write(template.render())
         
 class Tests(webapp2.RequestHandler):
+    
+    def get(self):
+        self.response.write('TEST')
 
     def testInicial(self,numero):
         producto = numero*numero
