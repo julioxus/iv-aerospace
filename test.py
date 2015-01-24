@@ -21,10 +21,10 @@ class  aerospaceTestCase(unittest.TestCase):
 	def tearDown(self):
 		self.testbed.deactivate()
 		
-	def test(self):
+	def test():
 		global usuario
 		pruebas = Tests()
-		response = pruebas.testBD(self,usuario)
+		response = pruebas.testBD(usuario)
 		self.assertEqual(response,True)
 
 if __name__ == '__main__':

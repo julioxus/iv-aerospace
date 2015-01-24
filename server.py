@@ -548,9 +548,9 @@ class terms(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
         
-class Tests(webapp2.RequestHandler):
+class Tests():
 
-    def testBD(self,usuario):
+    def testBD(usuario):
         user = Usuario()
         user.usuario = usuario
         user.password = '12345'
