@@ -12,7 +12,7 @@ import json
 import math
 import datetime
 import time
-import requests
+import urllib
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -568,8 +568,8 @@ class Tests(webapp2.RequestHandler):
               '/highchart_precipitacion', '/highchart_humedad', '/highchart_velocidadviento', '/monitor', '/estadisticas', '/cerrar_sesion']
         
         for url in urls_test:
-            response = requests.get('http://ugraerospaceprogram.appspot.com' + url)
-            if response.status_code >= 400:
+            response=urllib.urlopen('http://ugraerospaceprogram.appspot.com' + url)
+            if response.getcode() >= 400:
                 return False
                 
         return True
