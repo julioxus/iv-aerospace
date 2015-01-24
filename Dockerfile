@@ -16,9 +16,10 @@ RUN apt-get install -y zip
 # Instalamos git para clonar nuestro repositorio
 RUN apt-get install -y git
 RUN git clone https://github.com/julioxus/iv-aerospace.git
+RUN cd iv-aerospace
 RUN git submodule init
 RUN git submodule sync
 RUN git submodule update
-RUN cd iv-aerospace
+
 RUN chmod 755 run.sh
 RUN bash run.sh
