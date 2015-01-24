@@ -22,8 +22,9 @@ class aerospaceTestCase(unittest.TestCase):
 		
 	def test(self):
 		pruebas = Tests()
-		response = pruebas.testBD()
-		self.assertEqual(response,True)
+		#response = pruebas.testBD()
+		response = pruebas.testInicial(2)
+		self.assertEqual(response,4)
 
 if __name__ == '__main__':
     unittest.main()

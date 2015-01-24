@@ -550,6 +550,9 @@ class terms(webapp2.RequestHandler):
         
 class Tests(webapp2.RequestHandler):
 
+    def testInicial(self, numero):
+        return numero*numero
+
     def testBD(self):
         user = Usuario()
         user.usuario = 'jasinto'
