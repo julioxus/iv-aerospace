@@ -15,9 +15,6 @@ env:
     - EMAIL= osquiya6@gmail.com
     - secure: PxFzjf+ASufhKg0eW1/JDV3JsbD42903PuVjvIm3nmaB7pAAhlYdCEaEUkHyRJk6E7fEcWuig+3vz9VF4NGDvjeXrd5PVXh1Pc5zTdNM/iG1uU3EEdRLTTjRvM3cHqIaIpGig/wduaOG/+K0pXQIKXB2vTao4rFYdRykJ2tzFcTfy0GVmcwvJc0WXSfmv9Wof5iVI+QuZPGH0VbPXRMKWEMZ+SiKv8+c/L/R+BjFoelCMS/wfreniKOTMkNfyusah0UqJR4Oe1BfmZpNdp4IhrEykYPPilfPEw9oPJXIZtFlYXZ0g7INeQWhbp4xk4bAoW1ng5shb1qwpwbme3itWQ== 
 
-#Instalarse la máquina virtual GAE
-before_install:
-  - >
 
 #Instalar requerimientos (herramientas necesarias para realizar test)
 install:
