@@ -550,17 +550,17 @@ class terms(webapp2.RequestHandler):
         
 class Tests(webapp2.RequestHandler):
 
-    def testBD(self,usuario):
+    def testBD(self):
         user = Usuario()
-        user.usuario = usuario
+        user.usuario = 'jasinto'
         user.password = '12345'
-        user.nombre = usuario
+        user.nombre = 'jasinto'
         user.apellido = 'perez'
         user.correo = 'tontaco@gmail.com'
         user.telefono = '600000000'
                         
         user.put()
-        result=Usuario.query(Usuario.usuario==usuario)
+        result=Usuario.query(Usuario.usuario==user.usuario)
         usur=result.get()
         
         if usur is not None:

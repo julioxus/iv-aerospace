@@ -4,8 +4,6 @@ from google.appengine.ext import testbed
 from google.appengine.datastore import datastore_stub_util
 from server import Tests
 
-usuario='jasinto'
-
 class aerospaceTestCase(unittest.TestCase):
 	
 
@@ -23,9 +21,8 @@ class aerospaceTestCase(unittest.TestCase):
 		self.testbed.deactivate()
 		
 	def test(self):
-		global usuario
 		pruebas = Tests()
-		response = pruebas.testBD(usuario)
+		response = pruebas.testBD()
 		self.assertEqual(response,True)
 
 if __name__ == '__main__':
