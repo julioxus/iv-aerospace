@@ -34,8 +34,8 @@ before_script:
 #Ejecutamos el script de test
 script:
   - >
-    nosetests src/test.py
-    --with-gae --without-sandbox --gae-lib-root=$GAE_DIR/google_appengine
+    nosetests test.py
+    --with-gae --gae-lib-root=$GAE_DIR/google_appengine
     --with-xunit --xunit-file=shippable/testresults/test.xml
     --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
 #Si los test se aprueban,se arregla
