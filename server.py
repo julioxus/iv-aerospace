@@ -553,8 +553,8 @@ class Tests(webapp2.RequestHandler):
     def get(self):
         self.response.write('TEST')
 
-    def testInicial(self, *args):
-        return numero* numero
+    def testInicial(self, numero=0):
+        return numero*numero
 
 #    def testBD(self):
 #        user = Usuario()
