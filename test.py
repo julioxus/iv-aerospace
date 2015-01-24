@@ -24,7 +24,7 @@ class  aerospaceTestCase(unittest.TestCase):
 	def test(self):
 		global usuario
 		pruebas = Tests()
-		response = pruebas.testBD(usuario)
+		response = pruebas.testBD(self,usuario)
 		self.assertEqual(response,True)
 
 if __name__ == '__main__':
