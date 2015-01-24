@@ -6,9 +6,9 @@
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.7</pydev_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">python</pydev_property>
 
-<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
-<path>/home/iv-aerospace/google_appengine</path>
-<path>/home/iv-aerospace/google_appengine/lib/webapp2-2.5.2</path>
-<path>/home/iv-aerospace/google_appengine/lib/jinja2-2.6</path>
+<pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
+<path>/${PROJECT_DIR_NAME}/google_appengine</path>
+<path>/${PROJECT_DIR_NAME}/google_appengine/lib/webapp2-2.5.2</path>
+<path>/${PROJECT_DIR_NAME}/google_appengine/lib/jinja2-2.6</path>
 </pydev_pathproperty>
 </pydev_project>
