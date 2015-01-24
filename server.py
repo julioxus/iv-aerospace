@@ -551,7 +551,8 @@ class terms(webapp2.RequestHandler):
 class Tests(webapp2.RequestHandler):
 
     def testInicial(self,numero):
-        return int(numero)*int(numero)
+        producto = numero*numero
+        return producto
 
 #    def testBD(self):
 #        user = Usuario()
@@ -596,6 +597,7 @@ urls = [('/',MainPage),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
+        ('/Tests', Tests)
        ]
 
 
