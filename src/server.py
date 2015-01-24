@@ -12,7 +12,7 @@ import json
 import math
 import datetime
 import time
-import httplib
+import requests
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -564,8 +564,8 @@ class Tests(webapp2.RequestHandler):
 
     def testURL(self):  
         for url in urls:
-            c = httplib.HTTPConnection('ugraerospaceprogram.appspot.com' + url[0])
-            if c.getresponse().status != 200:
+            response = requests.get('http://ugraerospaceprogram.appspot.com' + url[0])
+            if response.status_code >= 400:
                 return False
                 
         return True
