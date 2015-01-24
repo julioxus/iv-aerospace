@@ -564,7 +564,7 @@ class Tests(webapp2.RequestHandler):
 
     def testURL(self):  
         for url in urls:
-            c = httplib.HTTPConnection('http://ugraerospaceprogram.appspot.com' + url[0])
+            c = httplib.HTTPConnection('ugraerospaceprogram.appspot.com' + url[0])
             if c.getresponse().status != 200:
                 return False
                 
