@@ -3,6 +3,7 @@ from google.appengine.ext import db
 from google.appengine.ext import testbed
 from google.appengine.datastore import datastore_stub_util
 from server import Tests
+from google.appengine.ext.webapp.util import run_wsgi_app
 
 class aerospaceTestCase(unittest.TestCase):
 	
@@ -23,7 +24,7 @@ class aerospaceTestCase(unittest.TestCase):
 	def test(self):
 		pruebas = Tests()
 		#response = pruebas.testBD()
-		response = pruebas.testInicial(2)
+		response = pruebas.testInicial(webapp2.RequestHandler,2)
 		self.assertEqual(response,4)
 
 if __name__ == '__main__':
