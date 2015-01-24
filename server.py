@@ -553,23 +553,23 @@ class Tests(webapp2.RequestHandler):
     def testInicial(self, numero):
         return numero*numero
 
-    def testBD(self):
-        user = Usuario()
-        user.usuario = 'jasinto'
-        user.password = '12345'
-        user.nombre = 'jasinto'
-        user.apellido = 'perez'
-        user.correo = 'tontaco@gmail.com'
-        user.telefono = '600000000'
-                        
-        user.put()
-        result=Usuario.query(Usuario.usuario==user.usuario)
-        usur=result.get()
+#    def testBD(self):
+#        user = Usuario()
+#        user.usuario = 'jasinto'
+#        user.password = '12345'
+#        user.nombre = 'jasinto'
+#        user.apellido = 'perez'
+#        user.correo = 'tontaco@gmail.com'
+#        user.telefono = '600000000'
+#                        
+#        user.put()
+#        result=Usuario.query(Usuario.usuario==user.usuario)
+#        usur=result.get()
         
-        if usur is not None:
-            usur.key.delete()
-            return True
-        return False
+#        if usur is not None:
+#            usur.key.delete()
+#            return True
+#        return False
 
                 
 urls = [('/',MainPage),
