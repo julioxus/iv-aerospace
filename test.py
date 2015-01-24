@@ -24,7 +24,7 @@ class aerospaceTestCase(unittest.TestCase):
 	def test(self):
 		pruebas = Tests()
 		#response = pruebas.testBD()
-		response = pruebas.testInicial(webapp2.RequestHandler,2)
+		response = pruebas.testInicial(2)
 		self.assertEqual(response,4)
 
 if __name__ == '__main__':

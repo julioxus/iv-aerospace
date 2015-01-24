@@ -550,7 +550,7 @@ class terms(webapp2.RequestHandler):
         
 class Tests(webapp2.RequestHandler):
 
-    def testInicial(self,numero):
+    def testInicial(self, *args):
         return int(numero)*int(numero)
 
 #    def testBD(self):
