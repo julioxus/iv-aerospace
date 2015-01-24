@@ -548,9 +548,9 @@ class terms(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
         
-class Tests():
+class Tests(webapp2.RequestHandler):
 
-    def testInicial(numero):
+    def testInicial(self,numero):
         return int(numero)*int(numero)
 
 #    def testBD(self):
