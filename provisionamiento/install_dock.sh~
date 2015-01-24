@@ -15,7 +15,7 @@ else
         if [ $cond -gt 1 ]; then
                 while [ $cond -gt 1 ]; do
                         echo 'Matando demonio docker.io...'
-			kill -9 `ps -ef|grep -v grep |grep docker | awk '{print $2}'`
+                        kill -9 $(pgrep docker)
                         cond=$(ps aux | grep docker | wc -l)
                 done
         fi
