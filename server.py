@@ -553,14 +553,8 @@ class Tests(webapp2.RequestHandler):
     def get(self):
         self.response.write('TEST')
 
-<<<<<<< HEAD
     def testInicial(self, *args):
-        return int(numero)*int(numero)
-=======
-    def testInicial(self,numero):
-        producto = numero*numero
-        return producto
->>>>>>> 9534cdfa8037db380a7c13acf6b2a9c02eaebf51
+        return numero* numero
 
 #    def testBD(self):
 #        user = Usuario()
