@@ -4,9 +4,10 @@ from google.appengine.ext import testbed
 from google.appengine.datastore import datastore_stub_util
 from server import Tests
 
-class  aerospaceTestCase(unittest.TestCase):
+usuario='jasinto'
+
+class aerospaceTestCase(unittest.TestCase):
 	
-	usuario='jasinto'
 
 	def setUp(self):
 		# First, create an instance of the Testbed class.
@@ -21,7 +22,7 @@ class  aerospaceTestCase(unittest.TestCase):
 	def tearDown(self):
 		self.testbed.deactivate()
 		
-	def test():
+	def test(self):
 		global usuario
 		pruebas = Tests()
 		response = pruebas.testBD(usuario)
