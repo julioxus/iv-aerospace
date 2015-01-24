@@ -18,7 +18,13 @@ RUN pip install jinja2
 RUN apt-get install -y wget
 RUN apt-get install -y zip
 
-# Falta añadir DESCAGAR DE GOOGLE APP ENGINE
+
+# Descargamos el sdk de Google App Engine
+RUN wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.17.zip --no-check-certificate
+
+# Descomprimimos el fichero descargado, ya tendremos disponible el SDK
+RUN unzip google_appengine_1.9.17.zip
+
 
 # Instalamos git para clonar nuestro repositorio
 RUN apt-get install -y git
