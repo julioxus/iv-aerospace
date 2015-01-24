@@ -17,4 +17,4 @@ RUN apt-get install -y zip
 RUN apt-get install -y git
 RUN git clone https://github.com/julioxus/iv-aerospace.git
 RUN cd iv-aerospace
-RUN ./run.sh
+RUN sh run.sh
