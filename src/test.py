@@ -23,6 +23,12 @@ class aerospaceTestCase(unittest.TestCase):
 		#response = pruebas.testBD()
 		response = pruebas.testInicial(2)
 		self.assertEqual(response,4)
+		
+		response = pruebas.testURL()
+		self.assertEqual(response, true)
+	
+				
+			
 
 if __name__ == '__main__':
     unittest.main()

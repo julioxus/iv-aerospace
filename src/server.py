@@ -12,6 +12,7 @@ import json
 import math
 import datetime
 import time
+import httplib
 
 class ErrorPage(webapp2.RequestHandler):
     
@@ -240,7 +241,7 @@ class datos_temperatura(webapp2.RequestHandler):
             media_temperaturas = round(sum/len(temperaturas),3)
 
             temperaturas = []
-  
+               
         self.response.write(json.dumps(num))
         
 class datos_velocidadviento(webapp2.RequestHandler):
@@ -548,6 +549,11 @@ class terms(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
         
+        
+        import httplib
+
+   
+   
 class Tests(webapp2.RequestHandler):
     
     def get(self):
@@ -556,6 +562,17 @@ class Tests(webapp2.RequestHandler):
     def testInicial(self, numero=0):
         return numero*numero
 
+    def testURL(self):  
+        for url in urls:
+            c = httplib.HTTPConnection('http://ugraerospaceprogram.appspot.com' + url[0])
+            if c.getresponse().status != 200:
+                return False
+                
+        return True
+                
+
+                
+        
 #    def testBD(self):
 #        user = Usuario()
 #        user.usuario = 'jasinto'
