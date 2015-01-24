@@ -551,7 +551,7 @@ class terms(webapp2.RequestHandler):
 class Tests():
 
     def testInicial(numero):
-        return numero*numero
+        return int(numero)*int(numero)
 
 #    def testBD(self):
 #        user = Usuario()
