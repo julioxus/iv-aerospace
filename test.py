@@ -13,7 +13,7 @@ class aerospaceTestCase(unittest.TestCase):
 		# Then activate the testbed, which prepares the service stubs for use.
 		self.testbed.activate()
 		# Initialize the datastore stub with this policy.
-		self.testbed.init_datastore_v3_stub(consistency_policy=self.policy)
+		self.testbed.init_datastore_v3_stub()
 
 	def tearDown(self):
 		self.testbed.deactivate()
