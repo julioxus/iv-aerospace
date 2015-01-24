@@ -11,16 +11,13 @@ artifacts:
 #Despliegue en GAE
 env:
   global:
-    - GAE_DIR=/tmp/gae
+    - GAE_DIR=google_appengine
     - EMAIL= osquiya6@gmail.com
     - secure: PxFzjf+ASufhKg0eW1/JDV3JsbD42903PuVjvIm3nmaB7pAAhlYdCEaEUkHyRJk6E7fEcWuig+3vz9VF4NGDvjeXrd5PVXh1Pc5zTdNM/iG1uU3EEdRLTTjRvM3cHqIaIpGig/wduaOG/+K0pXQIKXB2vTao4rFYdRykJ2tzFcTfy0GVmcwvJc0WXSfmv9Wof5iVI+QuZPGH0VbPXRMKWEMZ+SiKv8+c/L/R+BjFoelCMS/wfreniKOTMkNfyusah0UqJR4Oe1BfmZpNdp4IhrEykYPPilfPEw9oPJXIZtFlYXZ0g7INeQWhbp4xk4bAoW1ng5shb1qwpwbme3itWQ== 
 
 #Instalarse la máquina virtual GAE
 before_install:
   - >
-    test -e $GAE_DIR ||
-    (mkdir -p $GAE_DIR &&
-     cp -r google_appengine/ $GAE_DIR)
 
 #Instalar requerimientos (herramientas necesarias para realizar test)
 install:
@@ -34,10 +31,11 @@ before_script:
 #Ejecutamos el script de test
 script:
   - >
-    nosetests test.py
+    nosetests src/test.py
     --with-gae --gae-lib-root=$GAE_DIR/google_appengine
     --with-xunit --xunit-file=shippable/testresults/test.xml
     --with-coverage --cover-xml --cover-xml-file=shippable/codecoverage/coverage.xml
+	--tc-file src/config.yaml
 #Si los test se aprueban,se arregla
 after_success:
-    - $GAE_DIR/google_appengine/appcfg.py --oauth2_access_token=$GAE_TOKEN update .
+    - $GAE_DIR/google_appengine/appcfg.py --oauth2_access_token=$GAE_TOKEN update src/
