@@ -16,7 +16,7 @@ fi
 
 # Lanzar aplicación (con autoconfirmación)
 
-echo y | python $APPENGINE_SERVER src/ &
+echo y | python $APPENGINE_SERVER src --storage_path=database &
 
 if [ $(curl localhost:8080 | wc -l) > 2 ]; then
         echo  '\n LA WEB FUNCIONA!!! \n'
