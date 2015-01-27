@@ -4,9 +4,9 @@ El test se encargar de realizar un ping un número de veces predeterminado a la 
 
 Para poder realizarlo es necesario importar las librerías sys y subprocess.
 
-	- [Sys](https://docs.python.org/2/library/sys.html): éste módulo nos provee de acceso a funciones y variables relacionadas directamente con el intérprete (sys.exit()...)
+[Sys](https://docs.python.org/2/library/sys.html): éste módulo nos provee de acceso a funciones y variables relacionadas directamente con el intérprete (sys.exit()...)
 	
-	- [Subprocess](https://docs.python.org/2/library/subprocess.html): nos permite trabajar de forma directa con órdenes del sistema. 
+[Subprocess](https://docs.python.org/2/library/subprocess.html): nos permite trabajar de forma directa con órdenes del sistema. 
 
 	Éste módulo también nos provee del submódulo Popen, el cuál nos permite ejecutar órdenes y mantener un mejor control sobre las salidas. Algunas entradas y salidas que pueden ser capturadas por Popen son stdout, stdin, stderr...
 
