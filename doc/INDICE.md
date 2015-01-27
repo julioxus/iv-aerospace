@@ -24,11 +24,11 @@
 
 ##Integración continua y realización de tests##
 
-+ [Shippable y testo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippables.md)
++ [Shippable y testeo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippable.md)
 
 ##Herramientas utilizadas para el desarrollo de la aplicación web##
 
-+ [Uso de base de datos NDB](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_ndb.md))
++ [Uso de base de datos NDB](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_ndb.md)
 
 ###Acta de reunión###
 
