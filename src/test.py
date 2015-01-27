@@ -20,14 +20,17 @@ class aerospaceTestCase(unittest.TestCase):
 		
 	def test(self):
 		pruebas = Tests()
-		#response = pruebas.testBD()
+		
 		response = pruebas.testInicial(2)
 		self.assertEqual(response,4)
 		
 		response = pruebas.testURL()
 		self.assertEqual(response, True)
 	
-		response = pruebas.testBD()
+		#response = pruebas.testBD()
+		#self.assertEqual(response,True)
+		
+		response = pruebas.testnav()
 		self.assertEqual(response,True)
 			
 

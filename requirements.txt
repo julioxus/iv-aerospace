@@ -2,3 +2,5 @@ nose
 coverage
 NoseGAE
 WebTest
+splinter
+
