@@ -16,10 +16,4 @@ fi
 
 # Lanzar aplicación (con autoconfirmación)
 
-echo y | python $APPENGINE_SERVER src --storage_path=database &
-
-if [ $(curl localhost:8080 | wc -l) > 2 ]; then
-        echo  '\n LA WEB FUNCIONA!!! \n'
-else
-        echo "\n LA WEB NO FUNCIONA :S \n"
-fi
+echo y | python $APPENGINE_SERVER  src --host=0.0.0.0 --port=80 --admin_port=8080 --storage_path=database &
