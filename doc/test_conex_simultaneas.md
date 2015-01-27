@@ -8,7 +8,7 @@ Para poder realizarlo es necesario importar las librerías sys y subprocess.
 	
 [Subprocess](https://docs.python.org/2/library/subprocess.html): nos permite trabajar de forma directa con órdenes del sistema. 
 
-	Éste módulo también nos provee del submódulo Popen, el cuál nos permite ejecutar órdenes y mantener un mejor control sobre las salidas. Algunas entradas y salidas que pueden ser capturadas por Popen son stdout, stdin, stderr...
+Éste módulo también nos provee del submódulo Popen, el cuál nos permite ejecutar órdenes y mantener un mejor control sobre las salidas. Algunas entradas y salidas que pueden ser capturadas por Popen son stdout, stdin, stderr...
 
 *Ahora explicaremos paso a paso cómo funciona el test*
 
