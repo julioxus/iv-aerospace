@@ -1,4 +1,4 @@
-*HighCharts*
+##HighCharts##
 
 Es un servicio mediante una libreria que nos permite la creacion de graficos interactivos en paginas webs.
 
@@ -17,12 +17,8 @@ la representacion de los todos los datos recogidos.
 
 	-Esta escrito en JavaSript y requiere de incluir el archivo highcharts.js y cualquiera de los tres frameworks mas populares 
 	de java scripts como son jQuery, MooTools o Prototype, en nuestro caso hemos usado jQuery.Y hemos descargado el 
-	paquete [jquery.js](http://www.jquery.com) de su pagina oficial.con esta herramienta hemos representado los valores de todos los datos recogidos.
+	paquete [jquery.js](http://www.jquery.com) .
 	
-	```sh
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	```
-
 	-Gran variedad de graficos para representar los datos.
 
 	-La sintaxis es muy sencilla ya que no requiere conocimientos de programacion avanzados.
