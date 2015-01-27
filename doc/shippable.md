@@ -35,7 +35,7 @@ Los test los hemos realizado dentro de nuestro controlador [server.py](https://g
 
 **Enlaces de interés:**
 
-https://docs.python.org/2/library/unittest.html
-https://cloud.google.com/appengine/docs/python/tools/localunittesting
-https://www.shippable.com/
-https://github.com/Shippable
+* https://docs.python.org/2/library/unittest.html
+* https://cloud.google.com/appengine/docs/python/tools/localunittesting
+* https://www.shippable.com/
+* https://github.com/Shippable
