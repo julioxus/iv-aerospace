@@ -15,7 +15,7 @@ else
         if [ $cond -gt 1 ]; then
                 while [ $cond -gt 1 ]; do
                         echo 'Matando demonio docker.io...'
-                        kill -9 $(pgrep docker)
+			kill -9 `ps -ef|grep -v grep |grep docker | awk '{print $2}'`
                         cond=$(ps aux | grep docker | wc -l)
                 done
         fi
@@ -27,5 +27,5 @@ else
         docker pull julioxus/iv-aerospace
  
         #Arrancamos el contenedor
-        docker run -t -i julioxus/iv-aerospace /bin/bash
+        docker run -t -i julioxus/iv-aerospace $(cd iv-aerospace; ./run.sh; /bin/bash)
 fi

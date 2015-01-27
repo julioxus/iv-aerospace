@@ -20,27 +20,16 @@
 
 ##Creación de un entorno de pruebas para la aplicación##
 
-###Contenedor Docker###
-+ [Encapsulación de la aplicación en un contenedor Docker](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/ContenedorDocker.md)
++ [Entorno de pruebas con Docker y Jaula](https://github.com/julioxus/iv-aerospace/blob/master/doc/entorno_pruebas.md)
 
-+ [Encapsulación de la aplicación en un contenedor Docker: install_docker.sh](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/install_docker.sh)
+##Integración continua y realización de tests##
 
-###Jaula###
++ [Shippable y testo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippables.md)
 
-+ [Despliegue de la aplicación en una jaula](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/auto-jaula.md)
+##Herramientas utilizadas para el desarrollo de la aplicación web##
 
-+ [Despliegue de la aplicación en una jaula: install.sh](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/install.sh)
-
-###Testeo###
-
-+ [Herramientas de testeo para Django](https://github.com/julioxus/iv-aerospace/blob/master/test/testing_tools_django.md)
-
-+ [Test de disponibilidad de la aplicación](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/test_disponibilidad.md)
-
-###Scripts automatizados###
-+ [Script creación de jaula e instalación de la aplicación](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/jaula.sh)
++ [Uso de base de datos NDB](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_ndb.md))
 
 ###Acta de reunión###
-
 
 + [Reunión 15/12/2014](https://github.com/julioxus/iv-aerospace/blob/master/doc/actaSamuel.md)
