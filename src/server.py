@@ -1,3 +1,31 @@
+#!/usr/bin/python
+# -⁻- coding: UTF-8 -*-
+#-------------------------------------------------------------------------------------------------------
+# Aplicación Web de las asignaturas Diseño de aplicaciones para internet y Infraestructura virtual
+#
+# Desarrolladores:
+#	Óscar Sánchez Martínez
+#	Julio Martínez Martínez-Checa
+#	Hans Manuel Grenner Noguerón
+#	Juan Francisco Rodríguez Vilchez
+#	Jose Antonio Plata Muñoz
+#	Miguel Martínez Castellanos
+#	Cristina Rosillo Arenas
+#
+# Aplicación desarrollada para el Proyecto UGR Aerospace Program
+#
+# En este archivo se encuentra las diferentes clases que administran la aplicación.
+# Aplicación desplegada en el Paas Google App Engine : http://ugraerospaceprogram.appspot.com/
+# 
+# Utilización de la tecnología de Google para el desarrollo de la Aplicación.
+# IVAerospace Copyright (C) 2014 - ivaerospace2014@gmail.com This program is free software: you can 
+# redistribute it and/or modify it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even 
+# the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public 
+# License for more details.
+#
+#-------------------------------------------------------------------------------------------------------
 
 from google.appengine.ext import ndb
 
@@ -14,15 +42,17 @@ import datetime
 import time
 import urllib
 
+# Clase que administra las urls no válidas de la aplicación.
+
 class ErrorPage(webapp2.RequestHandler):
-    
-    
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         template_values={}
         template = JINJA_ENVIRONMENT.get_template('template/error.html')
         self.response.write(template.render(template_values))
-        
+
+# Clase que administra la página principal de la aplicación.
+
 class MainPage(webapp2.RequestHandler):
     
     
@@ -66,7 +96,9 @@ class MainPage(webapp2.RequestHandler):
             template_values={'titulos':titulos, 'links':links, 'descripciones':descripciones}
             template = JINJA_ENVIRONMENT.get_template('template/index.html')
             self.response.write(template.render(template_values))
-        
+
+#Clase que devuelve la información del proyecto.
+
 class InfoPage(webapp2.RequestHandler):
     
     
@@ -75,13 +107,17 @@ class InfoPage(webapp2.RequestHandler):
         template_values={}
         template = JINJA_ENVIRONMENT.get_template('template/info_proyecto.html')
         self.response.write(template.render(template_values))
-        
+
+#Clase que devuelve un formulario de registro.
+
 class FormularioRegistro(webapp2.RequestHandler):
     
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         template = JINJA_ENVIRONMENT.get_template('template/registro.html')
         self.response.write(template.render(message=""))
+
+#Clase donde se define el modelo del usuario de la base de datos.
 
 class Usuario(ndb.Model):
     usuario = ndb.StringProperty()
@@ -90,6 +126,8 @@ class Usuario(ndb.Model):
     apellido = ndb.StringProperty()
     correo = ndb.StringProperty()
     telefono = ndb.StringProperty()
+
+#Clase que registra al usuario si pasa las restricciones.
 
 class registro_usuario(webapp2.RequestHandler):
     
@@ -117,8 +155,9 @@ class registro_usuario(webapp2.RequestHandler):
             user.put()
                 
             self.redirect('/')
-  
-        
+
+#Clase que permite editar los campos de los usuarios.
+
 class editar_perfil(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -151,7 +190,9 @@ class editar_perfil(webapp2.RequestHandler):
                     us.put()
                     
                     self.redirect('/loged')
-        
+
+#Clase que devuelve la gráfica de temperatura.
+
 class highchart_temperatura(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -162,6 +203,8 @@ class highchart_temperatura(webapp2.RequestHandler):
             self.response.write(template.render(template_values))
         else:
             self.redirect('/')
+
+#Clase que devuelve la gráfica de velocidad del viento.
 
 class highchart_velocidadviento(webapp2.RequestHandler):
     def get(self):
@@ -174,6 +217,8 @@ class highchart_velocidadviento(webapp2.RequestHandler):
         else:
             self.redirect('/')
 
+#Clase que devuelve la gráfica de humedad
+
 class highchart_humedad(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -184,7 +229,9 @@ class highchart_humedad(webapp2.RequestHandler):
             self.response.write(template.render(template_values))
         else:
             self.redirect('/')
-            
+
+#Clase que devuelve la gráfica de precipitación.
+
 class highchart_precipitacion(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -197,7 +244,7 @@ class highchart_precipitacion(webapp2.RequestHandler):
             self.redirect('/')
 
 
-# Variables globales
+# Variables globales.
         
 temperaturas = []
 humedades = []
@@ -214,6 +261,7 @@ media_tendencias=0
 media_humedades=0
 ARRAY_LIMIT = 50
 
+#Clase que genera los datos de la gráfica de temperatura en la monitorización.
         
 class datos_temperatura(webapp2.RequestHandler):
     def get(self):
@@ -243,6 +291,8 @@ class datos_temperatura(webapp2.RequestHandler):
             temperaturas = []
                
         self.response.write(json.dumps(num))
+
+#Clase que genera los datos de la gráfica de velocidad del viento en la monitorización.
         
 class datos_velocidadviento(webapp2.RequestHandler):
     def get(self):
@@ -268,7 +318,9 @@ class datos_velocidadviento(webapp2.RequestHandler):
             velocidades = []
             
         self.response.write(json.dumps(num))
-        
+
+#Clase que genera los datos de la gráfica de humedad en la monitorización.
+       
 class datos_humedad(webapp2.RequestHandler):
     def get(self):
         global humedades
@@ -292,6 +344,8 @@ class datos_humedad(webapp2.RequestHandler):
             media_humedades = round(sum/len(humedades),3)       
             humedades =[]
         self.response.write(json.dumps(num))
+
+#Clase que genera los datos de la gráfica de precipitacion en la monitorización y genera media de los datos.
 
 class datos_precipitacion(webapp2.RequestHandler):
     def get(self):
@@ -362,27 +416,36 @@ class datos_precipitacion(webapp2.RequestHandler):
 
         self.response.write(json.dumps(num))
 
+# Clase que genera datos aleatorios para las gráficas de temperatura.
 
 class datos_temperatura2(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*50)
         self.response.write(json.dumps(num))    
 
+# Clase que genera datos aleatorios para las gráficas de velocidad de viento.
+
 class datos_velocidadviento2(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*100)
         self.response.write(json.dumps(num))
-        
+
+# Clase que genera datos aleatorios para las gráficas de humedad.
+     
 class datos_humedad2(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*100)
         self.response.write(json.dumps(num))
 
+# Clase que genera datos aleatorios para las gráficas de precipitación.
+
 class datos_precipitacion2(webapp2.RequestHandler):
     def get(self):
         num = int(random.random()*20)
         self.response.write(json.dumps(num))    
-        
+
+# Clase que define el modelo de la tabla de datos para la base de datos.
+
 class TablaDatos(ndb.Model):
     fecha = ndb.DateProperty();
     hora = ndb.StringProperty();
@@ -395,7 +458,9 @@ class TablaDatos(ndb.Model):
     presion = ndb.FloatProperty()
     tendencia = ndb.FloatProperty()
     humedad = ndb.FloatProperty()
-                  
+
+# Clase que genera la monitorización del dron.
+
 class monitor(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -406,7 +471,9 @@ class monitor(webapp2.RequestHandler):
             self.response.write(template.render(template_values))
         else:
             self.redirect('/')
-        
+
+# Clase que devuelve información para mandar tweets
+
 class twitter(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -421,7 +488,9 @@ class twitter(webapp2.RequestHandler):
 lat = 37.19699469878369
 lng =  -3.6241040674591507
 grados = 0
-  
+
+# Clase que genera las coordenadas del dron.
+
 class coordenadas(webapp2.RequestHandler):
     def get(self):
         global lat
@@ -432,6 +501,8 @@ class coordenadas(webapp2.RequestHandler):
         lng += 0.00001 * math.sin((grados/180)*math.pi)
         latLng = [lat, lng]
         self.response.write(json.dumps(latLng))
+
+# Clase que implementa el login de usuarios guardando la sesión en una cookie.
 
 class loguearse(webapp2.RequestHandler):
     
@@ -500,12 +571,16 @@ class loguearse(webapp2.RequestHandler):
             template = JINJA_ENVIRONMENT.get_template('template/index.html')
             self.response.write(template.render(template_values))
 
+# Clase que cierra la sesión del usuario.
+
 class cerrar_sesion(webapp2.RequestHandler):
     def get(self):
         self.response.headers.add_header("Set-Cookie", "logged=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
         self.response.headers.add_header("Set-Cookie", "username=; Expires=Thu, 01-Jan-1970 00:00:00 GMT")
         self.redirect('/')
-        
+
+# Clase que muestra las medias de los datos monitorizados.
+
 class Estadisticas(webapp2.RequestHandler):
     def get(self):
         if self.request.cookies.get("logged") == "true":
@@ -543,6 +618,8 @@ class Estadisticas(webapp2.RequestHandler):
         else:
             self.redirect('/')
 
+# Clase que devuelve los términos y condiciones de la aplicación.
+
 class terms(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -552,7 +629,7 @@ class terms(webapp2.RequestHandler):
         
         import httplib
 
-   
+# Clase que comprueba que las urls son válidas y devuelven páginas html. En caso negativo no se pasa el test. 
    
 class Tests(webapp2.RequestHandler):
     
@@ -573,9 +650,8 @@ class Tests(webapp2.RequestHandler):
                 return False
                 
         return True
-    
-    
-             
+         
+# Clase-Test que comprueba la insercción consulta y borrado de usuarios.
         
     def testBD(self):
         user = Usuario()
@@ -595,7 +671,8 @@ class Tests(webapp2.RequestHandler):
             return True
         return False
 
-                
+# urls de la aplicación.
+
 urls = [('/',MainPage),
         ('/error',ErrorPage),
         ('/twitter',twitter),
@@ -620,17 +697,22 @@ urls = [('/',MainPage),
         ('/monitor', monitor),
         ('/coordenadas', coordenadas),
         ('/estadisticas',Estadisticas),
-        ('/Tests', Tests)
+        ('/Tests', Tests),
+        ('/.*', ErrorPage)
        ]
 
 
 
 application = webapp2.WSGIApplication(urls, debug=True)
 
+# Declaración del entorno de jinja2 y el sistema de templates.
+
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
+
+# Despliega la aplicación al ejecutar el archivo como script. 
 
 def main():
     run_wsgi_app(application)
