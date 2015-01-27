@@ -36,6 +36,13 @@
 
 + [WebApp2 y plantillas Jinja](https://github.com/julioxus/iv-aerospace/blob/master/doc/webbapp2.md)
 
++ [Bootstrap para css](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_bootstrap.md)
+
+##Provisionamiento con Ansible en Koding##
+
++ [Provisionamiento](https://github.com/julioxus/iv-aerospace/blob/master/doc/provisionamiento.md)
++ [Demonio de la aplicación]()
+
 ###Acta de reunión###
 
 + [Reunión 15/12/2014](https://github.com/julioxus/iv-aerospace/blob/master/doc/actaSamuel.md)
