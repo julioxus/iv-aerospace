@@ -8,17 +8,17 @@ la representacion de los todos los datos recogidos.
 
 **[Caracteristiscas](http://www.highcharts.com/products/highcharts)**
  
-	-Funciona en cualquier navegador y es compatible incluso en los navegadores para iphone/ipad e internet Explorer 
-	desde la version 6.
+-	Funciona en cualquier navegador y es compatible incluso en los navegadores para iphone/ipad e internet Explorer 
+desde la version 6.
 
-	-No se necesita el permiso de los autores para su implementacion en sitios web personales.
+-	No se necesita el permiso de los autores para su implementacion en sitios web personales.
 
-	-Es personalizable y permite obtener una gran flexibilidad para un diseño caracteristico de una web personal.
+-	Es personalizable y permite obtener una gran flexibilidad para un diseño caracteristico de una web personal.
 
-	-Esta escrito en JavaSript y requiere de incluir el archivo highcharts.js y cualquiera de los tres frameworks mas populares 
-	de java scripts como son jQuery, MooTools o Prototype, en nuestro caso hemos usado jQuery.Y hemos descargado el 
-	paquete [jquery.js](http://www.jquery.com) .
+-	Esta escrito en JavaSript y requiere de incluir el archivo highcharts.js y cualquiera de los tres frameworks mas populares 
+de java scripts como son jQuery, MooTools o Prototype, en nuestro caso hemos usado jQuery.Y hemos descargado el 
+paquete [jquery.js](http://www.jquery.com) .
 	
-	-Gran variedad de graficos para representar los datos.
+-	Gran variedad de graficos para representar los datos.
 
-	-La sintaxis es muy sencilla ya que no requiere conocimientos de programacion avanzados.
+-	La sintaxis es muy sencilla ya que no requiere conocimientos de programacion avanzados.
