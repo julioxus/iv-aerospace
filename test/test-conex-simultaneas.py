@@ -1,6 +1,6 @@
 import sys, subprocess
 
-num = 1000
+num = 10000
 print "Realizando  conexiones simultaneas"
 host = "ping -c1 ugraerospaceprogram.appspot.com"
 
