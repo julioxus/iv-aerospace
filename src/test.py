@@ -30,8 +30,6 @@ class aerospaceTestCase(unittest.TestCase):
 		#response = pruebas.testBD()
 		#self.assertEqual(response,True)
 		
-		response = pruebas.testnav()
-		self.assertEqual(response,True)
 			
 
 if __name__ == '__main__':
