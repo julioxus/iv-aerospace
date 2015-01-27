@@ -23,8 +23,13 @@ case "$1" in
     echo "Apagando iv-aerospace..."
     ./destroy.sh
   ;;
+  restart)
+	echo "Reiniciando iv-aerospace..."
+	./destroy.sh
+	./run.sh
+  ;;
   *)
-    echo "Uso: $0 {start|stop}"
+    echo "Uso: $0 {start|stop|restart}"
     exit 1
 esac
 
