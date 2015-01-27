@@ -1,4 +1,4 @@
-**¿Cómo funciona el test?**
+##¿Cómo funciona el test?##
 
 El test se encargar de realizar un ping un número de veces predeterminado a la dirección de nuestra aplicación web.
 
@@ -10,7 +10,7 @@ Para poder realizarlo es necesario importar las librerías sys y subprocess.
 
 Éste módulo también nos provee del submódulo Popen, el cuál nos permite ejecutar órdenes y mantener un mejor control sobre las salidas. Algunas entradas y salidas que pueden ser capturadas por Popen son stdout, stdin, stderr...
 
-*Ahora explicaremos paso a paso cómo funciona el test*
+**Ahora explicaremos paso a paso cómo funciona el test**
 
 Lo primero que nos encontramos son los imports a los paquetes o módulos que necesitamos (los vistos anteriormente). 
 Definimos dos variables, num especifica el número de peticiones que vamos a enviar y host almacena el comando (en éste caso ping -c1 direcciónWeb) que queremos que se ejecute.
