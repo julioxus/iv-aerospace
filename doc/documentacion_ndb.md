@@ -28,7 +28,9 @@ referenciar el paquete de google de ésta forma:
 
 **Ejemplo de funcionamiento**
 
-mport cgi
+
+```sh
+import cgi
 import urllib
 
 import webapp2
@@ -41,6 +43,6 @@ class Greeting(ndb.Model):
   content = ndb.StringProperty()
   date = ndb.DateTimeProperty(auto_now_add=True)
   ...
- 
+``` 
 
 Para más información puede visitar la [documentación de Google](https://cloud.google.com/appengine/docs/python/ndb/).
