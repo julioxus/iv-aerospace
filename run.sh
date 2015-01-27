@@ -1,18 +1,8 @@
 #!/bin/bash
 
 # Variables
-APPENGINE_SERVER="google_appengine/dev_appserver.py"
 
-# Descargar programas necesarios
-if [[ $(dpkg-query -W -f='${Status}\n' python) != 'install ok installed' ]]; then
-	apt-get install -y --force-yes python
-fi
-if [[ $(dpkg-query -W -f='${Status}\n' curl) != 'install ok installed' ]]; then
-	apt-get install -y --force-yes curl
-fi
-if [[ $(dpkg-query -W -f='${Status}\n' wget) != 'install ok installed' ]]; then
-	apt-get install -y --force-yes wget
-fi
+APPENGINE_SERVER="google_appengine/dev_appserver.py"
 
 # Lanzar aplicación (con autoconfirmación)
 
