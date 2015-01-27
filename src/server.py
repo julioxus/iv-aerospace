@@ -41,7 +41,6 @@ import math
 import datetime
 import time
 import urllib
-from splinter import Browser
 
 # Clase que administra las urls no válidas de la aplicación.
 
