@@ -1,0 +1,11 @@
+---
+- hosts: koding
+  sudo: yes
+  remote_user: ivaerospace
+  tasks:
+    - name: Detener el servicio
+      action: service name=ivaerospace state=stopped
+    - name: Descargar/Actualizar el repositorio y sus submódulos
+      git: repo=http://github.com/julioxus/iv-aerospace dest=/home/ivaerospace/iv-aerospace/ track_submodules=yes
+    - name: Iniciar el servicio
+      action: service name=ivaerospace state=started
