@@ -43,7 +43,7 @@ Datos tenidos en cuenta en la aplicación:
 * Dependiendo del tipo de dato, la actualización de estos será cada "x" tiempo.
 * Dependiento del tipo de dato, se mostrarán en un determinado gráfico.
 
-s
+
 
 Nos hemos inscrito en el certamen de la OSL con nombre "UGR Aerospace Virtualization":
 

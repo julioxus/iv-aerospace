@@ -26,9 +26,15 @@
 
 + [Shippable y testeo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippable.md)
 
++ [Testeo conexiones simultáneas](https://github.com/julioxus/iv-aerospace/blob/master/doc/test_conex_simultaneas.md)
+
 ##Herramientas utilizadas para el desarrollo de la aplicación web##
 
 + [Uso de base de datos NDB](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_ndb.md)
+
++ [Biblioteca HighCharts para gráficos](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_highcharts.md)
+
++ [WebApp2 y plantillas Jinja](https://github.com/julioxus/iv-aerospace/blob/master/doc/webbapp2.md)
 
 ###Acta de reunión###
 
