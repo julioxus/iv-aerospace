@@ -1,0 +1,15 @@
+---
+- hosts: koding
+  sudo: yes
+  remote_user: ivaerospace
+  tasks:
+    - name: Actualizar paquetes
+      apt: update_cache=yes
+    - name: Instalar git
+      apt: name=git state=present
+    - name: Instalar Python
+      apt: name=python state=present
+    - name: Descargar/Actualizar el repositorio y sus submódulos
+      git: repo=http://github.com/julioxus/iv-aerospace dest=/home/ivaerospace/iv-aerospace/ track_submodules=yes
+    - name: Instalar la aplicación y crear el demonio 
+      script: /home/ivaerospace/iv-aerospace/install.sh
