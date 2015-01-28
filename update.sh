@@ -5,5 +5,5 @@ if [ -d iv-aerospace]; then
 fi
 git clone https://github.com/julioxus/iv-aerospace
 cd iv-aerospace
-sudo ./uninstall.sh
-sudo ./install.sh
+sudo /bin/bash uninstall.sh
+sudo /bin/bash install.sh
