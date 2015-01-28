@@ -33,7 +33,7 @@ before_script:
    - eval "$(ssh-agent -s)"
    - chmod 400 secrets/koding.key
    - ssh-add secrets/koding.key
-   - echo "ivaerospace.koding.io" > ~/ansible_hosts
+   - printf "[koding]\nivaerospace.koding.io" > ~/ansible_hosts
    - export ANSIBLE_HOSTS=~/ansible_hosts
 
 #Ejecutamos el script de test
