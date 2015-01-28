@@ -13,7 +13,7 @@ RUN easy_install pip
 RUN apt-get install -y wget
 RUN apt-get install -y zip
 
-# Instalamos git para clonar nuestro repositorio y ejecutar el script que lanza la aplicación web.
+# Instalamos git, clonamos el repo, iniciamos los módulos de GAE y finalmente, ejecutamos el script # que lanza la aplicación web.
 
 RUN apt-get install -y git
 RUN git clone https://github.com/julioxus/iv-aerospace.git

@@ -12,19 +12,3 @@ Todos los procesos de creación de entornos de pruebas están automatizados medi
     * **Jaula:**
     
     El [script jaula.sh](https://github.com/julioxus/iv-aerospace/blob/master/provisionamiento/jaula.sh) instalará debootstrap y crear el directorio destino para la jaula, instalará en función de nuestra arquitectura una jaula de 32 o 64 bits, ubuntu saucy o trusty respectivamente. A continuación se llama a [run.sh](https://github.com/julioxus/iv-aerospace/blob/master/run.sh) que lanzará finalemnte la aplicación 
-
-El script [run.sh](https://github.com/julioxus/iv-aerospace/blob/master/run.sh)muestra un mensaje de éxito al arrancar servidor de la aplicación.
-
-En concreto este es el fragmento:
-
-```
-if [ $(curl localhost:8080 | wc -l) > 0 ]; then
-        echo  '\n LA WEB FUNCIONA!!! \n'
-else
-        echo "\n LA WEB NO FUNCIONA :S \n"
-fi
-```
-
-Previamente hemos tenido que lanzar el servidor en background.
-Con wc -l contamos las líneas que nos saca curl. Si son > 0 quiere decir que nuestra web nos devuelve contenido html y está operativa.
-

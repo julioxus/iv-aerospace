@@ -137,13 +137,13 @@ class registro_usuario(webapp2.RequestHandler):
         aparece=0
         result = Usuario.query()
         for us in result:
-            if us.usuario == usu:
+            if us.usuario == usu: #Si el usuario aparece, se muestra mensaje de error: usuario existente
                 aparece=1
                 self.response.headers['Content-Type'] = 'text/html'
                 template = JINJA_ENVIRONMENT.get_template('template/registro.html')
                 self.response.write(template.render(message="El usuario ya se encuentra registrado en la base de datos"))
-
-        if aparece != 1:
+ 
+        if aparece != 1:    #Si no aparece se cogen los datos introducidos en el formulario y se introducen en la base de datos
             
             user.usuario = self.request.get('usuario')
             user.password = self.request.get('password')
@@ -160,10 +160,10 @@ class registro_usuario(webapp2.RequestHandler):
 
 class editar_perfil(webapp2.RequestHandler):
     def get(self):
-        if self.request.cookies.get("logged") == "true":
+        if self.request.cookies.get("logged") == "true":  #Si la cookie está activada
             username = str(self.request.cookies.get("username"))
             usuarios = []
-            result=Usuario.query(Usuario.usuario==username)
+            result=Usuario.query(Usuario.usuario==username)	#Se consulta dicho usuario en la base de datos y se añade a un array de ususarios
             if result>0:
                 for usuario in result:
                     usuarios.append(usuario)
@@ -180,7 +180,7 @@ class editar_perfil(webapp2.RequestHandler):
             username = str(self.request.cookies.get("username"))
             result = Usuario.query()
             for us in result:
-                if us.usuario == username:
+                if us.usuario == username:			# Se hace un put de los datos nuevos a la base de datos
                     us.password = self.request.get('password')
                     us.nombre = self.request.get('nombre')
                     us.apellido = self.request.get('apellido')
