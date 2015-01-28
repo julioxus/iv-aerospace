@@ -663,8 +663,7 @@ class Tests(webapp2.RequestHandler):
 	response=urllib.urlopen('http://ugraerospaceprogram.appspot.com')
 	if response.getcode() >= 400:
 	        return False
-	else:
-		return True
+	return True
 
 # urls de la aplicación.
 
