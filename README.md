@@ -24,6 +24,10 @@ Proyecto para la asignatura Infraestructura Virtual - UGR Aerospace Program
 
 En la siguiente [enlace](https://github.com/julioxus/iv-aerospace/blob/master/doc/INDICE.md) puedes encontrar el indice a toda la información del proyecto.
 
+##Para desplegar la aplicación en Koding:##
+
+Ejecuta el script **despliegue_automatico.sh** y despliega la aplicación!
+
 ##Introducción a la aplicación:##
 
 Nuestro grupo ha decidido trabajar en el UGR Aerospace program para desarrollar su infraestructura y plataforma. El motivo de trabajar en este proyecto es porque parte del equipo estabamos apuntados previamente al programa y nos parecía interesante participar en él.
