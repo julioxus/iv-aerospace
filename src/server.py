@@ -41,6 +41,8 @@ import math
 import datetime
 import time
 import urllib
+import sys
+import subprocess
 
 # Clase que administra las urls no válidas de la aplicación.
 
@@ -638,6 +640,25 @@ class Tests(webapp2.RequestHandler):
 
     def testInicial(self, numero=0):
         return numero*numero
+
+#Test que comprueba si la aplicación web acepta n peticiones simultáneas (ping)
+    def testMaxPeticiones(self):
+        num = 10
+        host = "ping -c1 ugraerospaceprogram.appspot.com"
+
+        for i in range(num):
+            p = subprocess.Popen(host, shell=True, stderr=subprocess.PIPE)
+    
+        while True:
+            out = p.stderr.read(1)
+            
+            if out == '' and p.poll()!= None:
+                break
+            if out != '':
+                if p.poll() != 0:
+                    return False
+                else:
+                    return True
 
 #Test que testea cada una de las url, si alguna no funciona bien se devuelve false
 
