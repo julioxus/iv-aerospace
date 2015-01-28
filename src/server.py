@@ -650,39 +650,6 @@ class Tests(webapp2.RequestHandler):
                 return False
                 
         return True
-        
-    
-        
-# Clase-Test que comprueba la insercción consulta y borrado de usuarios.
-        
-    def testBD(self):
-        
-        # Configuración para el test
-        datastore_file = '/dev/null'
-        from google.appengine.api import apiproxy_stub_map,datastore_file_stub
-        apiproxy_stub_map.apiproxy = apiproxy_stub_map.APIProxyStubMap() 
-        stub = datastore_file_stub.DatastoreFileStub('ugraerospaceprogram', datastore_file, '/')
-        apiproxy_stub_map.apiproxy.RegisterStub('datastore_v3', stub)
-        
-        # Introducimos el usuario inventado
-        user = Usuario()
-        user.usuario = 'jasinto'
-        user.password = '12345'
-        user.nombre = 'jasinto'
-        user.apellido = 'perez'
-        user.correo = 'tontaco@gmail.com'
-        user.telefono = '600000000'                
-        user.put()
-        
-        # Consultamos si se encuentra en la base de datos después de insertarlo
-        result=Usuario.query(Usuario.usuario==user.usuario)
-        usur=result.get()
-        
-        # Si se encuentra pasamos el test
-        if usur is not None:
-            usur.key.delete()
-            return True
-        return False
 
 # urls de la aplicación.
 

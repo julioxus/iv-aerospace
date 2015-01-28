@@ -4,6 +4,26 @@ from google.appengine.ext import testbed
 from google.appengine.datastore import datastore_stub_util
 from server import Tests
 
+
+class TestModel(db.Model):
+  """A model class used for testing."""
+  number = db.IntegerProperty(default=42)
+  text = db.StringProperty()
+
+class TestEntityGroupRoot(db.Model):
+  """Entity group root"""
+  pass
+
+def GetEntityViaMemcache(entity_key):
+  """Get entity from memcache if available, from datastore if not."""
+  entity = memcache.get(entity_key)
+  if entity is not None:
+    return entity
+  entity = TestModel.get(entity_key)
+  if entity is not None:
+    memcache.set(entity_key, entity)
+  return entity
+
 class aerospaceTestCase(unittest.TestCase):
 	
 
@@ -21,14 +41,17 @@ class aerospaceTestCase(unittest.TestCase):
 	def test(self):
 		pruebas = Tests()
 		
+		#Probamos el test inicial
 		response = pruebas.testInicial(2)
 		self.assertEqual(response,4)
 		
+		#Probamos que las url esten funcionando
 		response = pruebas.testURL()
 		self.assertEqual(response, True)
 	
-		response = pruebas.testBD()
-		self.assertEqual(response,True)
+		#Probamos la base de datos
+		TestModel().put()
+    	self.assertEqual(1, len(TestModel.all().fetch(2)))
 		
 			
 
