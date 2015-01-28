@@ -34,6 +34,7 @@ class aerospaceTestCase(unittest.TestCase):
 		self.testbed.activate()
 		# Initialize the datastore stub with this policy.
 		self.testbed.init_datastore_v3_stub()
+		self.testbed.init_memcache_stub()
 
 	def tearDown(self):
 		self.testbed.deactivate()
@@ -48,8 +49,9 @@ class aerospaceTestCase(unittest.TestCase):
 		#Probamos que las url esten funcionando
 		response = pruebas.testURL()
 		self.assertEqual(response, True)
-	
-		#Probamos la base de datos
+		
+	# Probamos a insertar en la base de datos
+	def testInsertEntity(self):
 		TestModel().put()
     	self.assertEqual(1, len(TestModel.all().fetch(2)))
 		
