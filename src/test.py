@@ -53,7 +53,8 @@ class aerospaceTestCase(unittest.TestCase):
 	# Probamos a insertar en la base de datos
 	def testInsertEntity(self):
 		TestModel().put()
-    	self.assertEqual(1, len(TestModel.all().fetch(2)))
+		response = 1
+		self.assertEqual(response, len(TestModel.all().fetch(2)))
 		
 			
 
