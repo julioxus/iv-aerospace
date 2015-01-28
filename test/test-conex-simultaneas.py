@@ -1,20 +1,13 @@
-import sys, subprocess
+import so
 
 num = 10000
 print "Realizando  conexiones simultaneas"
-host = "ping -c1 ugraerospaceprogram.appspot.com"
+ping = "ping -c1 ugraerospaceprogram.appspot.com > /dev/null"
 
 for i in range(num):
-    p = subprocess.Popen(host, shell=True, stderr=subprocess.PIPE)
-    
-    while True:
-        out = p.stderr.read(1)
-        
-        if out == '' and p.poll()!= None:
-            break
-        if out != '':
-            sys.stdout.write(out)
-            sys.stdout.flush()
-    
-    
-print "Test finalizado"
+        p = os.system(ping)
+
+if p == 0:
+    return true
+else:
+    return false
