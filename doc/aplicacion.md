@@ -1,6 +1,6 @@
 ## Documentación de la aplicación con Google App Engine + PyDev + WebApp2 usando Eclipse ##
 
-La aplicación consiste en mostrar el mensaje de "Hello world" en la web, usando GAE con Django y PyDev para programarlo en Python. Primero se requiere de numerosas instalaciones de diferentes dependencias.
+La aplicación consiste en mostrar el mensaje de "Hello world" en la web, usando GAE con WebApp2 y PyDev para programarlo en Python. Primero se requiere de numerosas instalaciones de diferentes dependencias.
 Una vez instalados todos los módulos, plataformas y librerías necesarias, procedemos al desarrollo de la aplicación en Eclipse:
 
 ### Ejecución de la aplicación localmente para comprobar que funciona ###
