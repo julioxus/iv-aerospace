@@ -657,6 +657,13 @@ class Tests(webapp2.RequestHandler):
         
     def testBD(self):
         
+        # Configuración para el test
+        datastore_file = '/dev/null'
+        from google.appengine.api import apiproxy_stub_map,datastore_file_stub
+        apiproxy_stub_map.apiproxy = apiproxy_stub_map.APIProxyStubMap() 
+        stub = datastore_file_stub.DatastoreFileStub('myapp', datastore_file, '/')
+        apiproxy_stub_map.apiproxy.RegisterStub('datastore_v3', stub)
+        
         # Introducimos el usuario inventado
         user = Usuario()
         user.usuario = 'jasinto'
