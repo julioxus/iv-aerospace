@@ -626,8 +626,6 @@ class terms(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
         
-        
-        import httplib
 
 # Clase que comprueba que las urls son válidas y devuelven páginas html. En caso negativo no se pasa el test. 
    

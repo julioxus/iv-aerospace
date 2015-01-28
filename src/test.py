@@ -50,7 +50,7 @@ class aerospaceTestCase(unittest.TestCase):
 		response = pruebas.testURL()
 		self.assertEqual(response, True)
 		
-		#Probamos que la página web esté activa y no esté caida
+		#Probamos que la pagina este activa
 		respuesta = pruebas.testPaginaActiva()
 		self.assertEqual(respuesta, True)
 		
