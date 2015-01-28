@@ -47,6 +47,6 @@ script:
 #Si los test se aprueban,se arregla
 after_success:
     - $GAE_DIR/google_appengine/appcfg.py --oauth2  --oauth2_credential_file=secrets/.appcfg_oauth2_tokens update src/
-    - ansible-playbook update.yml
+    - ansible-playbook despliegue.yml
 
 

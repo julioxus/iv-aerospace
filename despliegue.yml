@@ -3,9 +3,15 @@
   sudo: yes
   remote_user: ivaerospace
   tasks:
-    - name: Detener el servicio
-      action: service name=ivaerospace state=stopped
-    - name: Descargar/Actualizar el repositorio y sus submódulos
-      git: repo=http://github.com/julioxus/iv-aerospace dest=/home/ivaerospace/iv-aerospace/ track_submodules=yes
-    - name: Iniciar el servicio
-      action: service name=ivaerospace state=started
+    - name: Desinstalar aplicación
+      script: uninstall.sh
+    - name: Borrar proyecto para descargar versión actualizada
+      command: rm -rf iv-aerospace
+    - name: Descargar el repositorio y sus submódulos
+      git: repo=http://github.com/julioxus/iv-aerospace dest=iv-aerospace track_submodules=yes
+    - name: Dar permisos de ejecución
+      command: chmod +x iv-aerospace/install.sh
+    - name: Instalar la aplicación y crear el demonio
+      command: ./install.sh
+      args:
+        chdir: iv-aerospace

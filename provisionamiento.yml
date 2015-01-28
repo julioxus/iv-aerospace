@@ -9,7 +9,11 @@
       apt: name=git state=present
     - name: Instalar Python
       apt: name=python state=present
-    - name: Descargar/Actualizar el repositorio y sus submódulos
-      git: repo=http://github.com/julioxus/iv-aerospace dest=/home/ivaerospace/iv-aerospace/ track_submodules=yes
-    - name: Instalar la aplicación y crear el demonio 
-      script: /home/ivaerospace/iv-aerospace/install.sh
+    - name: Descargar el repositorio y sus submódulos
+      git: repo=http://github.com/julioxus/iv-aerospace dest=iv-aerospace track_submodules=yes
+    - name: Dar permisos de ejecución
+      command: chmod +x iv-aerospace/install.sh
+    - name: Instalar la aplicación y crear el demonio
+      command: ./install.sh
+      args:
+        chdir: iv-aerospace
