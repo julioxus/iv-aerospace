@@ -626,8 +626,6 @@ class terms(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('template/terms.html')
         self.response.write(template.render())
         
-        
-        import httplib
 
 # Clase que comprueba que las urls son válidas y devuelven páginas html. En caso negativo no se pasa el test. 
    
@@ -636,8 +634,12 @@ class Tests(webapp2.RequestHandler):
     def get(self):
         self.response.write('TEST')
 
+#Test inicial para probar si los test funcionan, usando el cuadrado de un número
+
     def testInicial(self, numero=0):
         return numero*numero
+
+#Test que testea cada una de las url, si alguna no funciona bien se devuelve false
 
     def testURL(self):  
         
@@ -650,6 +652,16 @@ class Tests(webapp2.RequestHandler):
                 return False
                 
         return True
+
+
+#Comprueba si la página web está activa
+
+    def testPaginaActiva(self):
+
+	response=urllib.urlopen('http://ugraerospaceprogram.appspot.com')
+	if response.getcode() >= 400:
+	        return False
+	return True
 
 # urls de la aplicación.
 
