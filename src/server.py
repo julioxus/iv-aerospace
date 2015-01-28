@@ -660,10 +660,11 @@ class Tests(webapp2.RequestHandler):
 
     def testPaginaActiva(self):
 
-	response=rullib.urlopen('http://ugraerospaceprogram.appspot.com')
+	response=urllib.urlopen('http://ugraerospaceprogram.appspot.com')
 	if response:
 	        return True
-	return False
+	else:
+		return False
 
 # urls de la aplicación.
 
