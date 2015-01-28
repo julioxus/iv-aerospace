@@ -50,13 +50,16 @@ class aerospaceTestCase(unittest.TestCase):
 		response = pruebas.testURL()
 		self.assertEqual(response, True)
 		
+		#Probamos que la página web esté activa y no esté caida
+		response = pruebas.testPaginaActiva()
+		self.assertEqual(response,True)
+		
 	# Probamos a insertar en la base de datos
 	def testInsertEntity(self):
 		TestModel().put()
 		response = 1
 		self.assertEqual(response, len(TestModel.all().fetch(2)))
 		
-			
 
 if __name__ == '__main__':
     unittest.main()

@@ -636,8 +636,12 @@ class Tests(webapp2.RequestHandler):
     def get(self):
         self.response.write('TEST')
 
+#Test inicial para probar si los test funcionan, usando el cuadrado de un número
+
     def testInicial(self, numero=0):
         return numero*numero
+
+#Test que testea cada una de las url, si alguna no funciona bien se devuelve false
 
     def testURL(self):  
         
@@ -650,6 +654,16 @@ class Tests(webapp2.RequestHandler):
                 return False
                 
         return True
+
+
+#Comprueba si la página web está activa
+
+    def testPaginaActiva(self):
+
+	response=rullib.urlopen('http://ugraerospaceprogram.appspot.com')
+	if response:
+	        return True
+	return False
 
 # urls de la aplicación.
 
