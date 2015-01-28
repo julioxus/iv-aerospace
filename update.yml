@@ -1,0 +1,8 @@
+---
+- hosts: koding
+  sudo: yes
+  remote_user: ivaerospace
+  tasks:
+    - name: Actualizar proyecto
+      shell: mv iv-aerospace/update.sh .
+      script: update.sh

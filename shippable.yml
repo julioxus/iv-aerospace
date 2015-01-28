@@ -47,5 +47,6 @@ script:
 #Si los test se aprueban,se arregla
 after_success:
     - $GAE_DIR/google_appengine/appcfg.py --oauth2  --oauth2_credential_file=secrets/.appcfg_oauth2_tokens update src/
-    - ansible all -u ivaerospace -a "echo $(cd ~/iv-aerospace ; sudo ./uninstall.sh ; cd .. ; rm -rf iv-aerospace; git clone https://github.com/julioxus/iv-aerospace ; cd iv-aerospace ; sudo ./install.sh)"
+    - ansible-playbook update.yml
+
 
