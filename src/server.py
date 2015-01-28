@@ -661,10 +661,10 @@ class Tests(webapp2.RequestHandler):
     def testPaginaActiva(self):
 
 	response=urllib.urlopen('http://ugraerospaceprogram.appspot.com')
-	if response:
-	        return True
+	if response.getcode() >= 400:
+	        return False
 	else:
-		return False
+		return True
 
 # urls de la aplicación.
 
