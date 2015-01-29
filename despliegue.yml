@@ -11,14 +11,16 @@
       apt: name=python state=present
     - name: Descargar el repositorio y sus submódulos
       git: repo=http://github.com/julioxus/iv-aerospace dest=iv-aerospace track_submodules=yes
-    - name: Dar permisos de ejecución
-      command: chmod +x iv-aerospace/uninstall.sh
+    - name: Dar permisos de ejecución a los scripts
+      command: chmod -R +x iv-aerospace
+    - name: Detener la aplicación si se está ejecutando
+      command: ./destroy.sh
+      args:
+        chdir: iv-aerospace
     - name: Desinstalar la aplicación si se encontrase instalada
       command: ./uninstall.sh
       args:
         chdir: iv-aerospace
-    - name: Dar permisos de ejecución
-      command: chmod +x iv-aerospace/install.sh
     - name: Instalar la aplicación y crear el demonio
       command: ./install.sh
       args:
