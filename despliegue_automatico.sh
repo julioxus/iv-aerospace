@@ -7,10 +7,20 @@ if [[ $EUID -ne 0 ]]; then
 
 else
 
-	#Instala Ansible y gestiona la conexion ssh automaticamente
+	#Instala Ansible (y dependencias)
+	
+	if [[ $(dpkg-query -W -f='${Status}\n' python) != 'install ok installed' ]]; then
+		apt-get install -y --force-yes python
+	fi
+	
+	if [[ $(dpkg-query -W -f='${Status}\n' python-pip) != 'install ok installed' ]]; then
+		apt-get install -y --force-yes python-pip
+	fi
 
 	echo 'Instalando herramienta ansible...'
-	sudo apt-get install ansible
+	pip install paramiko PyYAML jinja2 httplib2 ansible
+	
+	# Gestiona la conexion ssh automaticamente
 	
 	echo 'Gestionando conexion ssh con Koding...'
 
