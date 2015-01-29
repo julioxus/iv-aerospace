@@ -41,7 +41,6 @@
 ##Provisionamiento con Ansible en Koding##
 
 + [Provisionamiento](https://github.com/julioxus/iv-aerospace/blob/master/doc/provisionamiento.md)
-+ [Demonio de la aplicación]()
 
 ###Acta de reunión###
 
