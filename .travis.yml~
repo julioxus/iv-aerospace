@@ -26,9 +26,15 @@ before_install:
 install:
    - pip install -r requirements.txt
 
+
 before_script:
    - mkdir -p travis/testresults
    - mkdir -p travis/codecoverage
+   - eval "$(ssh-agent -s)"
+   - chmod 400 secrets/koding.key
+   - ssh-add secrets/koding.key
+   - printf "[koding]\nivaerospace.koding.io" > ~/ansible_hosts
+   - export ANSIBLE_HOSTS=~/ansible_hosts
 
 #Ejecutamos el script de test
 script:
@@ -41,4 +47,4 @@ script:
 #Si los test se aprueban,se arregla
 after_success:
     - $GAE_DIR/google_appengine/appcfg.py --oauth2  --oauth2_credential_file=secrets/.appcfg_oauth2_tokens update src/
-
+    - ansible-playbook despliegue.yml
