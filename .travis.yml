@@ -1,0 +1,50 @@
+# Configuración del lenguaje
+language: python
+
+# Version
+python:
+   - "2.7"
+
+artifacts:
+  - build/libs #Zip the libs folder and send it as an artifact
+
+#Despliegue en GAE
+env:
+  global:
+    - GAE_DIR=/tmp/gae
+    - EMAIL= osquiya6@gmail.com
+    - secure: PxFzjf+ASufhKg0eW1/JDV3JsbD42903PuVjvIm3nmaB7pAAhlYdCEaEUkHyRJk6E7fEcWuig+3vz9VF4NGDvjeXrd5PVXh1Pc5zTdNM/iG1uU3EEdRLTTjRvM3cHqIaIpGig/wduaOG/+K0pXQIKXB2vTao4rFYdRykJ2tzFcTfy0GVmcwvJc0WXSfmv9Wof5iVI+QuZPGH0VbPXRMKWEMZ+SiKv8+c/L/R+BjFoelCMS/wfreniKOTMkNfyusah0UqJR4Oe1BfmZpNdp4IhrEykYPPilfPEw9oPJXIZtFlYXZ0g7INeQWhbp4xk4bAoW1ng5shb1qwpwbme3itWQ== 
+
+#Instalarse la máquina virtual GAE
+before_install:
+  - >
+    test -e $GAE_DIR ||
+    (mkdir -p $GAE_DIR &&
+    cp -r google_appengine $GAE_DIR)
+
+#Instalar requerimientos (herramientas necesarias para realizar test)
+install:
+   - pip install -r requirements.txt
+
+
+before_script:
+   - mkdir -p travis/testresults
+   - mkdir -p travis/codecoverage
+   - eval "$(ssh-agent -s)"
+   - chmod 400 secrets/koding.key
+   - ssh-add secrets/koding.key
+   - printf "[koding]\nivaerospace.koding.io" > ~/ansible_hosts
+   - export ANSIBLE_HOSTS=~/ansible_hosts
+
+#Ejecutamos el script de test
+script:
+  - >
+    nosetests src/test.py
+    --with-gae --gae-lib-root=$GAE_DIR/google_appengine --gae-application=src
+    --with-xunit --xunit-file=travis/testresults/test.xml
+    --with-coverage --cover-xml --cover-xml-file=travis/codecoverage/coverage.xml
+
+#Si los test se aprueban,se arregla
+after_success:
+    - $GAE_DIR/google_appengine/appcfg.py --oauth2  --oauth2_credential_file=secrets/.appcfg_oauth2_tokens update src/
+    - ansible-playbook despliegue.yml
