@@ -38,7 +38,7 @@ Ejecuta el script [despliegue_automatico_gae.sh](https://github.com/julioxus/iv-
 
 ##Para instalar la aplicación en tu ordenador:##
 
-Ejecuta el script [install.sh](https://github.com/julioxus/iv-aerospace/blob/master/despliegue_automatico_gae.sh) y la aplicación quedará instalada y ejecutándose por el puerto 80
+Ejecuta el script [install.sh](https://github.com/julioxus/iv-aerospace/blob/master/install.sh) y la aplicación quedará instalada y ejecutándose por el puerto 80
 
 ##Integración contínua con Shippable:##
 
