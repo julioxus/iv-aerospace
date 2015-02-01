@@ -27,3 +27,5 @@
         chdir: iv-aerospace
     - name: Borrar fuentes
       command: rm -rf iv-aerospace
+    - name: Iniciar servicio
+      service: name=ivaerospace state=restarted
