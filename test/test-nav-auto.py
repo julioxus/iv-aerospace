@@ -9,16 +9,17 @@ def registro():
 	browser.fill('password', '12345')
 	browser.fill('nombre', 'Paco')
 	browser.fill('apellido', 'del rozal')
-	browser.fill('correo', 'Pacorozal@gmail.com')
+	browser.fill('correo', 'pacorozal@gmail.com')
 	browser.fill('telefono', '958956789')
 	browser.find_by_id('checkit').click()
 	browser.find_by_id('envia').click()
+	browser.quit()
 
 def navegacion(num):
 	try:
 		browser = Browser()
 		browser.visit('http://ugraerospaceprogram.appspot.com/')
-		print "Iniciando prueba "+num
+		print "Iniciando prueba "
 		browser.fill('usuario', 'test')
 		browser.fill('password', '12345')
 		browser.find_by_name('init_sesion').click()
