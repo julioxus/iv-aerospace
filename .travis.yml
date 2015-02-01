@@ -8,7 +8,7 @@ python:
 artifacts:
   - build/libs #Zip the libs folder and send it as an artifact
 
-#Despliegue en GAE
+#Definimos las variables globales para GAE
 env:
   global:
     - GAE_DIR=/tmp/gae
@@ -18,9 +18,7 @@ env:
 #Instalarse la máquina virtual GAE
 before_install:
   - >
-    test -e $GAE_DIR ||
-    (mkdir -p $GAE_DIR &&
-    cp -r google_appengine $GAE_DIR)
+    test -e $GAE_DIR || (mkdir -p $GAE_DIR && cp -r google_appengine $GAE_DIR)
 
 #Instalar requerimientos (herramientas necesarias para realizar test)
 install:
@@ -38,7 +36,8 @@ script:
     --with-xunit --xunit-file=travis/testresults/test.xml
     --with-coverage --cover-xml --cover-xml-file=travis/codecoverage/coverage.xml
 
-#Si los test se aprueban,se arregla
+# Tras completarse con éxito los tests se despliega la aplicación a GAE
 after_success:
+    - echo "Ha pasado los tests con éxito. Desplegando a Google App Engine..."
     - $GAE_DIR/google_appengine/appcfg.py --oauth2  --oauth2_credential_file=secrets/.appcfg_oauth2_tokens update src/
 
