@@ -7,17 +7,22 @@ else
 	echo "Instalando Virtualbox..."	
 	apt-get install -y virtualbox
 
+	echo "Instalando wget..."
+	apt-get install -y wget
+
 	echo "Instalando Vagrant..."
-	apt-get install -y vagrant
+	wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+	dpkg -i vagrant_1.7.2_x86_64.deb
 
 	echo "Instalando Virtualbox-dkms..."
 	apt-get install -y virtualbox-dkms
 
-	echo "Creando máquina virtual ubuntu 14.04..."
-	vagrant box add ubuntu https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/14.04/ubuntu-14.04-amd64.box
+	echo "Creando máquina virtual Debian..."
+	vagrant box add debian https://dl.dropboxusercontent.com/u/197673519/debian-7.2.0.box
 
 	echo "Creando proyecto vagrant..."
 	mkdir vagrant_project
+	vagrant init debian
 	cp Vagrantfile vagrant_project
 
 	echo "Lanzando la maquina virtual y provisionando..."
