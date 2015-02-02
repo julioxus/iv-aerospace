@@ -48,6 +48,9 @@ Ejecuta el script [install.sh](https://github.com/julioxus/iv-aerospace/blob/mas
 
 Con cada commit la aplicación se desplegará de manera automática en Koding y en GAE gracias al script [shippale.yml](https://github.com/julioxus/iv-aerospace/blob/master/shippable.yml)
 
+##Integración contínua con Travis:##
+
+Con cada commit la aplicación se desplegará de manera automática en GAE gracias al script [.travis.yml](https://github.com/julioxus/iv-aerospace/blob/master/.travis.yml)
 
 ##Introducción a la aplicación:##
 
