@@ -246,6 +246,20 @@ class highchart_precipitacion(webapp2.RequestHandler):
             self.redirect('/')
 
 
+ 
+# Clases de generación de datos de las gráficas
+
+# Datos : Temperatura, velocidad del viento, humedad y precipitación
+# Al no disponer de datos reales del dron estos de momento son generados aleatoriamente
+# dentro de un rango determinado para cada parámetro
+
+# Las clases datos_<tipo-dato> además guardarán la información en un array para el cáculo de medias cada ARRAY_LIMIT valores
+# Las clases datos_<tipo-dat>2 no añaden información al array al estar en pantallas diferentes visualmente y no realizarse las llamadas a las demás funciones de generación de datos
+
+
+#Clase que genera los datos de la gráfica de temperatura en la monitorización.
+
+
 # Variables globales.
         
 temperaturas = []
@@ -262,8 +276,6 @@ media_presiones=0
 media_tendencias=0
 media_humedades=0
 ARRAY_LIMIT = 50
-
-#Clase que genera los datos de la gráfica de temperatura en la monitorización.
         
 class datos_temperatura(webapp2.RequestHandler):
     def get(self):
@@ -660,7 +672,7 @@ class Tests(webapp2.RequestHandler):
                 else:
                     return True
 
-#Test que testea cada una de las url, si alguna no funciona bien se devuelve false
+#Test que testea cada una de las url accesibles a través de la web, si alguna no funciona bien se devuelve false
 
     def testURL(self):  
         
@@ -684,7 +696,7 @@ class Tests(webapp2.RequestHandler):
 	        return False
 	return True
 
-# urls de la aplicación.
+# Urls de la aplicación con sus clases asociadas.
 
 urls = [('/',MainPage),
         ('/error',ErrorPage),
@@ -714,7 +726,7 @@ urls = [('/',MainPage),
         ('/.*', ErrorPage)
        ]
 
-
+# Creamos la aplicación asignando al URL Dispacher las urls previamente definidas.
 
 application = webapp2.WSGIApplication(urls, debug=True)
 

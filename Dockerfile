@@ -13,16 +13,22 @@ RUN easy_install pip
 RUN apt-get install -y wget
 RUN apt-get install -y zip
 
-# Instalamos git, clonamos el repo, iniciamos los módulos de GAE y finalmente, ejecutamos el script # que lanza la aplicación web.
-
+# Instalamos git y clonamos el repositorio
 RUN apt-get install -y git
 RUN git clone https://github.com/julioxus/iv-aerospace.git
+
+# Descargamos los submódulos que faltan, GAE en este caso
+# e iniciamos la instalación de la aplicación que incluye 
+# el demonio de la misma
 RUN cd iv-aerospace && \
 git submodule init && \
 git submodule sync && \
 git submodule update && \
-chmod 755 run.sh && \
-bash run.sh
+chmod 755 install.sh && \
+bash install.sh
+
+# Iniciamos el servicio
+RUN service ivaerospace restart
 
 
 
