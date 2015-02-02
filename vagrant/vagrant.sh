@@ -26,6 +26,7 @@ else
 	cp Vagrantfile vagrant_project
 
 	echo "Lanzando la maquina virtual y provisionando..."
+	cd vagrant_project
 	vagrant up
 	vagrant provision
 fi
