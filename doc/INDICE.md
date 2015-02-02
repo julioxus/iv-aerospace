@@ -28,8 +28,6 @@
 
 + [Testeo conexiones simultáneas](https://github.com/julioxus/iv-aerospace/blob/master/doc/test_conex_simultaneas.md)
 
-+ [Testeo de navegación automática](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_navegacion.md)
-
 ##Herramientas utilizadas para el desarrollo de la aplicación web##
 
 + [Uso de base de datos NDB](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_ndb.md)
@@ -43,6 +41,10 @@
 ##Provisionamiento con Ansible en Koding##
 
 + [Provisionamiento](https://github.com/julioxus/iv-aerospace/blob/master/doc/provisionamiento.md)
+
+##¿Por qué Koding?##
+
++[Por qué elegir Koding](https://github.com/julioxus/iv-aerospace/blob/master/doc/koding.md)
 
 ###Acta de reunión###
 
