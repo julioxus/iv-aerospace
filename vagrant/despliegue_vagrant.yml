@@ -1,0 +1,26 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Actualizar paquetes
+      apt: update_cache=yes
+    - name: Instalar git
+      apt: name=git state=present
+    - name: Instalar Python
+      apt: name=python state=present
+    - name: Descargar el repositorio y sus submódulos
+      git: repo=http://github.com/julioxus/iv-aerospace dest=iv-aerospace track_submodules=yes
+    - name: Dar permisos de ejecución
+      command: chmod +x iv-aerospace/uninstall.sh
+    - name: Desinstalar la aplicación si se encontrase instalada
+      command: ./uninstall.sh
+      args:
+        chdir: iv-aerospace
+    - name: Dar permisos de ejecución
+      command: chmod +x iv-aerospace/install.sh
+    - name: Instalar la aplicación y crear el demonio
+      command: ./install.sh
+      args:
+        chdir: iv-aerospace
+    - name: Borrar fuentes
+      command: rm -rf iv-aerospace
