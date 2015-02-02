@@ -24,7 +24,11 @@
 
 ##Integración continua y realización de tests##
 
-+ [Shippable y testeo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippable.md)
++ [Integración contínua con Shippable y testeo con Unittest](https://github.com/julioxus/iv-aerospace/blob/master/doc/shippable.md)
+
++ [Integración contínua con Travis](https://github.com/julioxus/iv-aerospace/blob/master/doc/travis.md)
+
++ [Comparación: Shippable vs Travis](https://github.com/julioxus/iv-aerospace/blob/master/doc/comparacion_ci.md)
 
 + [Testeo conexiones simultáneas](https://github.com/julioxus/iv-aerospace/blob/master/doc/test_conex_simultaneas.md)
 
