@@ -10,7 +10,7 @@
 
 + [Instalación en sistema windows 8.1](https://github.com/julioxus/iv-aerospace/blob/master/doc/instalacion_windows.md)
 
-##Manual de despliegue de aplicación##
+##Configurar el entorno de desarrollo para la aplicación##
 
 + [Aplicación paso a paso](https://github.com/julioxus/iv-aerospace/blob/master/doc/aplicacion.md)
 
@@ -46,9 +46,12 @@
 
 + [Provisionamiento](https://github.com/julioxus/iv-aerospace/blob/master/doc/provisionamiento.md)
 
-##¿Por qué Koding?##
+##Herramientas de despliegue automático#
 
-+[Por qué elegir Koding](https://github.com/julioxus/iv-aerospace/blob/master/doc/koding.md)
++ [Por qué elegir Koding](https://github.com/julioxus/iv-aerospace/blob/master/doc/koding.md)
+
++ [Vagrant](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_vagrant.md)
+
 
 ###Acta de reunión###
 
