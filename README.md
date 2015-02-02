@@ -42,7 +42,7 @@ Ejecuta el script [install.sh](https://github.com/julioxus/iv-aerospace/blob/mas
 
 ##Para instalar la aplicación en una máquina virtual con vagrant y virtualbox
 
-
+[Documentación de Vagrant](https://github.com/julioxus/iv-aerospace/blob/master/doc/documentacion_vagrant.md)
 
 ##Integración contínua con Shippable:##
 
